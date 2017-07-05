@@ -1,0 +1,40 @@
+
+
+    Contests
+    ACM ICPC Amrita Regionals
+
+Creating a wormhole
+
+    Problem
+    Submissions
+    Leaderboard
+    Discussions
+
+Dr Ryan Stone is the Mission Specialist, and she went out to fix some communications equipment when suddenly news came in about debris from other satellite heading towards them. Very quickly, she realizes that she does not have enough time to get all her equipments back in before the Debris field hits them. Therefore, she decided to adopt an alternative way of handling the debris. She has got “N” pieces of equipments. Each equipment is essentially an iron stick of some length. The i^th equipment has length a_i. She wants to join them end to end to form a closed polygon. She will then send some electric current through the polygon to create a giant magnetic field which will attract all debris. Thus, this polygon will act as a wormhole, sucking in all the debris and allowing rest of the satellite/crew to go unharmed. She wants to form as big a polygon as possible, and hence she wants to quickly know the maximum number of equipments she can use to form a polygon. Note that the area of polygon should be non-zero, otherwise debris can’t pass through it. You should output -1 if no polygon can be formed.
+
+Input Format:
+
+The first line contains the number of test cases T. For each test case, the first line contains N, the number of equipments. The following line contains N space delimited integers, the ith integer specifying the length of the ith equipment. Output: For each test case, output the maximum number of equipments which can be used to form a polygon.
+
+Constraints:
+
+1 <= T <= 100
+3 <= N <= 10000
+1 <= a_i <= 10^9
+
+Sample Input:
+
+2
+7
+1 12 3 2 5 1 50
+3
+1 1 2
+
+Sample Output:
+
+5
+-1
+
+Explanation:
+
+For the first test case, we can use the equipments of lengths 1, 3, 2, 5, 1 and form a polygon out of them. There is no way to form a polygon using more than 5 equipments. For the second test case, we cannot form a valid polygon from the given equipments.

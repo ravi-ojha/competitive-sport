@@ -1,0 +1,4 @@
+def seavote():
+	t = input()
+	
+seavote()

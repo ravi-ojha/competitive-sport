@@ -1,0 +1,8 @@
+1 2 3 4 5 6 7 8 9 10
+1 2 3 2 5 2 7 2 3 1 (since 4 an be formed by using 2 that we already have & extra 2 that we added, same thing for 6 & 8 & 10) 
+Multiply all these to get 2520
+
+similarly for 1-20
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20
+1 2 3 2 5 2 7 2 3 1  11 1  13 1  1  1  17 1  19 1    (Multiply these numbers)

@@ -1,0 +1,55 @@
+
+
+Dr. Ryan Stone is currently floating in space in a Soyuz module, which is a kind of space pod. Due to lack of oxygen, her vision has gotten blurred. She sees multiple images of the same thing. In fact, she looks at the dashboard of this Soyuz module and sees a 2D matrix of size N x M. Each button in this image she sees is labelled with a character between a-z.
+
+Due the blurring of her vision, the actual dashboard, which is considered a sub-matrix of the image she sees, is assumed to repeat in the image. Find what could be the maximum size of the dashboard, assuming that it appears twice (potentially overlapping, but not totally coinciding areas) in the image.
+
+Input Format
+The first line contains the number of test cases T. For each test case, the first line contains N and M. The following N lines contain M characters each.
+
+Output Format
+Output T lines, containing the size of the largest possible dashboard size for the corresponding test case.
+
+Constraints
+
+1 <= T <= 100
+1 <= N,M <= 10
+The grid contains only lower-case English letters ‘a’ - ‘z’.
+timelimit: 4 sec
+memorylimit: 256 mb
+
+Sample Input
+
+4  
+3 5  
+ababa  
+ababa  
+ccccc  
+4 5  
+xyyyx  
+yxxyy  
+xyyxy  
+xxyyx  
+2 2  
+ab  
+cd  
+2 2  
+aa  
+bc  
+
+Sample Output
+
+9  
+6  
+0  
+1  
+
+Explanation
+
+For the first input, the dashboard:
+aba
+aba
+ccc
+occurs twice - once with the top left corner at (0,0), and once at (0,2).
+
+Compilation/Run Commands

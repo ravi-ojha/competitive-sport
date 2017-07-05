@@ -1,0 +1,41 @@
+condition:
+There is a rectangular box size NxM. Some of the cells in it are "dangerous" . only
+there are exactly K such cells. Also there is a query Q , each has the form Li Hi. The answer to
+inquiry of this type is the maximum possible area of a rectangle such that it
+lies in the strip with Li- th in Hi- th row inclusive and does not contain a "dangerous" cells.
+Input format :
+The first line of input contains the number N, M and K, respectively , separated by single
+spaces.
+The following K lines contain different pairs of numbers xi yi - coordinates of the "dangerous" cells.
+The next line contains the number of Q - the number of requests .
+Followed by Q lines, each sets the query in the form of L i Hi.
+Output format:
+Output Q lines . I- th line should contain the answer to the i-th query.
+Test Example :
+Input :
+4
+2
+3
+1
+2
+1
+4
+1
+3
+2
+1
+May 5
+1
+2
+3
+4
+4
+1
+4
+3
+4
+Imprint:
+2
+6
+3
+6

@@ -1,0 +1,32 @@
+take a vector array of size 10
+i.e. vector<int> v[10]
+
+lets store given string in s[]
+
+Now vector v is used to store indexes of occurence of digits in s[]
+
+for eg: 90460929
+
+then 
+
+v[0] = [1,4]
+v[1] = []
+v[2] = [7]
+v[3] = []
+...
+v[9] = [0,5,7]
+
+I hope use of vector v is clear now.
+
+Now as we do in BFS, take a fifo queue and visited[] array.
+push the first index i.e. 0 in queue and mark visited[0] as visited
+
+We need one more array which will store the number of jumps required to move from one particular position to other.
+So declare one array[100001] and mark a[0] = 0
+
+Now we can run the BFS over the vector v i.e. while (queue is not empty) {}
+Also note that if we are at index i, we can also move to i+1 and i-1. So take care of that too in this BFS
+
+Try it out. I know, my explanation was very blur but graph is something we have to feel.
+
+You might also need to maintain one more array of size 10 which will be used to mark that all the occurence of particular digit has been visited.

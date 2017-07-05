@@ -1,0 +1,2202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- base_content.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+        <title>QTREE6 - Editorial - CodeChef Discuss</title>
+        <meta name="description" content="PROBLEM LINK:PracticeContestAuthor: Minako Kojima Tester: Gerald Agapov Editorialist: Jingbo ShangDIFFICULTY:HardPREREQUISITES:Link Cut Tree, Heavy-Light DecompositionPROBLEM:Given a 0/1 colored tree of N nodes. Support two types operations (Q in total):1. Ask the size of same color con">
+        <meta name="keywords" content="hard,link-cut-tree,heavy-light,editorial,dec13">
+        
+        <link rel="canonical" href="http://discuss.codechef.com/questions/31833/qtree6-editorial">
+        <link rel="alternate" type="application/rss+xml" title="RSS" href="http://discuss.codechef.com/questions/31833/qtree6-editorial?type=rss">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="shortcut icon" href="http://discuss.codechef.com/upfiles/favicon_1.ico">
+        <link href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/style.css" rel="stylesheet" type="text/css">
+        
+        <link href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/custom.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/jquery-ui.html">
+        <!--[if IE 6]>
+        <style type="text/css">
+        img, div, a { behavior: url(/m/default/media/iepngfix/iepngfix.htc) }
+        </style>
+        <![endif]-->
+        
+
+        <script src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/jsapi" type="text/javascript"></script>
+        <script type="text/javascript">
+        /*<![CDATA[*/
+            google.load("jquery", "1.4.2");
+            google.load("jqueryui", "1", {autoload:true});
+
+            var i18nLang = 'en';
+            var appUrl = 'http://discuss.codechef.com'
+            var scriptUrl = '/'
+            var osqaSkin = 'default';
+
+            var messages = {
+                username: 'raviojha2105',
+                confirm: "Are you sure?",
+                yes: "Yes",
+                no: "No",
+                message: "Message:",
+                cancel: "Cancel",
+                close: "Close",
+                ok: "Ok",
+                matching_tags_url: "/matching_tags/",
+                word: "word",
+                words: "words",
+                character: "character",
+                characters: "characters"
+            }
+        /*]]>*/
+        </script><script src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/jquery.js" type="text/javascript"></script><script src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/jquery-ui.js" type="text/javascript"></script>
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/osqa.js"></script>
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/osqa_002.js"></script>
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/jquery_002.js"></script>
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/showdown.js"></script>
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/wmd.js"></script>
+        <link rel="stylesheet" type="text/css" href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/wmd.css">
+
+        
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/viewbox_min.js"></script>
+        <script type="text/javascript" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/youtube.js"></script>
+        <link rel="stylesheet" type="text/css" href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/viewbox.css">
+        
+        
+
+        <script type="text/javascript">
+        $().ready(function(){
+            $("#nav_questions").attr('className',"on");
+            var answer_sort_tab = "";
+
+            if (answer_sort_tab) {
+                $("#" + answer_sort_tab).attr('className',"on");
+            }
+
+            $('#editor').TextAreaResizer();
+
+            //toggle preview of editor
+            var display = true;
+            var txt = "[hide preview]";
+            $('#pre-collapse').text(txt);
+            $('#pre-collapse').bind('click', function(){
+                txt = display ? "[show preview]" : "[hide preview]";
+                display = !display;
+                $('#previewer').toggle();
+                $('#pre-collapse').text(txt);
+            });
+        });
+
+        function submitClicked(e, f) {
+            if(!(browserTester('chrome') || browserTester('safari'))) {
+                $("input.submit")[0].disabled=true;
+            }
+            window.removeEventListener('beforeunload', beforeUnload, true);
+            if (f) {
+                f.submit();
+            }
+        }
+
+        function beforeUnload(e) {
+
+            if($("textarea#editor")[0].value != "") {
+                return yourWorkWillBeLost(e);
+            }
+
+            var commentBoxes = $("textarea.commentBox");
+            for(var index = 0; index < commentBoxes.length; index++) {
+                if(commentBoxes[index].value != "") {
+                    return yourWorkWillBeLost(e);
+                }
+            }
+        }
+        window.addEventListener('beforeunload', beforeUnload, true);
+        </script>
+        <noscript>
+            <style>
+                .comment.not_top_scorer {
+                    display: block;
+                }
+                .comment-form-container {
+                    display: block;
+                }
+                .div.comment-tools {
+                    display: none;
+                }
+            </style>
+        </noscript>
+
+        <link rel="search" type="application/opensearchdescription+xml" href="http://discuss.codechef.com/opensearch.xml" title="CodeChef Discuss Search">
+        
+    </head>
+    <body>
+        <div class="wrapper">
+        
+        <!-- template header.html -->
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        initSearchBoxValue();
+    })
+
+
+    function initSearchBoxValue()
+    {
+        var searchKeyword= $("#keywords").val();
+            if (searchKeyword=="")
+            {
+                $("#keywords").val("Search Here...");
+            }
+   }
+
+    function searchBoxOnBlur(){
+        $("#keyword").className="searchInput";
+        if ($("#keywords").val()=="")
+                $("#keywords").val("Search Here...");
+    }
+
+    function searchBoxOnFocus(){
+        $("#keyword").className="searchInputFocused";
+        if ($("#keywords").val()=="Search Here...")
+            $("#keywords").val("");
+   }
+
+    function about(){
+        if (document.URL=="http://osqa.codechef.local/about/")
+        {
+            $("")
+        }
+    }
+
+</script>
+
+
+
+ 
+    <div class="tempheader">
+        <p>The old forum can be viewed <a target="_blank" href="http://discussed.codechef.com/">here</a>. Seek <a href="mailto:help@codechef.com">help</a>.
+        </p>
+    </div>
+
+
+	<div id="roof">
+
+
+
+		<div id="logo">
+			<a href="http://discuss.codechef.com/">
+				<img src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/site-logo_2.png" title="back to home page" alt="CodeChef Discuss logo">
+			</a>
+		</div>
+	  
+		<div id="top">
+		     <a href="http://discuss.codechef.com/users/12282/raviojha2105">raviojha2105</a> <span class="score" title="91 karma">91</span><span title="1 badges"><span class="silver">●</span><span class="badgecount">1</span></span><span title="8 badges"><span class="bronze">●</span><span class="badgecount">8</span></span> <a href="http://discuss.codechef.com/logout/">Log Out</a> 
+
+            <div id="nav">
+                <a id="nav_questions" class="on" href="http://discuss.codechef.com/questions/">questions</a><a id="nav_tags" href="http://discuss.codechef.com/tags/">tags</a><a id="nav_users" href="http://discuss.codechef.com/users/">users</a><a id="nav_badges" href="http://discuss.codechef.com/badges/">badges</a><a id="nav_unanswered" href="http://discuss.codechef.com/questions/unanswered/">unanswered</a>
+                <a id="horiSeparator">
+                </a><a id="nav_ask" href="http://discuss.codechef.com/questions/ask/" class="special">ask a question</a>
+                <a id="nav_about" href="http://discuss.codechef.com/about" class="off" onclick="about()">about</a>
+                <a id="nav_faq" href="http://discuss.codechef.com/faq">faq</a>
+
+            </div>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <div class="clear"></div>
+	<div id="searchBar">
+
+
+
+
+        <table id="searchBarTable">
+            <tbody><tr>
+                <td class="left">
+                    CodeChef Discussion
+                </td>
+                <td class="right">
+                    <form action="/search/" method="get">
+                    <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+                        <table>
+                            <tbody><tr>
+                                <td>
+                                    <input class="searchInput" value="Search Here..." name="q" id="keywords" onfocus="searchBoxOnFocus()" onblur="searchBoxOnBlur()" type="text">
+                                </td>
+                                <td>
+                                    <div class="options">
+                                        <input id="type-question" value="question" name="t" checked="checked" type="radio"><label for="type-question">questions</label>
+                                        <input id="type-tag" value="tag" name="t" type="radio"><label for="type-tag">tags</label>
+                                        <input id="type-user" value="user" name="t" type="radio"><label for="type-user">users</label>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </form>
+                </td>
+            </tr>
+        </tbody></table>
+        <h1 id="separator">
+        </h1>
+	</div>
+
+
+	
+
+<!-- end template header.html -->
+
+        
+
+
+
+<div id="wrapper">
+    
+    
+    <div id="room">
+        <div id="CALeft">
+            
+<div class="headNormal">
+    <h1>QTREE6 - Editorial</h1>
+</div>
+<div id="main-body" class="">
+    <div id="askform">
+            <table style="width:100%;" id="question-table">
+                <tbody><tr>
+                    <td style="width:30px;vertical-align:top">
+                        <div class="vote-buttons">
+                            
+
+<a id="post-31833-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31833/up/" rel="nofollow"> </a>
+<div id="post-31833-score" class="post-score" title="current number of votes">
+    3
+</div>
+<a id="post-31833-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31833/down/" rel="nofollow"> </a>
+                            
+
+<a id="favorite-mark" title="mark/unmark this question as favorite (click again to cancel)" class="ajax-command favorite-mark " href="http://discuss.codechef.com/mark_favorite/31833/" rel="nofollow"> </a>
+<div id="favorite-count" class="favorite-count">
+   
+</div>
+
+                        </div>
+                    </td>
+                    <td>
+                        <div id="item-right">
+                            <div class="question-body">
+                                <h1>PROBLEM LINK:</h1>
+<p><a href="http://www.codechef.com/problems/QTREE6">Practice</a><br>
+<a href="http://www.codechef.com/DEC13/problems/QTREE6">Contest</a></p>
+<p><strong>Author:</strong> <a href="http://www.codechef.com/users/xiaodao">Minako Kojima</a> <br>
+<strong>Tester:</strong> <a href="http://www.codechef.com/users/gerald">Gerald Agapov</a> <br>
+<strong>Editorialist:</strong> <a href="http://www.codechef.com/users/shangjingbo">Jingbo Shang</a></p>
+<h1>DIFFICULTY:</h1>
+<p>Hard</p>
+<h1>PREREQUISITES:</h1>
+<p>Link Cut Tree, Heavy-Light Decomposition</p>
+<h1>PROBLEM:</h1>
+<p>Given a 0/1 colored tree of N nodes. Support two types operations (Q in total):
+1.  Ask the size of same color connected component of node u;
+2.  Toggle the color of node u.</p>
+<h1>EXPLANATION:</h1>
+<p>Both link cut tree and heavy-light decomposition can solve this problem. Here we mainly talk about the later one.</p>
+<p>At the beginning, let me introduce the Heavy-Light Decomposition 
+(HLD). The basic idea is to decompose the tree into some links 
+consisting of heavy edges and some separate light links, as following (2
+ links only):</p>
+<p><img alt="alt text" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/HLD.png"></p>
+<p>For each node, choose one of the biggest son as the heavy edge 
+(choose anyone if there are some ties). This can ensure any path between
+ two nodes in an N-node tree will pass O(logN) links. With this 
+property, if we maintain a segment tree or any other balanced binary 
+search tree on each link, a lot of queries can be dealt.</p>
+<p>Suppose you have well known this data structure. Then, we try to 
+apply HLD to this problem. First of all, let’s decompose the tree using 
+HLD. Second, maintain the color and two values (the black/white sub-tree
+ size rooted at this node assuming its color is black/white, despite 
+what color it actually is) on each node u, denoted as Black[u] and 
+White[u].</p>
+<p>For each operation 1, starting from node u, we can upwardly find the 
+lowest (with least depth, all nodes between them are same color) same 
+color node and return the corresponding value stored.</p>
+<p>For each operation 2, assume u is changed to black from white. 
+Upwardly find the first black node, denote as v. Then, subtract White[u]
+ from White[middle], middle are all nodes between u and v (not including
+ u). After that, the similar things happened to black side again: 
+upwardly find the first white node, denote as v, add Black[u] to 
+Black[middle], middle are all nodes between u and v (not including u).</p>
+<p>All steps introduced above can be supported by maintaining a Segment 
+Tree on each links. For each operation, we can travel along different 
+links upwardly and find the upmost same color node or the first 
+different node. And for the subtraction/addition along the path, it 
+could be done using the "segment cover" operation (with some values 
+stored for the whole segment at segment tree nodes). Therefore, the time
+ complexity can be controlled in O(Qlog^2N), here HLD contributes 
+O(logN) and Segment Tree contributes for the other.</p>
+<p>If you have questions about the segment tree's operations, you'd 
+better find some pure segment trees related problems and try to solve 
+them. Because the key point of this problem is at HLD, we won't discuss 
+the segment tree detailly here. </p>
+<h1>AUTHOR'S AND TESTER'S SOLUTIONS:</h1>
+<p>Solutions to be uploaded soon.</p>
+<p>Author's solution can be found here. <br>
+Tester's solution can be found here. </p>
+                            </div>
+                            <div id="question-tags" class="tags-container tags">
+                                
+                                    <a href="http://discuss.codechef.com/tags/hard/" class="post-tag tag-link-hard" title="see questions tagged 'hard'" rel="tag">hard</a>
+                                
+                                    <a href="http://discuss.codechef.com/tags/link-cut-tree/" class="post-tag tag-link-link-cut-tree" title="see questions tagged 'link-cut-tree'" rel="tag">link-cut-tree</a>
+                                
+                                    <a href="http://discuss.codechef.com/tags/heavy-light/" class="post-tag tag-link-heavy-light" title="see questions tagged 'heavy-light'" rel="tag">heavy-light</a>
+                                
+                                    <a href="http://discuss.codechef.com/tags/editorial/" class="post-tag tag-link-editorial" title="see questions tagged 'editorial'" rel="tag">editorial</a>
+                                
+                                    <a href="http://discuss.codechef.com/tags/dec13/" class="post-tag tag-link-dec13" title="see questions tagged 'dec13'" rel="tag">dec13</a>
+                                
+                            </div>
+                            <div id="question-controls" class="post-controls">
+                                
+<span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31833/">report (0)</a></span>
+                                
+<div class="community-wiki">
+        This question is marked "community wiki".
+        
+    </div>
+                            </div>
+                            <div class="post-update-info-container">
+                                    
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        asked
+        <strong>16 Dec, 18:53</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="shangjingbo's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/42582/shangjingbo">shangjingbo ♦♦</a><br>
+    <span class="score" title="31 karma">31</span><span title="4 badges"><span class="badge1">●</span><span class="badgecount">4</span></span><span title="6 badges"><span class="silver">●</span><span class="badgecount">6</span></span><span title="16 badges"><span class="bronze">●</span><span class="badgecount">16</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="shangjingbo has no accepted answers">0%</span>
+    </p>
+</div>
+
+    <div class="post-update-info post-update-info-edited">
+        <p style="line-height:12px;">
+            <a href="http://discuss.codechef.com/revisions/31833/">
+                wikified
+                <strong>16 Dec, 21:09</strong>
+            </a>
+        </p>
+        
+            <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/5eeaf32f780a6a6050ec78d543f10acc.jpg" alt="kunal361's gravatar image" height="32" width="32">
+            <p><a href="http://discuss.codechef.com/users/12320/kunal361">kunal361</a><br>
+            <span class="score" title="4029 karma"><span class="">4.0k</span></span><span title="4 badges"><span class="badge1">●</span><span class="badgecount">4</span></span><span title="19 badges"><span class="silver">●</span><span class="badgecount">19</span></span><span title="57 badges"><span class="bronze">●</span><span class="badgecount">57</span></span></p>
+        
+    </div>
+
+
+                            </div>
+                            
+
+
+<div class="comments-container" id="comments-container-31833">
+    
+        <a name="32506"></a>
+        <div class="comment" id="comment-32506">
+            <div id="post-32506-score" class="comment-score"></div>
+            <div class="comment-text"><p>Do we move upwardly node by 
+node to find the upmost same color node.....plz clarify how we will move
+ if the edge is heavy and when the edge is light.THANKYOU....</p></div>
+            <div class="comment-info" id="comment-32506-info">
+                
+                    <a id="post-32506-upvote" href="http://discuss.codechef.com/like_comment/32506/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(21 Dec, 08:12)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+        <a name="32662"></a>
+        <div class="comment" id="comment-32662">
+            <div id="post-32662-score" class="comment-score"></div>
+            <div class="comment-text"><p>I have confusion in binary 
+search what type of array we will keep to find the same color node in a 
+heavy chain by binary search please explain.THANKYOU</p></div>
+            <div class="comment-info" id="comment-32662-info">
+                
+                    <a id="post-32662-upvote" href="http://discuss.codechef.com/like_comment/32662/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(yesterday)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+        <a name="32899"></a>
+        <div class="comment" id="comment-32899">
+            <div id="post-32899-score" class="comment-score"></div>
+            <div class="comment-text"><p>plzzz explain how to find the most nearby ancestor of different color by binary search??</p></div>
+            <div class="comment-info" id="comment-32899-info">
+                
+                    <a id="post-32899-upvote" href="http://discuss.codechef.com/like_comment/32899/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(2 hours ago)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4091/jalaj5297">jalaj5297</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-31833" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31833-form-container" class="comment-form-container">
+    
+    <form id="comment-31833-form" method="post" action="/comment/31833/" accept-charset="utf-8"><div style="display:none;"><input id="csrfmiddlewaretoken" name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31833-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31833">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                        </div>
+
+                    </td>
+                </tr>
+            </tbody></table>
+            
+            
+                <hr>
+                <div class="tabBar">
+                    <a name="sort-top"></a>
+                    <div class="headQuestions">
+                    8 Answers:
+                    </div>
+                    
+<div class="tabsA"><a href="http://discuss.codechef.com/questions/31833/qtree6-editorial?sort=oldest" title="oldest answers will be shown first">oldest</a><a href="http://discuss.codechef.com/questions/31833/qtree6-editorial?sort=newest" title="newest answers will be shown first">newest</a><a href="http://discuss.codechef.com/questions/31833/qtree6-editorial?sort=votes" class="on" title="most voted answers will be shown first">most voted</a></div>
+
+                </div>
+                
+
+                
+                    <a name="31964"></a>
+                    <div id="answer-container-31964" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-31964-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31964/up/" rel="nofollow"> </a>
+<div id="post-31964-score" class="post-score" title="current number of votes">
+    3
+</div>
+<a id="post-31964-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31964/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>Here, the two key ideas are:</p>
+<ol>
+<li>Path-Substree Duality</li>
+</ol>
+<p>How many nodes in the substree rooted at $u$? This is a sub-tree information(And this is another problem called <a href="http://www.spoj.com/problems/QTREE7/">QTREE7</a>).</p>
+<p>Instead of to update it directly it, you can update the information 
+via update the path from $u$ to the root. And this is the basic lct 
+operation.</p>
+<p>Similar idea was also be used on <a href="http://poj.openjudge.cn/campus2013/F/">this problem</a>.</p>
+<ol>
+<li>Auxiliary Nodes</li>
+</ol>
+<p>Then suppose we have a node with degree $d$,
+one toggle operation can influence at most $d$ subtree,
+So the amortized time complexity is $O(nd + nlogn)$.</p>
+<p>To get a better time bound without $d$ as a factor,
+we use the following technologic so called "auxiliary nodes".
+That is, for each tree node $u$, we split it into 2 auxiliary nodes called $u_{black}$ and $u_{white}$,
+which are connected with all of its black children and white children respectively.</p>
+<p>If $p$ is the father of $u$, then if $u$ is white, we link 
+$u_{white}$ to $p_{white}$, otherwise we link $u_{black}$ to 
+$p_{black}$. Through this, we can process each toggle operation in 4 
+link/cut operations.</p>
+<p>For each query operation, remember the root's color actually is different from the subtree,
+so we access the 2nd nodes in the subtree to get the answer we need.</p>
+<p>Similar idea was also be used on <a href="http://www.ioi2011.or.th/hsc/tasks/solutions/elephants.pdf">IOI 2011 Day2 Elephants</a>.</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/31964/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to xiaodao" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/4014/answer/31964/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31964/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>17 Dec, 03:14</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="xiaodao's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/4014/xiaodao">xiaodao</a><br>
+    <span class="score" title="151 karma">151</span><span title="2 badges"><span class="silver">●</span><span class="badgecount">2</span></span><span title="5 badges"><span class="bronze">●</span><span class="badgecount">5</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="xiaodao has no accepted answers">0%</span>
+    </p>
+</div>
+
+    <div class="post-update-info post-update-info-edited">
+        <p style="line-height:12px;">
+            <a href="http://discuss.codechef.com/revisions/31964/">
+                edited
+                <strong>17 Dec, 03:55</strong>
+            </a>
+        </p>
+        
+    </div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-31964">
+    
+</div>
+<div id="comment-tools-31964" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31964-form-container" class="comment-form-container">
+    
+    <form id="comment-31964-form" method="post" action="/comment/31964/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31964-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31964">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="31848"></a>
+                    <div id="answer-container-31848" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-31848-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31848/up/" rel="nofollow"> </a>
+<div id="post-31848-score" class="post-score" title="current number of votes">
+    2
+</div>
+<a id="post-31848-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31848/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>And my solution in O(N sqrt(N)) remains undefeated: slowest AC solution :D</p>
+<p>I just process the queries in batches of around sqrt(N) at once; 
+during those sqrt(N) queries, at most O(sqrt(N)) vertices of the tree 
+can change colour, so there are at most O(sqrt(N)) non-leaf vertices. I 
+compress the tree into connected components of the same colour (a vertex
+ changing colour is alone in its component), construct the compressed 
+tree, add edges that have at least one endpoint of changing colour, for 
+every vertex pre-compute the sum of sizes of leaf components that are 
+white/black, and BFS the compressed tree (without the obsolete leaves) 
+for every query.</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/31848/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to xellos0" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/11746/answer/31848/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31848/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>16 Dec, 20:14</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="xellos0's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/11746/xellos0">xellos0</a><br>
+    <span class="score" title="240 karma">240</span><span title="1 badges"><span class="silver">●</span><span class="badgecount">1</span></span><span title="8 badges"><span class="bronze">●</span><span class="badgecount">8</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="xellos0 has no accepted answers">0%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-31848">
+    
+        <a name="31854"></a>
+        <div class="comment" id="comment-31854">
+            <div id="post-31854-score" class="comment-score"></div>
+            <div class="comment-text"><p>Great to hear the different solutions :)
+Actually, this problem's test cases are a bit weak. Some optimized brute-force solutions are also got accepted.</p></div>
+            <div class="comment-info" id="comment-31854-info">
+                
+                    <a id="post-31854-upvote" href="http://discuss.codechef.com/like_comment/31854/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(16 Dec, 20:33)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/42582/shangjingbo">shangjingbo ♦♦</a>
+                
+            </div>
+        </div>
+    
+        <a name="31893"></a>
+        <div class="comment" id="comment-31893">
+            <div id="post-31893-score" class="comment-score">1</div>
+            <div class="comment-text"><p><a href="http://discuss.codechef.com/users/11746/xellos0"></a><a href="http://discuss.codechef.com/users/11746/xellos0">@xellos0</a>:
+ Nice solution :) So, basically, for each batch of O(sqrt(N)) queries, 
+you end up with a tree having O(sqrt(N)) vertices (after "compressing" 
+all the leaves not corresponding to vertices changing colours into their
+ parents). I really enjoy simpler O(sqrt(N))-based alternative solutions
+ to otherwise data structure-intensive problems. "Sadly", this time my 
+own solution is very much along the lines presented in the editorial.</p>
+
+<p><a href="http://discuss.codechef.com/users/42582/shangjingbo"></a><a href="http://discuss.codechef.com/users/42582/shangjingbo">@shangjingbo</a>:
+ This solution is not brute-force. I thought you (the organizers) were 
+able to fail the brute-force solutions by adding more test cases.</p></div>
+            <div class="comment-info" id="comment-31893-info">
+                
+                    <a id="post-31893-upvote" href="http://discuss.codechef.com/like_comment/31893/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(16 Dec, 21:39)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/7523/mugurelionut">mugurelionut</a>
+                
+            </div>
+        </div>
+    
+        <a name="31965"></a>
+        <div class="comment" id="comment-31965">
+            <div id="post-31965-score" class="comment-score"></div>
+            <div class="comment-text"><p><a href="http://discuss.codechef.com/users/7523/mugurelionut"></a><a href="http://discuss.codechef.com/users/7523/mugurelionut">@mugurelionut</a>: There was one unusual brute-force solution pass during contest(Thanks for <a href="http://discuss.codechef.com/users/5067/pat3ik">@pat3ik</a>),
+ so there is a rejudge at the beginning. But as long as I relax my 
+vigilance, there is still a brute-force code with lots of heuristic 
+optimization can pass the test data at the last day :(   <a href="http://www.codechef.com/viewsolution/3101164">http://www.codechef.com/viewsolution/3101164</a></p></div>
+            <div class="comment-info" id="comment-31965-info">
+                
+                    <a id="post-31965-upvote" href="http://discuss.codechef.com/like_comment/31965/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(17 Dec, 03:18)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4014/xiaodao">xiaodao</a>
+                
+            </div>
+        </div>
+    
+        <a name="31977"></a>
+        <div class="comment" id="comment-31977">
+            <div id="post-31977-score" class="comment-score"></div>
+            <div class="comment-text"><p><a href="http://discuss.codechef.com/users/7523/mugurelionut">@mugurelionut</a>: I never said your solution was a brute-force. :D</p></div>
+            <div class="comment-info" id="comment-31977-info">
+                
+                    <a id="post-31977-upvote" href="http://discuss.codechef.com/like_comment/31977/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(17 Dec, 10:12)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/42582/shangjingbo">shangjingbo ♦♦</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-31848" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31848-form-container" class="comment-form-container">
+    
+    <form id="comment-31848-form" method="post" action="/comment/31848/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31848-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31848">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="32130"></a>
+                    <div id="answer-container-32130" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-32130-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/32130/up/" rel="nofollow"> </a>
+<div id="post-32130-score" class="post-score" title="current number of votes">
+    2
+</div>
+<a id="post-32130-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/32130/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>It is my first time using
+ HLD too, I am getting TLE though :/ Could anyone help me out? To find 
+the lowest node with a specific color from the query node, I am walking 
+upwards, and I keep a set to binary search in the heavy chains, if I 
+find some node with the color I stop, otherwise I continue at the parent
+ of the topmost node in that heavy chain. I am not sure if this is 
+correct. My submission: <a href="http://www.codechef.com/viewsolution/3108467">http://www.codechef.com/viewsolution/3108467</a> </p>
+<p>--Edit</p>
+<p>Nevermind, found a bug on my code haha :)</p>
+<p>Many thanks!</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/32130/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to brunoja" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/4589/answer/32130/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/32130/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>18 Dec, 02:19</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="brunoja's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/4589/brunoja">brunoja</a><br>
+    <span class="score" title="31 karma">31</span><span title="3 badges"><span class="bronze">●</span><span class="badgecount">3</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="brunoja has no accepted answers">0%</span>
+    </p>
+</div>
+
+    <div class="post-update-info post-update-info-edited">
+        <p style="line-height:12px;">
+            <a href="http://discuss.codechef.com/revisions/32130/">
+                edited
+                <strong>19 Dec, 03:50</strong>
+            </a>
+        </p>
+        
+    </div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-32130">
+    
+        <a name="32377"></a>
+        <div class="comment" id="comment-32377">
+            <div id="post-32377-score" class="comment-score"></div>
+            <div class="comment-text"><p>can u explain what information each array u hv declared in ur solution is storing thanku...</p></div>
+            <div class="comment-info" id="comment-32377-info">
+                
+                    <a id="post-32377-upvote" href="http://discuss.codechef.com/like_comment/32377/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 10:49)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+        <a name="32447"></a>
+        <div class="comment" id="comment-32447">
+            <div id="post-32447-score" class="comment-score"></div>
+            <div class="comment-text"><p>num is the node number, which I
+ name with the dfs func; inv is the inverse of the num array; wei is the
+ size of each node; hev tells which heavy chain the node is in (or 
+none); top contains the topmost node of a heavy chain; pai is the parent
+ of the node; seg is the BIT that is used in the described solutions 
+(although I am not sure if its 100% the same approach in the editorial);
+ col is the current color of the node; dep is the highest node number of
+ the tree rooted at a node; fio contains the child of a node in a heavy 
+chain. I hope it is clear :), just tell me if something else is 
+obscure..</p></div>
+            <div class="comment-info" id="comment-32447-info">
+                
+                    <a id="post-32447-upvote" href="http://discuss.codechef.com/like_comment/32447/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 19:46)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4589/brunoja">brunoja</a>
+                
+            </div>
+        </div>
+    
+        <a name="32474"></a>
+        <div class="comment" id="comment-32474">
+            <div id="post-32474-score" class="comment-score"></div>
+            <div class="comment-text"><p>did u used 2-D BIT for this?</p></div>
+            <div class="comment-info" id="comment-32474-info">
+                
+                    <a id="post-32474-upvote" href="http://discuss.codechef.com/like_comment/32474/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 22:34)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+        <a name="32503"></a>
+        <div class="comment" id="comment-32503">
+            <div id="post-32503-score" class="comment-score"></div>
+            <div class="comment-text"><p>can u give a brief explanation how u will store the above tree shown in the editorial in the segment tree......</p></div>
+            <div class="comment-info" id="comment-32503-info">
+                
+                    <a id="post-32503-upvote" href="http://discuss.codechef.com/like_comment/32503/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(21 Dec, 08:08)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+        <a name="32559"></a>
+        <div class="comment" id="comment-32559">
+            <div id="post-32559-score" class="comment-score"></div>
+            <div class="comment-text"><p>The BIT is 1D, and it is for 
+the entire tree. The only thing I store from the tree in the editorial 
+is wether a node belongs to a heavy chain or not, and for each chain I 
+keep the index of the nodes of black color (for the white tree, and 
+vice-versa for the black one).</p></div>
+            <div class="comment-info" id="comment-32559-info">
+                
+                    <a id="post-32559-upvote" href="http://discuss.codechef.com/like_comment/32559/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(2 days ago)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4589/brunoja">brunoja</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-32130" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-32130-form-container" class="comment-form-container">
+    
+    <form id="comment-32130-form" method="post" action="/comment/32130/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-32130-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-32130">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="31843"></a>
+                    <div id="answer-container-31843" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-31843-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31843/up/" rel="nofollow"> </a>
+<div id="post-31843-score" class="post-score" title="current number of votes">
+    0
+</div>
+<a id="post-31843-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31843/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>Can you please explain how segment tree can be used to store the given tree or give a link explaining it.</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/31843/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to yashkumar18" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/31400/answer/31843/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31843/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>16 Dec, 19:39</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="yashkumar18's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/31400/yashkumar18">yashkumar18</a><br>
+    <span class="score" title="608 karma">608</span><span title="1 badges"><span class="badge1">●</span><span class="badgecount">1</span></span><span title="6 badges"><span class="silver">●</span><span class="badgecount">6</span></span><span title="15 badges"><span class="bronze">●</span><span class="badgecount">15</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="yashkumar18 has 5 accepted answers">17%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-31843">
+    
+        <a name="31852"></a>
+        <div class="comment" id="comment-31852">
+            <div id="post-31852-score" class="comment-score"></div>
+            <div class="comment-text"><p>Segment Trees are maintained 
+for every links. Their sizes depend on the links' lengths. For 
+operations and queries, we may need to walk cross links and modify/query
+ on these crossed segment trees.</p></div>
+            <div class="comment-info" id="comment-31852-info">
+                
+                    <a id="post-31852-upvote" href="http://discuss.codechef.com/like_comment/31852/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(16 Dec, 20:32)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/42582/shangjingbo">shangjingbo ♦♦</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-31843" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31843-form-container" class="comment-form-container">
+    
+    <form id="comment-31843-form" method="post" action="/comment/31843/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31843-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31843">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="31853"></a>
+                    <div id="answer-container-31853" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-31853-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31853/up/" rel="nofollow"> </a>
+<div id="post-31853-score" class="post-score" title="current number of votes">
+    0
+</div>
+<a id="post-31853-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31853/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>How can we augment the 
+Link Cut tree to solve this problem ? I couldn't figure out how to 
+update the colour of a node efficiently using the path aggregate 
+function.</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/31853/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to sanchit_h" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/77/answer/31853/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31853/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>16 Dec, 20:32</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/cce3d2edb4cccdd1817c170115f0d589.JPG" alt="sanchit_h's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/77/sanchit_h">sanchit_h</a><br>
+    <span class="score" title="91 karma">91</span><span title="4 badges"><span class="bronze">●</span><span class="badgecount">4</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="sanchit_h has no accepted answers">0%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-31853">
+    
+        <a name="31873"></a>
+        <div class="comment" id="comment-31873">
+            <div id="post-31873-score" class="comment-score"></div>
+            <div class="comment-text"><p>The setter's solution is based 
+on LCT. And I think the similar ideas stated in the editorial can be 
+also applied to LCT, maintaining two trees maybe. Just some quick ideas.
+ Discussions are welcome.</p></div>
+            <div class="comment-info" id="comment-31873-info">
+                
+                    <a id="post-31873-upvote" href="http://discuss.codechef.com/like_comment/31873/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(16 Dec, 20:56)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/42582/shangjingbo">shangjingbo ♦♦</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-31853" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31853-form-container" class="comment-form-container">
+    
+    <form id="comment-31853-form" method="post" action="/comment/31853/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31853-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31853">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="31973"></a>
+                    <div id="answer-container-31973" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-31973-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/31973/up/" rel="nofollow"> </a>
+<div id="post-31973-score" class="post-score" title="current number of votes">
+    0
+</div>
+<a id="post-31973-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/31973/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>First time I managed to use a heavy light decomposition. Felt like making an entire application to solve this.
+Key idea for my implementation is:
+ - each node knows how many linked children of each color exist
+ - query: find node's highest parent while color is the same and return it's value
+ - update: update each node untill highest parent and first node with different color also</p>
+<p>how to N log N upperbound:
+heavy light decomposition where each heavy path is a presented as a 
+fenwick tree.
+Inside each heavy path, we hold a fenwick tree, where the get(i) is 
+higher then the get(j) if i is not in the same component as i. so we can
+ just skip to the parent and on a heavy path do a binary seach for 
+finding the right number. Pls check my code for doubts I learned to use 
+this with this problem for the first time.</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/31973/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to samjay" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/3728/answer/31973/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/31973/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>17 Dec, 06:15</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="samjay's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/3728/samjay">samjay</a><br>
+    <span class="score" title="92 karma">92</span><span title="5 badges"><span class="bronze">●</span><span class="badgecount">5</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="samjay has no accepted answers">0%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-31973">
+    
+        <a name="32200"></a>
+        <div class="comment" id="comment-32200">
+            <div id="post-32200-score" class="comment-score"></div>
+            <div class="comment-text"><p>Please clear this doubt:
+"update: update each node until highest parent and first node with 
+different color also"
+here we have to find "the different color node" , how can we find 
+efficiently that node without travelling the path that contain them?</p></div>
+            <div class="comment-info" id="comment-32200-info">
+                
+                    <a id="post-32200-upvote" href="http://discuss.codechef.com/like_comment/32200/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(18 Dec, 18:25)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/19659/devanshdalal">devanshdalal</a>
+                
+            </div>
+        </div>
+    
+        <a name="32203"></a>
+        <div class="comment" id="comment-32203">
+            <div id="post-32203-score" class="comment-score">1</div>
+            <div class="comment-text"><p>Going upwards the tree will 
+visit at most logn light paths, and at most logn heavy chains, while in a
+ heavy chain he uses that binary search idea to check if there is a 
+different color node, if there isn't he skips the whole chain going to 
+the topmost node. A chain can be very big, it is contain lots of nodes, 
+so here you can't check nodes one by one. (that image in the editorial 
+is quite confusing though :/)</p></div>
+            <div class="comment-info" id="comment-32203-info">
+                
+                    <a id="post-32203-upvote" href="http://discuss.codechef.com/like_comment/32203/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(18 Dec, 18:36)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4589/brunoja">brunoja</a>
+                
+            </div>
+        </div>
+    
+        <a name="32214"></a>
+        <div class="comment" id="comment-32214">
+            <div id="post-32214-score" class="comment-score"></div>
+            <div class="comment-text"><p>thank you for clearing my doubt.</p></div>
+            <div class="comment-info" id="comment-32214-info">
+                
+                    <a id="post-32214-upvote" href="http://discuss.codechef.com/like_comment/32214/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(18 Dec, 19:36)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/19659/devanshdalal">devanshdalal</a>
+                
+            </div>
+        </div>
+    
+        <a name="32347"></a>
+        <div class="comment" id="comment-32347">
+            <div id="post-32347-score" class="comment-score">1</div>
+            <div class="comment-text"><p>what <a href="http://discuss.codechef.com/users/4589/brunoja">@brunoja</a>
+ says.. note that I used 3 BITs per path. One to see the component the 
+node in the path connects to. just a number which is the same if two 
+nodes are in the same component (same color and connected).
+And 1 tree per color. <a href="http://www.codechef.com/viewsolution/3060958">http://www.codechef.com/viewsolution/3060958</a></p>
+
+<p>I also want to remind the Java people that there is a stacklimit, so I had to rewrite my methods which used to many recursion.</p></div>
+            <div class="comment-info" id="comment-32347-info">
+                
+                    <a id="post-32347-upvote" href="http://discuss.codechef.com/like_comment/32347/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 05:37)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/3728/samjay">samjay</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-31973" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-31973-form-container" class="comment-form-container">
+    
+    <form id="comment-31973-form" method="post" action="/comment/31973/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-31973-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-31973">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="32365"></a>
+                    <div id="answer-container-32365" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-32365-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/32365/up/" rel="nofollow"> </a>
+<div id="post-32365-score" class="post-score" title="current number of votes">
+    0
+</div>
+<a id="post-32365-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/32365/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>In the Editorial it is 
+written that "For each node, choose one of the biggest son as the heavy 
+edge (choose anyone if there are some ties)." And on WIKI page it is 
+written that "An edge from vertex parent(v) to v is called heavy if 
+size(v) &gt; 1/2*size(parent(v)) , and otherwise it is called light".
+Can anyone tell me whether we can implement in both the ways or they are
+ implemented according to the problem. </p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/32365/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to hatim009" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/6845/answer/32365/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/32365/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>20 Dec, 08:07</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="hatim009's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a><br>
+    <span class="score" title="104 karma">104</span><span title="2 badges"><span class="silver">●</span><span class="badgecount">2</span></span><span title="11 badges"><span class="bronze">●</span><span class="badgecount">11</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="hatim009 has no accepted answers">0%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-32365">
+    
+        <a name="32432"></a>
+        <div class="comment" id="comment-32432">
+            <div id="post-32432-score" class="comment-score"></div>
+            <div class="comment-text"><p>There won't be ties (please 
+someone correct me if I am wrong..). For instance let's say that the 
+size of a node 'v' is N, and N is even. The children will sum up to N-1 
+nodes. Pick one child 'c' with size(c) &gt; size(v)/2, it means that 
+size(c) is at least N/2+1, which makes it impossible for another child 
+to have its size bigger than size(v)/2. The same applies for an odd N 
+with similar analysis. Just make some real examples on paper and it will
+ be clear :)</p></div>
+            <div class="comment-info" id="comment-32432-info">
+                
+                    <a id="post-32432-upvote" href="http://discuss.codechef.com/like_comment/32432/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 18:57)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/4589/brunoja">brunoja</a>
+                
+            </div>
+        </div>
+    
+        <a name="32470"></a>
+        <div class="comment" id="comment-32470">
+            <div id="post-32470-score" class="comment-score"></div>
+            <div class="comment-text"><p>if we decide heavy and light 
+edges according to the editorial that the edge to the son with biggest 
+size is heavy , then there are chances of tie , when a node v has some 
+sons and two or more have biggest size for example a node ha sthree 
+childrens and of them has size 5 and one has size 3.then u can consider 
+any of the two edges of size 5 as heavy.
+but if u consider a node v having size(v)&gt;1/2xsize(parent(v)) . Then 
+there will be no tie.</p></div>
+            <div class="comment-info" id="comment-32470-info">
+                
+                    <a id="post-32470-upvote" href="http://discuss.codechef.com/like_comment/32470/" title="I like this comment (click again to cancel)" class="ajax-command comment-like" rel="nofollow"> </a>
+                
+                
+                
+                
+                    
+
+                <span class="comment-age">(20 Dec, 22:15)</span>
+                <a class="comment-user userinfo" href="http://discuss.codechef.com/users/6845/hatim009">hatim009</a>
+                
+            </div>
+        </div>
+    
+</div>
+<div id="comment-tools-32365" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-32365-form-container" class="comment-form-container">
+    
+    <form id="comment-32365-form" method="post" action="/comment/32365/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-32365-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-32365">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                    <a name="32908"></a>
+                    <div id="answer-container-32908" class="answer ">
+                        <table style="width:100%;">
+                            <tbody><tr>
+                                <td style="width:30px;vertical-align:top">
+                                    <div class="vote-buttons">
+                                        
+
+<a id="post-32908-upvote" title="I like this post (click again to cancel)" class="ajax-command post-vote up " href="http://discuss.codechef.com/vote/32908/up/" rel="nofollow"> </a>
+<div id="post-32908-score" class="post-score" title="current number of votes">
+    0
+</div>
+<a id="post-32908-downvote" title="I dont like this post (click again to cancel)" class="ajax-command post-vote down" href="http://discuss.codechef.com/vote/32908/down/" rel="nofollow"> </a>
+                                        
+
+
+    
+
+
+
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="item-right">
+                                        <div class="answer-body">
+                                            <p>When will the solution by the tester and the setter be posted?</p>
+                                        </div>
+                                        <div class="answer-controls post-controls">
+                                            
+<span class="action-link"><a rel="nofollow" title="answer permanent link" class="ajax-command withprompt  copy" href="http://discuss.codechef.com/answer_link/32908/">link</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="award points to jaskaran_1" class="ajax-command withprompt  " href="http://discuss.codechef.com/award_points/user/2167/answer/32908/">award points</a></span><span class="action-link-separator">|</span><span class="action-link"><a rel="nofollow" title="report as offensive (i.e containing spam, advertising, malicious text, etc.)" class="ajax-command withprompt  " href="http://discuss.codechef.com/flag/32908/">report (0)</a></span>
+                                            
+
+                                        </div>
+                                        <div class="post-update-info-container">
+                                            
+<div class="post-update-info post-update-info-user">
+    <p style="line-height:12px;">
+        answered
+        <strong>22 mins ago</strong>
+    </p>
+    <img class="gravatar" src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/default.jpg" alt="jaskaran_1's gravatar image" height="32" width="32">
+    <p><a href="http://discuss.codechef.com/users/2167/jaskaran_1">jaskaran_1</a><br>
+    <span class="score" title="359 karma">359</span><span title="11 badges"><span class="badge1">●</span><span class="badgecount">11</span></span><span title="20 badges"><span class="silver">●</span><span class="badgecount">20</span></span><span title="38 badges"><span class="bronze">●</span><span class="badgecount">38</span></span><br>
+    
+    <span title="Rate of the user's accepted answers" class="accept_rate">accept rate:</span>
+    <span title="jaskaran_1 has no accepted answers">0%</span>
+    </p>
+</div>
+
+
+                                        </div>
+                                        
+
+
+<div class="comments-container" id="comments-container-32908">
+    
+</div>
+<div id="comment-tools-32908" class="comment-tools">
+    
+    
+        <a href="#" class="add-comment-link">add new comment</a>
+    
+</div>
+<div id="comment-32908-form-container" class="comment-form-container">
+    
+    <form id="comment-32908-form" method="post" action="/comment/32908/" accept-charset="utf-8"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+        <div class="comment-form-widgets-container">
+            <textarea style="padding-top: 0px; padding-bottom: 0px; resize: none; overflow: hidden; height: 80px;" name="comment" class="commentBox" id="comment"></textarea>
+            <div class="comment-form-buttons">
+                <span id="comment-32908-chars-left" class="comment-chars-left">
+                    <span class="comments-char-left-count">10</span>
+                    <span class="comments-chars-togo-msg">characters needed</span>
+                    <span style="display: none;" class="comments-chars-left-msg">characters left</span>
+                </span>
+                <input disabled="disabled" class="comment-submit" value=" comment" type="submit">
+                <input class="comment-cancel" value=" cancel" type="submit">
+            </div>
+            <div class="clear"></div>
+            
+        </div>
+        <script type="text/html" class="new-comment-skeleton" id="new-comment-skeleton-32908">
+            <div class="comment not_top_scorer" id="comment-%ID%">
+                <div id="post-%ID%-score" class="comment-score"></div>
+                <div class="comment-text">%COMMENT%</div>
+                <div class="comment-info" id="comment-%ID%-info">
+                    <a id="comment-%ID%-edit" href="%EDIT_URL%" title="Edit comment"
+                        class="comment-edit" rel="nofollow"> </a>
+                    <a id="comment-%ID%-delete" href="%DELETE_URL%" title="Delete comment"
+                        class="ajax-command comment-delete confirm" rel="nofollow"> </a>
+                    <a rel="nofollow" id="comment-%ID%-convert" style="display:none;" href="%CONVERT_URL%" title="Convert comment to answer"
+                        class="ajax-command comment-convert confirm" rel="nofollow"> </a>
+
+                    <span class="comment-age">(just now)</span>
+                    <a class="comment-user" href="%PROFILE_URL%">%USERNAME%</a>
+                    
+                        
+                    
+                </div>
+             </div>
+        </script>
+    </form>
+    
+</div>
+    
+
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody></table>
+                    </div>
+                
+                <div class="paginator-container-left">
+                    
+                </div>
+            
+        <form id="fmanswer" action="/questions/31833/answer/" method="post"><div style="display:none;"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+            <div style="display:none"><input name="csrfmiddlewaretoken" value="55bd8cbe89b6f3739140dca994f1d36c" type="hidden"></div>
+            <div style="clear:both">
+            </div>
+
+            
+                <div style="padding:10px 0 0 0;">
+                    <div class="headNormal">
+                        
+                            Your answer
+                        
+                    </div>
+                </div>
+                
+
+                <div id="description" class="">
+                    <div id="wmd-button-bar" class="wmd-panel"><ul id="wmd-button-row"><li style="background-position: 0px 0px;" title="Strong &lt;strong&gt; Ctrl+B" id="wmd-bold-button" class="wmd-button"></li><li style="background-position: -20px 0px;" title="Emphasis &lt;em&gt; Ctrl+I" id="wmd-italic-button" class="wmd-button"></li><li id="wmd-spacer1" class="wmd-spacer"></li><li style="background-position: -40px 0px;" title="Hyperlink &lt;a&gt; Ctrl+L" id="wmd-link-button" class="wmd-button"></li><li style="background-position: -60px 0px;" title="Blockquote &lt;blockquote&gt; Ctrl+Q" id="wmd-quote-button" class="wmd-button"></li><li style="background-position: -80px 0px;" title="Code Sample &lt;pre&gt;&lt;code&gt; Ctrl+K" id="wmd-code-button" class="wmd-button"></li><li style="background-position: -100px 0px;" title="Image &lt;img&gt; Ctrl+G" id="wmd-image-button" class="wmd-button"></li><li id="wmd-spacer2" class="wmd-spacer"></li><li style="background-position: -120px 0px;" title="Numbered List &lt;ol&gt; Ctrl+O" id="wmd-olist-button" class="wmd-button"></li><li style="background-position: -140px 0px;" title="Bulleted List &lt;ul&gt; Ctrl+U" id="wmd-ulist-button" class="wmd-button"></li><li style="background-position: -160px 0px;" title="Heading &lt;h1&gt;/&lt;h2&gt; Ctrl+H" id="wmd-heading-button" class="wmd-button"></li><li style="background-position: -180px 0px;" title="Horizontal Rule &lt;hr&gt; Ctrl+R" id="wmd-hr-button" class="wmd-button"></li><li id="wmd-spacer3" class="wmd-spacer"></li><li style="background-position: -200px -20px;" title="Undo - Ctrl+Z" id="wmd-undo-button" class="wmd-button"></li><li style="background-position: -220px -20px;" title="Redo - Ctrl+Shift+Z" id="wmd-redo-button" class="wmd-button"></li><li style="background-position: -240px 0px;" id="wmd-help-button" class="wmd-button"><a title="WMD website" target="_blank" href="http://wmd-editor.com/"></a></li></ul></div>
+                    <div class="resizable-textarea"><span><textarea class="processed" rows="10" cols="40" name="text" id="editor"></textarea><div style="margin-right: -6px;" class="grippie"></div></span></div>
+                    <div class="preview-toggle">
+                        <table width="100%">
+                            <tbody><tr>
+                                <td>
+                                    <span id="pre-collapse" title="Toggle the real time Markdown editor preview">[hide preview]</span>
+                                </td>
+                                <td style="text-align: right;" id="editor-metrics"></td>
+                                
+                                <td style="text-align:right;">
+                                    <input name="wiki" id="id_wiki" type="checkbox">
+                                    <span style="font-weight:normal;cursor:help" title="if you choose community wiki option, the question and answer do not generate points and name of author will not be shown">
+                                            <label for="id_wiki">community wiki</label> 
+                                    </span>
+                                </td>
+                                
+                            </tr>
+
+                        </tbody></table>
+                    </div>
+                    
+                    <div id="previewer" class="wmd-preview"></div>
+                </div>
+
+	            
+
+                <p><span class="form-error"></span></p>
+                
+                <input value="Post Your Answer" class="submit" style="float:left" onclick="submitClicked(event, this.form)" type="button">
+            
+        </form>
+    </div>
+</div>
+
+
+        </div>
+        <div id="CARight">
+            
+<div class="boxC" id="subscription_box">
+    <h3 class="subtitle">Follow this question</h3><strong>By Email:</strong><div class="subscription-status"><p>You are not subscribed to this question.</p></div><p><a class="ajax-command sidebar_button subscription_switch" href="http://discuss.codechef.com/subscribe/31833/">
+        
+            subscribe me
+        
+    </a></p><p>
+        
+            (you can adjust your notification settings on your <a href="http://discuss.codechef.com/users/12282/raviojha2105/subscriptions/">profile</a>)
+        
+    </p><strong>By RSS:</strong><p><a class="feed-icon" style="background-image:url('/m/default/media/images/feed-icon-small.png');" href="http://discuss.codechef.com/questions/31833/qtree6-editorial?type=rss" title="subscribe to answers"></a>
+    Answers
+</p><p><a class="feed-icon" style="background-image:url('/m/default/media/images/feed-icon-small.png');" href="http://discuss.codechef.com/questions/31833/qtree6-editorial?type=rss&amp;comments=yes" title="subscribe to comments and answers"></a>
+    Answers and Comments
+</p>
+
+</div>
+
+
+<div style="display: none;" class="boxC" id="editor_side_bar">
+    <p class="subtitle darkred">Markdown Basics</p>
+    <ul class="list-item">
+        <li>
+            *italic* or _italic_
+        </li>
+        <li>
+			**bold** or __bold__
+        </li>
+        <li>
+            <b>link</b>:[text](http://url.com/ "title")
+
+        </li>
+
+        <li>
+            <b>image</b>?![alt text](/path/img.jpg "title")
+
+        </li>
+        <li>
+			numbered list:
+            1.  Foo
+            2.  Bar
+        </li>
+        <li>
+			to add a line break simply add two spaces to where you would like the new line to be.
+        </li>
+        <li>
+			basic HTML tags are also supported
+        </li>
+    </ul>
+    <p class="info-box-follow-up-links">
+        <a href="http://discuss.codechef.com/markdown_help/" target="_blank">learn more about Markdown </a>
+    </p>
+</div>
+
+
+
+
+
+
+
+
+<div class="boxC">
+    <p>
+		Tags:
+    </p>
+    <p class="tags">
+        
+        	<a href="http://discuss.codechef.com/tags/editorial/" class="tag-link-editorial" title="see questions tagged'editorial'using tags" rel="tag">editorial</a> <span class="tag-number">×631</span><br>
+        
+        	<a href="http://discuss.codechef.com/tags/hard/" class="tag-link-hard" title="see questions tagged'hard'using tags" rel="tag">hard</a> <span class="tag-number">×119</span><br>
+        
+        	<a href="http://discuss.codechef.com/tags/heavy-light/" class="tag-link-heavy-light" title="see questions tagged'heavy-light'using tags" rel="tag">heavy-light</a> <span class="tag-number">×10</span><br>
+        
+        	<a href="http://discuss.codechef.com/tags/dec13/" class="tag-link-dec13" title="see questions tagged'dec13'using tags" rel="tag">dec13</a> <span class="tag-number">×8</span><br>
+        
+        	<a href="http://discuss.codechef.com/tags/link-cut-tree/" class="tag-link-link-cut-tree" title="see questions tagged'link-cut-tree'using tags" rel="tag">link-cut-tree</a> <span class="tag-number">×1</span><br>
+        
+    </p>
+    <p>
+        Asked: <strong title="Dec. 16, 2013, 6:53 p.m.">16 Dec, 18:53</strong>
+    </p>
+    <p>
+     	Seen: <strong>1,183 times</strong>
+    </p>
+    <p>
+        Last updated: <strong title="Dec. 24, 2013, 4:11 p.m.">22 mins ago</strong>
+    </p>
+</div>
+
+
+
+
+
+<div class="boxC">
+    <h3 class="subtitle">Related questions</h3>
+    <div class="questions-related">
+
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/1588/dgcd-editorial" title="PROBLEM LINK:PracticeContestDIFFICULTY:HardPREREQUISITES:Number theory, Segment Trees, Heavy Light DecompositionPROBLEM:You're given a tree of N vertices. Each vertex has a number written on it. Process two types of queries :Add d (input) to numbers of all vertices along the unique path b">DGCD - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/31836/realset-editorial" title="PROBLEM LINK:PracticeContestAuthor: Iaroslav Tverdokhlib Tester: Mahbub Editorialist: Jingbo ShangDIFFICULTY:HardPREREQUISITES:Circulant MatrixPROBLEM:Given a Circulant Matrix, determine whether it is full rank (i.e. non-zero determinant, or the null space is trivial).EXPLANATION:First ">REALSET - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/6548/query-editorial" title="Problem Link:PracticeContestDifficulty:HardPre-requisites:Heavy-light Decomposition, Persistent data structuresProblem:You are given a tree of N vertices. Each vertex is initialized to value 0. Further you are given 3 kinds of operations: c X Y A B - the &quot;Change&quot; operation: Along the path f">QUERY - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/32036/gerald2-editorial" title="PROBLEM LINK:PracticeContestAuthor: Gerald AgapovEditorialist: Tiny WongDIFFICULTY:HARD. PREREQUISITES:Heavy-light decomposition,Segment treeTo make the editorial more readable, we now introduce Heavy-light decomposition briefly.For each vertex x which has at least a son, find the maximum">GERALD2 - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/10134/qtree-editorial" title="PROBLEM LINKSPracticeContestDIFFICULTYHARDPREREQUISITESGraph Theory, Segment Trees, Heavy Light DecompositionPROBLEMYou are given a connected graph on N vertices consisting of N edges.Each edge has a weight, not necessarily positiveThe graph contains a single cycleThe cycle contains odd ">QTREE - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/24750/rrtree-editorial" title="Problem Link:PracticeContestauthor: Roman Rubanenkotester/editorialist: Utkarsh LathDifficulty:HardPre-requisites:understanding of rooted trees, diameter of a tree, heavy-light composition, BIT / segtreeProblem:Given a tree, you have to find its diameter. But thats not all of it. The tree ">RRTREE - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/3627/digforst-editorial" title="PROBLEM LINKSPracticeContestDIFFICULTYHARDEXPLANATIONAt first we could see this problem as &quot;find the shortest path (smallest digits-sum) from 1 to N satisfying the constructed number is divisible by it's digits&quot;. Then we just use a shortest-path algorithm to solve it (eg. Dijkstra), here I use">DIGFORST - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/3716/countari-editorial" title="PROBLEM LINKPracticeContestDIFFICULTYHARDPREREQUISITESDynamic Programming, Discrete Fourier Transform, Fast Fourier TransformPROBLEMYou are given a list of integers between 1 and 30000, inclusive. You have to find triplets i &amp;lt; j &amp;lt; k in A[], such that A[i], A[j] and A[k] are in Arithmet">COUNTARI - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/4024/misint2-editorial" title="PROBLEM LINKSPracticeContestDIFFICULTYHARDEXPLANATIONThe Editorial can be found hereSETTER'S SOLUTIONCan be found here.TESTER'S SOLUTIONCan be found here.">MISINT2 - Editorial</a>
+        </p>
+        
+        <p>
+            <a href="http://discuss.codechef.com/questions/4044/cielwalk-editorial" title="PROBLEM LINKSPracticeContestDIFFICULTYHARDEXPLANATIONLet the matrix P satisfy Pi,j = the probability that Ciel is in j-th node at time 1 if Ciel is in i-th node at time 0. Then, (Pt)i,j is equal to the probability that Ciel is in j-th node at time t if Ciel is in i-th node at time 0.At first,">CIELWALK - Editorial</a>
+        </p>
+        
+
+    </div>
+</div>
+
+
+
+        </div>
+        <div id="tail" style="clear:both;">
+            
+            
+        </div>
+    </div>
+    <div class="spacer3"></div>
+</div>
+
+        
+            
+            <div id="ground">
+                
+                    <p>
+
+<link rel="stylesheet" type="text/css" href="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/cc.css">
+</p>
+<div id="cc-footer" class="cc-wrapper">
+    <div class="cc-inner-wrapper">
+        <!-- SECOND NAV -->
+        <div class="cc-cols-2">
+            <div id="cc-secondary-nav">
+                <ul>
+                    <!-- <li><a href="http://blog.corp.pw/" target="_blank">.pw Corp Blog</a></li>
+                    <li><a href="http://start.pw/" target="_blank">Vision</li> -->
+                    <li><a href="http://www.codechef.com/aboutus/">About CodeChef</a></li>
+                    <li><a href="http://www.directi.com/" target="_blank">About Directi</a></li>
+                    <li><a href="http://www.codechef.com/ceoscorner/">CEO's Corner</a></li>
+                    <!-- <li><a href="http://wiki.directi.com/" target="_blank">Wiki</a></li>
+                    <li><a href="http://wiki.directi.com/display/corp/Home" target="_blank">About</a></li> -->
+                </ul>
+                <ul>
+                    <li><a href="http://www.codechef.com/campus/">CodeChef Campus Chapters</a></li>
+                    <li><a href="http://www.codechef.com/school/">CodeChef For Schools</a></li>
+                    <li><a href="http://www.codechef.com/contactus">Contact Us</a></li>
+                </ul>
+            </div>
+            <div id="cc-fineprint">
+                <p>© 2009, Directi Group. All Rights Reserved.</p>
+                <p><small>Powered by OSQA<br> </small></p>
+            </div>
+        </div>
+        <!-- /SECOND NAV -->
+        <!-- LEGAL & COPYRIGHT -->
+        <div>
+            <div id="cc-sponsor-strip">
+                <a href="http://www.directi.com/" target="_blank"><img src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/footer-sponsor-strip.gif" alt="Sponsors" title="Sponsors"></a>
+            </div>
+        </div>
+        <!-- /LEGAL & COPYRIGHT -->
+    </div>
+</div>
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script src="QTREE6%20-%20Editorial%20-%20CodeChef%20Discuss_files/ga.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-4090524-6");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+                
+            </div>
+            
+        
+        
+
+        
+        </div>
+
+        <!-- Put all elements with fixed position here, IE6 fixed position fix: http://ryanfait.com/position-fixed-ie6/ -->
+        <div class="notify" style="display:none">
+            
+                
+            
+            <a id="close-notify" onclick="notify.close(true)">×</a>
+        </div>
+
+    
+
+
+</body></html>
+<!-- end template base_content.html -->

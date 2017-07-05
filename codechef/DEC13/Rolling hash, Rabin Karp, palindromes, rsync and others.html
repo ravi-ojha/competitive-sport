@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta property="og:title" content="Rolling hash, Rabin Karp, palindromes, rsync and others"><meta property="og:type" content="blog"><meta property="og:url" content="http://www.infoarena.ro/blog/rolling-hash"><meta property="og:image" content="http://www.infoarena.ro/static/images/icon-user-64.gif"><meta property="og:site_name" content="infoarena.ro"><meta property="fb:app_id" content="159779000715246"><meta name="title" content="Rolling hash, Rabin Karp, palindromes, rsync and others">
+<title>Rolling hash, Rabin Karp, palindromes, rsync and others</title>
+<script async="" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/cbgapi.loaded_1"></script><script async="" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/cbgapi.loaded_0"></script><script type="text/javascript">
+//<![CDATA[
+try{if (!window.CloudFlare) {var CloudFlare=[{verbose:0,p:0,byc:0,owlid:"cf",bag2:1,mirage2:0,oracle:0,paths:{cloudflare:"/cdn-cgi/nexp/acv=4125811108/"},atok:"875ac99ac7f4d7d220931fa7293cb720",petok:"8d50a3ccc5fdd6a1141d78c1a7e064a9570ce0d3-1386853806-1800",zone:"infoarena.ro",rocket:"a",apps:{}}];document.write('<script type="text/javascript" src="//ajax.cloudflare.com/cdn-cgi/nexp/acv=616370821/cloudflare.min.js"><'+'\/script>');}}catch(e){};
+//]]>
+</script><script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/cloudflare.js"></script><style type="text/css">.cf-hidden { display: none; } .cf-invisible { visibility: hidden; }</style><script data-module="cloudflare/rocket" id="cfjs_block_dcdb82227b" onload="CloudFlare.__cfjs_block_dcdb82227b_load()" onerror="CloudFlare.__cfjs_block_dcdb82227b_error()" onreadystatechange="CloudFlare.__cfjs_block_dcdb82227b_readystatechange()" type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/rocket.js"></script>
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/sitewide.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/iconize.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/screen.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/tabber.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shCore.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shThemeDefault.css">
+<link type="text/css" rel="stylesheet" href="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/print.css" media="print">
+<link rel="icon" href="http://www.infoarena.ro/favicon.ico" type="image/vnd.microsoft.icon">
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/config.bin"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/jquery.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/default.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/tabber-minimized.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/submit.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/remotebox.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/postdata.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shCore.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shBrushCpp.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shBrushDelphi.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shBrushJava.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shBrushPython.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/shInit.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/tags.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/roundtimer.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/restoreparity.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/foreach.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/sorttable.js"></script>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/tablednd.js"></script>
+<script type="text/javascript">Sh_Init("/static/swf/clipboard.swf")</script>
+</head>
+<body id="infoarena">
+<div id="page">
+<div id="header" class="clear">
+<h1><a href="http://www.infoarena.ro/">infoarena informatica de performanta</a></h1>
+</div>
+<div id="topnav">
+<ul>
+<li>
+<a href="http://www.infoarena.ro/">info<em>arena</em></a> </li>
+<li>
+<strong> <a accesskey="b" href="http://www.infoarena.ro/blog"><span class="access-key">b</span>log</a> </strong> </li>
+<li>
+<a accesskey="f" href="http://www.infoarena.ro/forum"><span class="access-key">f</span>orum</a> </li>
+<li>
+<a href="http://www.infoarena.ro/forum?action=calendar">calendar</a> </li>
+<li>
+<a href="https://infoarena.ro/login">autentificare</a> </li>
+<li>
+<a href="https://infoarena.ro/register">inregistrare</a> </li>
+</ul>
+</div>
+<div id="content_small" class="clear">
+<div id="sidebar">
+<ul id="nav" class="clear">
+<li><a href="http://www.infoarena.ro/">Home</a></li>
+<li><a accesskey="a" href="http://www.infoarena.ro/arhiva"><span class="access-key">A</span>rhiva de probleme</a></li>
+<li><a href="http://www.infoarena.ro/arhiva-educationala">Arhiva educatională</a></li>
+<li><a href="http://www.infoarena.ro/arhiva-monthly">Arhiva monthly</a></li>
+<li><a href="http://www.infoarena.ro/concursuri">Concursuri</a></li>
+<li><a href="http://www.infoarena.ro/concursuri-virtuale">Concursuri virtuale</a></li>
+<li><a href="http://www.infoarena.ro/clasament-rating">Clasament</a></li>
+<li><a href="http://www.infoarena.ro/articole">Articole</a></li>
+<li><a href="http://www.infoarena.ro/downloads">Downloads</a></li>
+<li><a href="http://www.infoarena.ro/links">Links</a></li>
+<li><a href="http://www.infoarena.ro/documentatie">Documentaţie</a></li>
+<li><a href="http://www.infoarena.ro/despre-infoarena">Despre infoarena</a></li>
+<li class="separator"><hr></li>
+<li><a accesskey="m" href="http://www.infoarena.ro/monitor"><span class="access-key">M</span>onitorul de evaluare</a></li>
+</ul>
+<div id="google-search">
+ 
+<form id="searchbox_010130381492294265836:kw-fmmvpxco" action="http://infoarena.ro/search">
+<fieldset>
+<legend><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/search.png" alt="!"> Cautare</legend>
+<input name="cx" value="010130381492294265836:kw-fmmvpxco" type="hidden">
+<input name="cof" value="FORID:9" type="hidden">
+<input style="background: url(&quot;http://www.google.com/cse/intl/en/images/google_custom_search_watermark.gif&quot;) no-repeat scroll left center rgb(255, 255, 255);" name="q" size="22" type="text">
+<input name="sa" value="Cauta" class="button important" type="submit">
+</fieldset>
+<input value="www.infoarena.ro/blog/rolling-hash" name="siteurl" type="hidden"><input value="www.google.co.in/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=10&amp;cad=rja&amp;ved=0CHUQFjAJ&amp;url=http%3A%2F%2Fwww.infoarena.ro%2Fblog%2Frolling-hash&amp;ei=nLKpUt2NEaad0QWV5oDoCA&amp;usg=AFQjCNEgxlzFj9SOvQ2oSIM9YlDGvziFBA&amp;sig2=CJF-wDKiKJm9olqqBeIFNw&amp;bvm=bv.57967247,d.d2k" name="ref" type="hidden"><input name="ss" type="hidden"></form>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/brand"></script>
+ 
+</div>
+<div id="calendar">
+<div class="calendar"><div class="header"><a href="http://www.infoarena.ro/forum?action=calendar">In curand...</a></div></div> </div>
+<div id="login">
+<form action="https://infoarena.ro/login" method="post" class="login">
+<table class="form">
+<tbody><tr>
+<td>
+<fieldset>
+<legend><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/login.png" alt="!"> Autentificare</legend>
+<ul class="form">
+<li id="field_username">
+<label for="form_username">Cont de utilizator</label>
+<input name="username" id="form_username" type="text">
+</li>
+<li id="field_password">
+<label for="form_password">Parola</label>
+<input name="password" id="form_password" type="password">
+</li>
+<li>
+<input value="on" id="form_remember" name="remember" class="checkbox" type="checkbox">
+<label class="checkbox" for="form_remember">Pastreaza-ma autentificat 5 zile</label>
+</li>
+</ul>
+</fieldset>
+</td>
+</tr>
+</tbody></table>
+<ul class="form clear">
+<li>
+<input value="Autentificare" id="form_submit" class="button important" type="submit">
+</li>
+</ul>
+</form>
+<p>
+<a href="https://infoarena.ro/register">Ma inregistrez!</a><br>
+<a href="http://www.infoarena.ro/resetpass">Mi-am uitat parola...</a> </p>
+</div>
+<p class="user-count">31938 membri inregistrati</p>
+<div id="srv_time" class="user-count" align="center">15:37:20</div>
+<script type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/time.js"></script>
+<script type="text/javascript">loadTime(15, 10, 07);</script>
+<div class="ad">
+<div class="wiki_text_block"><p class="center" style="text-align:center">Participa si tu la concursul <a href="http://www.infoarena.ro/monthly-2012"><strong>Monthly 2012</strong></a> <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/small-full.png" alt=""></p>
+<p>&nbsp;</p>
+<p class="center" style="text-align:center"><a href="http://www.infoarena.ro/implica-te">Fii un bun infoarenaut! Implică-te!</a></p>
+<p>&nbsp;</p>
+<p class="center" style="text-align:center"> </p><form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+<input name="cmd" value="_s-xclick" type="hidden">
+<input name="hosted_button_id" value="R6Q8WNVR7PNMU" type="hidden">
+<input src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/btn_donateCC_LG.gif" name="submit" alt="PayPal - The safer, easier way to pay online!" border="0" type="image">
+<img alt="" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/pixel.gif" border="0" height="1" width="1">
+</form><p></p></div></div>
+</div>
+<div id="main">
+<div id="wikiOps">
+<ul>
+<li><a accesskey="i" href="http://www.infoarena.ro/blog/rolling-hash?action=history"><span class="access-key">I</span>storia</a></li>
+<li><a accesskey="l" href="http://www.infoarena.ro/blog/rolling-hash?action=attach-list"><span class="access-key">L</span>istează ataşamente</a></li>
+</ul>
+</div>
+<div class="blog-sidebar"><div class="wiki_text_block"><p class="center" style="text-align:center"><a href="http://www.infoarena.ro/blog?action=rss"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/blog-sidebar.gif" alt=""></a></p>
+<p class="center" style="text-align:center"><a href="http://www.infoarena.ro/despre-blog"><strong>Despre Blog</strong></a></p>
+<h2>Ultimele insemnari</h2>
+<ul class="blog-list"><li><a href="http://www.infoarena.ro/blog/transpose">Transpose</a></li><li><a href="http://www.infoarena.ro/blog/distance">Distance</a></li><li><a href="http://www.infoarena.ro/blog/acm-2013-etapa-nationala-partea-ii">Solutii la concursul acm 2013 etapa nationala partea a doua</a></li><li><a href="http://www.infoarena.ro/blog/acm-2013-etapa-nationala">Solutii la concursul ACM ICPC 2013 etapa nationala partea I</a></li><li><a href="http://www.infoarena.ro/blog/statistics">Teach statistics before calculus!</a></li><li><a href="http://www.infoarena.ro/blog/cpp11">C++ compiler upgrades on infoarena</a></li><li><a href="http://www.infoarena.ro/blog/bafta-la-oni">Bafta la ONI</a></li><li><a href="http://www.infoarena.ro/blog/numbers-everyone-should-know">14 numbers every developer should know</a></li><li><a href="http://www.infoarena.ro/blog/shortlist-interactive">Interactive problems shortlist</a></li><li><a href="http://www.infoarena.ro/blog/code-pandas">Code Pandas</a></li></ul>
+<h2>Categorii</h2>
+<ul class="blog-list"><li><a href="http://www.infoarena.ro/blog?tag=algoritmiada">algoritmiada</a> (7)</li><li><a href="http://www.infoarena.ro/blog?tag=algoritmica">algoritmica</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=concursuri">concursuri</a> (11)</li><li><a href="http://www.infoarena.ro/blog?tag=doi+la+suta">doi la suta</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=Evenimente">Evenimente</a> (7)</li><li><a href="http://www.infoarena.ro/blog?tag=facebook">facebook</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=Features">Features</a> (3)</li><li><a href="http://www.infoarena.ro/blog?tag=girl+camp">girl camp</a> (2)</li><li><a href="http://www.infoarena.ro/blog?tag=Girls">Girls</a> (2)</li><li><a href="http://www.infoarena.ro/blog?tag=Girls+camp">Girls camp</a> (2)</li><li><a href="http://www.infoarena.ro/blog?tag=girls+programming+camp">girls programming camp</a> (3)</li><li><a href="http://www.infoarena.ro/blog?tag=google">google</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=infoarena">infoarena</a> (6)</li><li><a href="http://www.infoarena.ro/blog?tag=internships">internships</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=interviu">interviu</a> (12)</li><li><a href="http://www.infoarena.ro/blog?tag=life+the+universe+and+everything">life the universe and everything</a> (7)</li><li><a href="http://www.infoarena.ro/blog?tag=organizare">organizare</a> (3)</li><li><a href="http://www.infoarena.ro/blog?tag=potw">potw</a> (31)</li><li><a href="http://www.infoarena.ro/blog?tag=preoni+2008">preoni 2008</a> (3)</li><li><a href="http://www.infoarena.ro/blog?tag=probleme">probleme</a> (9)</li><li><a href="http://www.infoarena.ro/blog?tag=Selectie+Girls+Programming+Camp">Selectie Girls Programming Camp</a> (1)</li><li><a href="http://www.infoarena.ro/blog?tag=stiri">stiri</a> (76)</li><li><a href="http://www.infoarena.ro/blog?tag=video">video</a> (6)</li></ul>
+<h2>Blogroll</h2>
+<ul class="blog-list">
+<li><a href="http://www.vivi.ro/blog" class="wiki_link_external">Vivi's blog</a></li>
+<li><a href="http://infoweekly.blogspot.com/" class="wiki_link_external">WebDiarios de Motocicleta</a></li>
+<li><a href="http://catalinfrancu.blogspot.com/" class="wiki_link_external">Catalin Francu</a></li>
+<li><a href="http://flmanea.blogspot.com/" class="wiki_link_external">Florin Manea</a></li>
+<li><a href="http://steve-yegge.blogspot.com/" class="wiki_link_external">Stevey's Blog Rants</a></li>
+<li><a href="http://www.joelonsoftware.com/" class="wiki_link_external">Joel on Software</a></li>
+<li><a href="http://blogs.msdn.com/devdev/" class="wiki_link_external">Developing for developers</a></li>
+</ul>
+</div></div><div class="wiki_text_block"><div class="blog"><h1>Rolling hash, Rabin Karp, palindromes, rsync and others</h1><div class="strap blogheader"><div class="social_buttons"><iframe src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/like.html" style="border:none; overflow:hidden; width:55px; height:62px;" allowtransparency="true" frameborder="0" scrolling="no"></iframe><script gapi_processed="true" type="text/javascript" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/plusone.js"></script><div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px;"><iframe title="+1" data-gapiattached="true" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/fastbutton.html" name="I0_1386853818305" id="I0_1386853818305" vspace="0" tabindex="0" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" marginwidth="0" marginheight="0" hspace="0" frameborder="0" scrolling="no" width="100%"></iframe></div><iframe allowtransparency="true" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/tweet_button.html" style="width:55px; height: 62px; margin-left:5px" frameborder="0" scrolling="no"></iframe></div><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/Cosmin_002.bin" alt="Cosmin"><br><a href="http://www.infoarena.ro/utilizator/Cosmin">Cosmin Negruseri</a><br>30 octombrie 2012</div><p>Rolling
+ hash is a neat idea found in the Rabin-Karp string matching algorithm 
+which is easy to grasp and useful in quite a few different contexts.</p>
+<p>As before, the most interesting part of the article is the problem 
+section. Discuss them in the comment section, but first let's go through
+ a few applications.</p>
+<h2>The Rabin-Karp algorithm</h2>
+<blockquote><p>Given a string P of length n and a string S of length m find out all the occurrences of P within S</p></blockquote>
+<p>The algorithm works by building a fingerprint for each substring of S
+ of length n. It checks if any of them match the fingerprint of P. 
+Implementing this directly leads to a <var>O(n*m)</var> solution which isn't faster than the naive matching algorithm (in fact it may be slower).</p>
+<p><strong>The insight</strong> is that you can efficiently compute the 
+hash value of a substring using the hash value of previous substring if 
+you use the right hash function. A polynomial with the string characters
+ as coefficients works well. Let <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/13dd9ac43efaa22b2a9a43b253a955ae_3.gif" title="H(c)=c[0]a^{n-1} + c[1]a^{n-2}+...+c[n-1]" alt="H(c)=c[0]a^{n-1} + c[1]a^{n-2}+...+c[n-1]" .="" style="vertical-align:-3.5pt;"> be the hash function for the string c.<br>
+All the operations are done modulo a prime number so that we don’t have to deal with large integers.</p>
+
+<p>Let’s see what happens when we go from <var>H(S[i..i+n-1])</var> to <var>H(S[i+1..i+n])</var>:</p>
+
+<p><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/rolling-hash.png" alt=""></p>
+
+<img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/9786aaad72eea4d243845dabcfee26d1_3.gif" title="
+H(S[i+1..i+n])= S[i+1]a^{n-1}+S[i+2]a^{n-2}+.. + S[i+n]
+" alt="
+H(S[i+1..i+n])= S[i+1]a^{n-1}+S[i+2]a^{n-2}+.. + S[i+n]
+" .="" style="vertical-align:-3.5pt;">
+
+<p>Adding and substracting <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/cda5ca2b5683782c5203ae8ba6ea2d5b_3.gif" title="S[i]a^n" alt="S[i]a^n" .="" style="vertical-align:-3.5pt;"> we get</p>
+
+<p><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/9661b3d5405c73aaa4be4ebd8d839bd5_3.gif" title="
+a(S[i]a^{n-1}+S[i+1]a^{n-2}+ S[i+2]a^{n-3}+ .. + S[i+n -1])+S[i+n]-S[i]a^{n} =
+" alt="
+a(S[i]a^{n-1}+S[i+1]a^{n-2}+ S[i+2]a^{n-3}+ .. + S[i+n -1])+S[i+n]-S[i]a^{n} =
+" .="" style="vertical-align:-3.5pt;"><br>
+<img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/78f313b7a35a302ca083edc7b62fdd4b_3.gif" title="
+aH(S[i..i+n-1])-S[i]a^{n}+S[i+n]
+" alt="
+aH(S[i..i+n-1])-S[i]a^{n}+S[i+n]
+" .="" style="vertical-align:-3.5pt;"></p>
+
+<p>Deleting a character and appending another one corresponds to adding a
+ number and subtracting a number in our hashing algorithm. The 
+complexity of the algorithm is O(n).</p>
+
+<p>If S and P are strings of digits and a is 10, our problem maps to finding numbers in a string of digits. <br>
+Let's go through an example.</p>
+
+
+<div class="code"><div><div id="highlighter_986908" class="syntaxhighlighter  cpp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">Let P = 53424, S = 3249753424234837 and a = 10</code></div><div class="line number2 index1 alt1"><code class="cpp plain">3249753424234837</code></div><div class="line number3 index2 alt2"><code class="cpp plain">32497</code></div><div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;</code><code class="cpp plain">24975 = 10 * 32497 - 3 * 10000 + 5&nbsp; </code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">49753 = 10 * 24975 - 2 * 10000 + 3</code></div><div class="line number6 index5 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">97534 = 10 * 49753 - 4 * 10000 + 4 </code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">...</code></div><div class="line number8 index7 alt1"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">53424 </code><code class="cpp comments">// match</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">...</code></div></div></td></tr></tbody></table></div></div></div>
+
+
+<p>Here's some code:</p>
+
+
+<div class="code"><div><div id="highlighter_528903" class="syntaxhighlighter  cpp"><div class="toolbar"><span><a href="#" class="toolbar_item command_help help">?</a></span></div><table cellpadding="0" cellspacing="0" border="0"><tbody><tr><td class="gutter"><div class="line number1 index0 alt2">1</div><div class="line number2 index1 alt1">2</div><div class="line number3 index2 alt2">3</div><div class="line number4 index3 alt1">4</div><div class="line number5 index4 alt2">5</div><div class="line number6 index5 alt1">6</div><div class="line number7 index6 alt2">7</div><div class="line number8 index7 alt1">8</div><div class="line number9 index8 alt2">9</div><div class="line number10 index9 alt1">10</div><div class="line number11 index10 alt2">11</div></td><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="cpp plain">an = 1</code></div><div class="line number2 index1 alt1"><code class="cpp plain">rolling_hash = 0</code></div><div class="line number3 index2 alt2"><code class="cpp keyword bold">for</code> <code class="cpp plain">i in range(0, n):</code></div><div class="line number4 index3 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">rolling_hash = (rolling_hash * a + S[i]) % MOD</code></div><div class="line number5 index4 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">an = (an * a) % MOD</code></div><div class="line number6 index5 alt1"><code class="cpp keyword bold">if</code> <code class="cpp plain">rolling_hash == hash_p:</code></div><div class="line number7 index6 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">print </code><code class="cpp string">"match"</code></div><div class="line number8 index7 alt1"><code class="cpp keyword bold">for</code> <code class="cpp plain">i in range(1, m - n + 1):</code></div><div class="line number9 index8 alt2"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp plain">rolling_hash = (rolling_hash * a + S[i + n - 1] - an * S[i - 1]) % MOD</code></div><div class="line number10 index9 alt1"><code class="cpp spaces">&nbsp;&nbsp;</code><code class="cpp keyword bold">if</code> <code class="cpp plain">rolling_hash == hash_p:</code></div><div class="line number11 index10 alt2"><code class="cpp spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="cpp plain">print </code><code class="cpp string">"match"</code></div></div></td></tr></tbody></table></div></div></div>
+
+
+<h2>Longest common substring</h2>
+
+<blockquote><p>Given two strings A and B, compute their longest common substring.</p></blockquote>
+
+<p>Let's solve a simpler problem: Given two strings A and B, and a 
+number X find if they have a common sequence of length X. We use the 
+rolling hash technique to find the hash codes for all X length 
+substrings of A and B. Then we check if there is any common hash code 
+between the two sets, this means A and B share a sequence of length X. 
+We then use binary search to find the largest X.<br>
+The complexity of this algorithm is O(n log n).</p>
+
+<h2>rsync</h2>
+
+<p>The linux utility is used to keep two copies of the same file in sync
+ by copying around deltas. Instead of replicating the whole changed 
+file, rsync segments the file into fixed size chunks, computes a rolling
+ hash for each chunk. On the client side computes rolling hashes for all
+ chunks of the target file including overlapping ones. Then it checks 
+which chunks are already there, which chunks need to be deleted and 
+which chunks need to be copied over. This improves the transfer speed as
+ you only copy over deltas and some chunk fingerprints. Here's a <a href="http://en.wikipedia.org/wiki/Rsync#Algorithm" class="wiki_link_external">better description</a> from wikipedia.</p>
+
+<h2>Largest palindrome</h2>
+
+<blockquote><p>Given a string of length n, find out its largest palindromic substring.</p></blockquote>
+
+<p>The naive solution is O(n<sup>3</sup>). For every possible substring it tests in linear time if it's a palindrome.</p>
+
+<p>A smarter solution tries every position in the original string as the
+ center of a palindrome and extends to the left and to the right as long
+ as the corresponding characters match. This solution takes O(n<sup>2</sup>) time.</p>
+
+<p>There's a O(n log n) solution that involves rolling hash. Given X we 
+can test if there is any substring S' of S of length 2X such that H(S') 
+== H(reverse(S')). The identity means that S contains a palindromic 
+sequence of length at least 2X. What is left is to find out the maximum 
+such X. We can use binary search to do that efficiently. The overall 
+complexity is O(n log n).</p>
+
+<h2>Substrings of variable length</h2>
+
+<p>The polynomial function can be used to compute hashes for substrings of varying length</p>
+
+<p>Let’s choose <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/59151c9b034cbfc199631f11a4e03c83_3.gif" title="H(S[i..j]) = S[i]+S[i+1]a+S[i+2]a{2}+...+S[j]a^{j-i} " alt="H(S[i..j]) = S[i]+S[i+1]a+S[i+2]a{2}+...+S[j]a^{j-i} " .="" style="vertical-align:-3.5pt;"> Then we compute the array h which contains cummulative hashes: <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/c9dc20a1a9f14e076ec0c25d7985e913_3.gif" title="h[k]=S[0]+S[1]a+S[2]a^{2}+...+S[k]a^{k}" alt="h[k]=S[0]+S[1]a+S[2]a^{2}+...+S[k]a^{k}" .="" style="vertical-align:-3.5pt;">. It’s easy to see that <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/e8a5105ec8fcf8b80150e575a526347e_3.gif" title="H(S[i..j])=(h[j]-h[i-1])/a^i" alt="H(S[i..j])=(h[j]-h[i-1])/a^i" .="" style="vertical-align:-3.5pt;"></p>
+
+<p>After spending O(n) time on preprocessing h, we have an efficient way to compute the hash code for any substring of S.</p>
+
+<p>The division operation modulo a prime needs some number theory 
+insight. You can do it using Fermat's little theorem or using the 
+Extended Euclidean Algorithm. If you need to process a lot of sub 
+strings it's useful to pre process all the values for <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/c8be72cae6ea8bae2026296a5c884692_2.gif" title="a^{-i} \bmod{p}" alt="a^{-i} \bmod{p}" .="" style="vertical-align:-2.94444pt;">.</p>
+
+<h2>Caveats</h2>
+
+<p>Hashing collisions are a problem. One way to deal with them is to 
+check for a match when two fingerprints are equal, but this makes the 
+solution inefficient if there are lots of matches. Another way is to use
+ more hashing functions to decrease the collision probability.</p>
+
+<h2>Alternatives</h2>
+
+<p>Suffix trees or suffix arrays are very good tools to tackle string 
+matching problems. I prefer hashing as the code is usually simpler.</p>
+
+<h2>Additional problems</h2>
+
+
+<ol>
+<li>Given a string of length n, count the number of palindromic substring of S. Solve better than O(n<sup>2</sup>).</li>
+<li>Given a string of length n, find the longest substring that is repeated at least k times. Solve in O(n log n)</li>
+<li>Given a bitmap, find out the largest square that’s repeated in the bitmap.</li>
+<li>Given a string S figure out if the string is periodic. (there is a p
+ such that for any i we have that s[i] == s[i + p]) For example abcabcab
+ is periodic with p = 3. O(n log n)</li>
+<li>Given two equal length strings, figure out if one is a rotation of the other. O(n)</li>
+<li>Given two polygons find out if they are similar polygons. O(n)</li>
+<li>Given a string, find it's longest periodic prefix. O(n log n) For aaabaaabcde the answer is aaabaaab</li>
+<li>Given a tree T with character labeled nodes and a given string P count how many downward paths match P. O(n)</li>
+</ol>
+
+<div class="strap"><strong>Categorii: </strong></div><div id="comentarii"><div id="remotebox"><div class="smf comment-thread">
+<div class="comments">
+<a href="javascript:stay()" onclick="RemoteBox_Comments(1, 10, false, 'hide');"><h3>» 9 comentarii</h3></a>
+<div class="comment">
+<div class="header">
+<span class="timestamp">
+Octombrie 31, 2012, 12:34:09
+</span>
+<span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/Cosmin"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/Cosmin.bin" alt="Cosmin">Cosmin Negruseri</a> <a title="Rating Cosmin: 494" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/Cosmin?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/Cosmin">Cosmin</a></span></span>
+</div>
+<div class="body">
+So do you guys know how to solve all the proposed problems?
+</div>
+</div>
+<div class="comment">
+<div class="header">
+<span class="timestamp">
+Octombrie 31, 2012, 12:36:10
+</span>
+<span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/wickedman"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/wickedman.bin" alt="wickedman">Cristian Strat</a> <a title="Rating wickedman: 577" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/wickedman?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/wickedman">wickedman</a></span></span>
+</div>
+<div class="body">
+Frumos scris și foarte faine problemele pe care le-ai pus în articol. Mi-ai adus aminte de o altă problemă pe care ai pus-o <a href="http://infoarena.ro/blog/meet-in-the-middle" target="_blank">într-un post precedent</a>:<br><br><div class="quoteheader">Citat</div><div class="quote">4
+ reversals We are given two equal length strings S and T. Figure out if 
+we can get string T starting from string S and applying 4 substring 
+reversal operations. (Hint: complexity O(n<sup>5</sup>))</div><br>Cred că se poate reduce la O(n<sup>4</sup>)) cu un rolling hash.
+</div>
+</div>
+<div class="comment">
+<div class="header">
+<span class="timestamp">
+Octombrie 31, 2012, 15:35:30
+</span>
+<span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/a_h1926"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/a_h1926.bin" alt="a_h1926">Heidelbacher Andrei</a> <a title="Rating a_h1926: 884" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/a_h1926?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/a_h1926">a_h1926</a></span></span>
+</div>
+<div class="body">
+1. We want to count separately the number of palindromic sequences with 
+even length and uneven length. We will now try to solve the problem for 
+even palindromic sequences, as the other case is symmetrical. For every i
+ from 1 to n, we will count how many palindromic sequences are centered 
+on (i, i+1), which is equivalent to finding the largest possible L such 
+that subsequence (i-L, i+1+L) is a palindrome. We can use binary search 
+to find this value, and we now need to implement fast string comparison,
+ which we can do by preprocessing some hash values.<br><br>2. Let’s 
+consider the function F(x) = the maximum number of occurences of some 
+substring of length x from the original string. We can observe that F is
+ a decreasing function, thus we can use binary search to find the 
+largest x such that F(x) &gt;= k. Now we need to compute F(x) 
+efficiently. We will iterate over the original string and insert the 
+hash code for every substring of length x in a table. The maximum number
+ of equal values in this table will be the value of F(x), and this can 
+be easily computed in O(n) if we update the maximum value everytime we 
+insert a new substring in the hash (for every code we keep in the table 
+how many elements have that code). The final complexity is O(nlogn)<br><br>3.
+ We could use binary search to find the side length of the square, and 
+for a fixed length L, we want to see if there are at least 2 squares 
+that are identical. For every element in the bitmap, we will compute a 
+hash code that represents the substring formed by it and the previous 
+L-1 elements on its line. Now, we apply the same process to the newly 
+computed table, but for the previous L-1 elements on it’s column, and 
+so, every element in the final table will have the hash code for an 
+entire square. The only thing left to do is iterate over the elements in
+ the final table and see if there is at least one duplicate. Final 
+complexity is (n^2 logn), if the bitmap has size nxn.<br><br>4. If the 
+string has period L, then S[1..L] = S[L+1...2L] = ... = S[k*L+1, 
+(k+1)*L], with k from 0 to N/L - 1. This is exactly what we will try to 
+find out, if the substring S[1...L] equals every other substring 
+considered above, and for this we can use precomputed hash codes. Now, 
+we just need to check this for every L from 1 to N. The number of steps 
+is n (1 + 1/2 + 1/3 + ... + 1/n) = nlogn, so the final complexity is 
+O(nlogn).<br><br>5. We build the hash code for both strings. Now, we 
+will literally rotate one of the strings by updating its hash code (we 
+erase the first character and add the new one), and we only need to see 
+if there is at least one position in which the two hash codes are equal.
+ Since there are n possible rotations, we have O(n) time complexity.<br><br>6.
+ For two polygons to be similar, the corresponding angles must be equal 
+and the ratio between the corresponding segments must be the same (if we
+ have n vertices A1, A2, ..., An and B1, B2, ..., Bn, then A1A2 / B1B2 =
+ A2A3/B2B3, etc.). From A1A2/B1B2 = A2A3/B2B3, we also deduce that 
+A1A2/A2A4 = B1B2/B2B3, and similarly we have the equivalence between the
+ previous relations and A(k)A(k+1)/A(k+1)A(k+2) = 
+B(k)B(k+1)/B(k+1)B(k+2). Now, for every vertex in each polygon, we will 
+associate it two values: the angle formed by the two segments incident 
+in it, and the ratio between the two segments. We notice that each 
+polygon was reduced to a string, in which a character consists of these 
+two values. We observe that for the two polygons to be similar, one of 
+the strings must be a rotation of the other, and we reduced this problem
+ to the previous one which has an O(n) solution. Also, the number of 
+steps to build the two “strings” takes time O(n), so the final 
+complexity is O(n). The only thing at which we must be careful is in 
+case we can "mirror" one of the polygons, case in which we just need to 
+check with one of the strings reversed, so this doesn't influence the 
+time complexity.<br><br>7. We will try to see the longest periodic 
+prefix that has a fixed period L. This is equivalent to finding the 
+largest k such that S[1...L] = S[L+1...2L] = ... = S[(k-1)L+1...kL], and
+ the length of that prefix will be L*k. We can proceed just as in 
+problem 4 and the resulting complexity is O(nlogn).<br><br>8. We will 
+use a DFS and we keep a stack with the currently active nodes, so we can
+ determine quickly which is the k-th father of a node. Let’s denote F[ x
+ ][k] = the k-th father of x. Now, when we are at a node x, we want to 
+see if the string formed by F[ x ][k-1], F[ x ][k-2], ..., F[ x ], x 
+matches string P. We can do this by computing hash codes for every node x
+ based on the hash code of its father, and compare it with the hash code
+ of string P. When we compute the hash code for node x, the new 
+character added to the string is the one associated with this node and 
+the character we delete is the one associated to the k-th father of x. 
+Resulting complexity is (n), where n is the number of nodes.<br>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 01, 2012, 09:12:38
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/Cosmin"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/Cosmin.bin" alt="Cosmin">Cosmin Negruseri</a> <a title="Rating Cosmin: 494" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/Cosmin?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/Cosmin">Cosmin</a></span></span>
+                    </div>
+                    <div class="body">
+                        @Cristian: Yup I think you're right <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0">.<br>@Andrei: Nice! I think my solutions were the same.
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 01, 2012, 13:17:18
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/flmanea"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/flmanea.bin" alt="flmanea">Florin Manea</a> <a title="Rating flmanea: 0" class="rating-badge-0" href="http://www.infoarena.ro/utilizator/flmanea?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/flmanea">flmanea</a></span></span>
+                    </div>
+                    <div class="body">
+                        @Andrei: Actually, problem 4 can be solved in a much easier way <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0"><br>You
+ are just interested in the existence of a border in the word S. That 
+is, some L such that S[1..L]=S[N-L+1..N]. This can be tested in linear 
+time with suffix arrays (or whatever data structure you prefer), as well
+ as with rolling hash. <br>But, anyway, nice solutions <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/biggrin.gif" alt="Very Happy" border="0"><br>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 01, 2012, 13:59:47
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/a_h1926"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/a_h1926.bin" alt="a_h1926">Heidelbacher Andrei</a> <a title="Rating a_h1926: 884" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/a_h1926?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/a_h1926">a_h1926</a></span></span>
+                    </div>
+                    <div class="body">
+                        <div class="quoteheader"><a href="http://www.infoarena.ro/forum/index.php?topic=8385.msg60066#msg60066">Citat din mesajul lui: Florin Manea din Noiembrie 01, 2012, 13:17:18</a></div><div class="quote">@Andrei: Actually, problem 4 can be solved in a much easier way <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0"><br>You
+ are just interested in the existence of a border in the word S. That 
+is, some L such that S[1..L]=S[N-L+1..N]. This can be tested in linear 
+time with suffix arrays (or whatever data structure you prefer), as well
+ as with rolling hash. <br>But, anyway, nice solutions <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/biggrin.gif" alt="Very Happy" border="0"><br><br></div><br>I
+ think it can be found with KMP algorithm as well, and the solution is 
+even simplier than with suffix arrays, but I thought we should have 
+found a solution with rolling hashes, since that's the name of the post.
+ Anyway, thanks for the observation.
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 01, 2012, 14:38:04
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/flmanea"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/flmanea.bin" alt="flmanea">Florin Manea</a> <a title="Rating flmanea: 0" class="rating-badge-0" href="http://www.infoarena.ro/utilizator/flmanea?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/flmanea">flmanea</a></span></span>
+                    </div>
+                    <div class="body">
+                        Yeah, actually "whatever data structure you prefer" included the functions computed by KMP <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0"> But I must confess that I kind of like suffix arrays, so I just gave them priority <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/biggrin.gif" alt="Very Happy" border="0"> Anyway, as I said, the linear solution can be achieved with some sort of rolling hash as well.<br><br>
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 02, 2012, 00:31:00
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/chris_11"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/chris_11.bin" alt="chris_11">Botau Cristian</a> <a title="Rating chris_11: 555" class="rating-badge-3" href="http://www.infoarena.ro/utilizator/chris_11?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/chris_11">chris_11</a></span></span>
+                    </div>
+                    <div class="body">
+                        Nice article and cute problems <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0">.
+ In the text of the first additional problem there is a small typo, I 
+think you meant palindromic substrings, not subsequences (I think 
+everybody understood substrings anyway <img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/smile.gif" alt="Smile" border="0"> ).<br><br>P.S.:
+ Oh, and while I'm still in the bitchin' mode: I had an issue while 
+viewing comments on the blog page after logging in: it says "Continutul 
+nu poate fi descarcat". It seems to happen when using the https protocol
+ (the browser isn't very happy about performing an AJAX request to an 
+unsecured location). Sorry for the digression.
+                    </div>
+                </div>
+                <div class="comment">
+                    <div class="header">
+                        <span class="timestamp">
+                            Noiembrie 03, 2012, 01:54:43
+                            
+                        </span>
+                        <span class="tiny-user"><a href="http://www.infoarena.ro/utilizator/Cosmin"><img src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/Cosmin.bin" alt="Cosmin">Cosmin Negruseri</a> <a title="Rating Cosmin: 494" class="rating-badge-5" href="http://www.infoarena.ro/utilizator/Cosmin?action=rating">•</a><span class="username"><a href="http://www.infoarena.ro/utilizator/Cosmin">Cosmin</a></span></span>
+                    </div>
+                    <div class="body">
+                        @Florin. Yes, other problems also have better 
+solutions. For example the Longest palindrome can be solved in linear 
+time using a suffix tree or using clever trick by Manacher (<a href="http://books.google.com/books?id=9NdohJXtIyYC&amp;lpg=PP1&amp;ots=llc90BNZHd&amp;dq=rytter%20jewels%20o&amp;pg=PA111#v=onepage&amp;q&amp;f=false" target="_blank">http://books.google.com/books?id=9NdohJXtIyYC&amp;lpg=PP1&amp;ots=llc90BNZHd&amp;dq=rytter%20jewels%20o&amp;pg=PA111#v=onepage&amp;q&amp;f=false</a>)
+                    </div>
+                </div><br>
+            <h3>Comenteaza si tu!</h3>
+            <div class="toolbar">
+                <a href="http://www.infoarena.ro/forum/index.php?action=post;topic=8385">Lasa un comentariu!</a> Vrem sa aflam ce crezi!
+            </div>
+        </div></div></div><script type="text/javascript">RemoteBox_Url="http://www.infoarena.ro/forum/ia_comments.php?topic_id=8385&amp;display=show";</script></div></div></div></div>
+</div>
+</div>
+
+<div id="footer">
+    <ul class="clear">
+        <li class="copyright">©&nbsp;2004-2013&nbsp;<a href="http://www.infoarena.ro/Asociatia-infoarena">Asociatia infoarena</a></li>
+        <li class="separate"><a href="http://www.infoarena.ro/">Prima pagina</a></li>
+        <li><a href="http://www.infoarena.ro/despre-infoarena">Despre infoarena</a></li>
+        <li><a href="http://www.infoarena.ro/termeni-si-conditii">Termeni si conditii</a></li>
+        <li><a href="http://www.infoarena.ro/contact">Contact</a></li>
+        <li class="top"><a href="#header">Sari la inceputul paginii ↑</a></li>
+    </ul>
+    <p class="cc">
+    <!--Creative Commons License-->
+    <a class="badge" rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/"><img alt="Creative Commons License" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/CreativeCommonsBadge.png"></a>
+    Cu exceptia cazurilor in care se specifica altfel, continutul site-ului infoarena<br>este publicat sub licenta <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">Creative Commons Attribution-NonCommercial 2.5</a>.
+    <!--/Creative Commons License-->
+    <rdf:rdf xmlns="http://web.resource.org/cc/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+        <work rdf:about="">
+            <license rdf:resource="http://creativecommons.org/licenses/by-nc/2.5/">
+        </license></work>
+        <license rdf:about="http://creativecommons.org/licenses/by-nc/2.5/">
+            <permits rdf:resource="http://web.resource.org/cc/Reproduction">
+            <permits rdf:resource="http://web.resource.org/cc/Distribution">
+            <requires rdf:resource="http://web.resource.org/cc/Notice">
+            <requires rdf:resource="http://web.resource.org/cc/Attribution">
+            <prohibits rdf:resource="http://web.resource.org/cc/CommercialUse">
+            <permits rdf:resource="http://web.resource.org/cc/DerivativeWorks">
+        </permits></prohibits></requires></requires></permits></permits></license>
+    </rdf:rdf>
+    </p>
+</div>
+
+    <script src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/urchin.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+    _uacct = "UA-113289-8";
+    _udn = "infoarena.ro";
+    urchinTracker();
+    </script>
+
+
+
+
+
+<iframe style="width: 1px; height: 1px; position: absolute; top: -100px;" src="Rolling%20hash,%20Rabin%20Karp,%20palindromes,%20rsync%20and%20others_files/postmessageRelay.html" id="oauth2relay669981124" name="oauth2relay669981124"></iframe></body></html>

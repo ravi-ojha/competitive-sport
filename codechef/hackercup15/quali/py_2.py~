@@ -1,0 +1,3 @@
+def list_powerset2(lst):
+    return reduce(lambda result, x: result + [subset + [x] for subset in result],
+                  lst, [[]])

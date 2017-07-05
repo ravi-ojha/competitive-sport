@@ -1,0 +1,4 @@
+freq = []
+def chor2():
+    
+

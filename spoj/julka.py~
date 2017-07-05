@@ -1,0 +1,13 @@
+def natalia():
+    t = 10
+    for p in xrange(t):
+        n = input()
+        m = input()
+        x = (n-m)/2
+        y = n - x
+        print y
+        print x
+natalia()
+
+for i in xrange(10):
+	print 8**i

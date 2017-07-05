@@ -1,0 +1,46 @@
+from collections import deque
+v=[]
+prime=1000000007
+def dfs(j,d,f):
+	h.append(j)
+	for i in d[j].keys():
+		if d[j][i]==True and i not in h:
+			f+=1
+			f=dfs(i,d,f)
+	return f
+def main():
+	t=raw_input().strip();
+	n=0
+	for i in xrange(int(t)):
+		s=raw_input().strip().split(' ')
+		n=int(s[0])
+		d={}
+		h={}
+		for j in xrange(n):
+			d[j]={}
+			h[j]=False
+		m=int(s[1])
+		for j in xrange(m):
+			s=raw_input().strip().split(' ')
+			d[int(s[0])-1][int(s[1])-1]=True
+			d[int(s[1])-1][int(s[0])-1]=True
+		pro=1
+		com=0
+		for j in xrange(n):
+			if h[j]==False:
+				f=1
+				com+=1
+				queue=deque()
+				queue.append(j)
+				h[j]=True
+				while len(queue)!=0:
+					k=queue.popleft()
+						for l in d[k].keys():
+							if d[k][l]==True and h[l]==False:
+								f+=1
+								h[l]=True
+								queue.append(l)
+				pro=(pro*f)%prime
+		print str(com) + " " + str(pro)
+if __name__=="__main__":
+	main()

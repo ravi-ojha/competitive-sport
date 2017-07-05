@@ -1,0 +1,1166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<title>Algorithm Tutorials</title>
+
+
+
+<script src="Algorithm%20Tutorials_files/ga.js" async="" type="text/javascript"></script><script src="Algorithm%20Tutorials_files/6ZwZEUo2ZK4c50aLPpgupeg5v2Ffxp9P.js"></script><script language="JavaScript" type="text/javascript" src="Algorithm%20Tutorials_files/jquery-1.js"></script>
+<script language="JavaScript" type="text/javascript" src="Algorithm%20Tutorials_files/tcscript.js"></script><link type="image/x-icon" rel="shortcut icon" href="http://community.topcoder.com/i/favicon.ico">
+<script language="JavaScript" type="text/javascript" src="Algorithm%20Tutorials_files/loginAction.js"></script>
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="Algorithm%20Tutorials_files/style.css">
+<link type="text/css" rel="stylesheet" href="Algorithm%20Tutorials_files/coders.css">
+<link type="text/css" rel="stylesheet" href="Algorithm%20Tutorials_files/tcStyles20080219.css">
+<link type="text/css" rel="stylesheet" href="Algorithm%20Tutorials_files/jobsRemix.css">
+
+
+<script language="JavaScript" src="Algorithm%20Tutorials_files/print.js"></script>
+<script type="text/javascript">var NREUMQ=NREUMQ||[];NREUMQ.push(["mark","firstbyte",new Date().getTime()]);</script><style type="text/css">
+.code
+{
+   width: 550;
+   padding: 10px;
+   margin: 20px;
+   color: #333;
+   font-size: 11px;
+   font-weight: normal;
+   line-height: 14px;
+   background-color: #EEEEEE;
+   border: 1px solid #999;
+}
+</style>
+<style type="text/css">.a0-widget article,.a0-widget aside,.a0-widget details,.a0-widget figcaption,.a0-widget figure,.a0-widget footer,.a0-widget header,.a0-widget hgroup,.a0-widget nav,.a0-widget section,.a0-widget summary{display:block}.a0-widget audio,.a0-widget canvas,.a0-widget video{display:inline-block;*display:inline;*zoom:1}.a0-widget audio:not([controls]){display:none;height:0}.a0-widget [hidden]{display:none}.a0-widget html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}.a0-widget a,.a0-widget button,.a0-widget div,.a0-widget h1,.a0-widget h2,.a0-widget html,.a0-widget input,.a0-widget select,.a0-widget span,.a0-widget textarea{font-family:sans-serif}.a0-widget body{margin:0}.a0-widget a:focus{outline:thin dotted}.a0-widget a:active,.a0-widget a:hover{outline:0}.a0-widget h4{font-size:1em;margin:1.33em 0}.a0-widget h5{font-size:.83em;margin:1.67em 0}.a0-widget h6{font-size:.75em;margin:2.33em 0}.a0-widget abbr[title]{border-bottom:1px dotted}.a0-widget b,.a0-widget strong{font-weight:700}.a0-widget blockquote{margin:1em 40px}.a0-widget dfn{font-style:italic}.a0-widget mark{background:#ff0;color:#000}.a0-widget p,.a0-widget pre{margin:1em 0}.a0-widget code,.a0-widget kbd,.a0-widget pre,.a0-widget samp{font-family:monospace,serif;_font-family:'courier new',monospace;font-size:1em}.a0-widget pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word}.a0-widget q{quotes:none}.a0-widget q:after,.a0-widget q:before{content:'';content:none}.a0-widget small{font-size:80%}.a0-widget sub,.a0-widget sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}.a0-widget sup{top:-.5em}.a0-widget sub{bottom:-.25em}.a0-widget dl,.a0-widget menu,.a0-widget ol,.a0-widget ul{margin:1em 0}.a0-widget dd{margin:0 0 0 40px}.a0-widget menu,.a0-widget ol,.a0-widget ul{padding:0 0 0 40px}.a0-widget nav ol,.a0-widget nav ul{list-style:none;list-style-image:none}.a0-widget img{border:0;-ms-interpolation-mode:bicubic}.a0-widget svg:not(:root){overflow:hidden}.a0-widget figure,.a0-widget form{margin:0}.a0-widget fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}.a0-widget legend{border:0;padding:0;white-space:normal;*margin-left:-7px}.a0-widget button,.a0-widget input,.a0-widget select,.a0-widget textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle}.a0-widget button,.a0-widget html input[type=button],.a0-widget input[type=reset],.a0-widget input[type=submit]{-webkit-appearance:button;cursor:pointer;*overflow:visible}.a0-widget button[disabled],.a0-widget input[disabled]{cursor:default}.a0-widget input[type=checkbox],.a0-widget input[type=radio]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0;*height:13px;*width:13px}.a0-widget input[type=search]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}.a0-widget input[type=search]::-webkit-search-cancel-button,.a0-widget input[type=search]::-webkit-search-decoration{-webkit-appearance:none}.a0-widget button::-moz-focus-inner,.a0-widget input::-moz-focus-inner{border:0;padding:0}.a0-widget textarea{overflow:auto;vertical-align:top}.a0-widget table{border-collapse:collapse;border-spacing:0}.a0-widget a,.a0-widget button,.a0-widget footer,.a0-widget form,.a0-widget form label,.a0-widget h1,.a0-widget h2,.a0-widget h3,.a0-widget header,.a0-widget input,.a0-widget span{font-smooth:never;-webkit-font-smoothing:auto;alignment-baseline:baseline;-webkit-animation:none 0 ease 0 1 normal;-moz-animation:none 0 ease 0 1 normal;animation:none 0 ease 0 1 normal;-webkit-animation-play-state:running;-moz-animation-play-state:running;animation-play-state:running;appearance:normal;-webkit-backface-visibility:visible;-moz-backface-visibility:visible;-ms-backface-visibility:visible;backface-visibility:visible;background:none 0 0 auto repeat scroll padding-box transparent;background-color:transparent;background-image:none;baseline-shift:baseline;binding:none;bleed:6pt;bookmark-label:content();bookmark-level:none;bookmark-state:open;bookmark-target:none;border:0 none transparent;border-radius:0;bottom:auto;-webkit-box-align:stretch;-webkit-align-items:stretch;-moz-box-align:stretch;-ms-flex-align:stretch;box-align:stretch;box-decoration-break:slice;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:normal;-moz-box-orient:vertical;-moz-box-direction:normal;-ms-flex-direction:normal;box-direction:normal;-webkit-box-flex:0;-webkit-flex:0;-moz-box-flex:0;-ms-flex:0;box-flex:0;box-flex-group:1;box-lines:single;-webkit-box-ordinal-group:2;-webkit-order:1;-moz-box-ordinal-group:2;-ms-flex-order:1;box-ordinal-group:1;box-orient:inline-axis;-webkit-box-pack:start;-webkit-justify-content:start;-moz-box-pack:start;-ms-flex-pack:start;box-pack:start;-webkit-box-shadow:none;box-shadow:none;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-break-after:auto;-moz-break-after:auto;break-after:auto;-webkit-break-before:auto;-moz-break-before:auto;break-before:auto;-webkit-break-inside:auto;-moz-break-inside:auto;break-inside:auto;caption-side:top;clear:none;clip:auto;color:inherit;color-profile:auto;-webkit-column-count:auto;-moz-column-count:auto;column-count:auto;-webkit-column-fill:balance;-moz-column-fill:balance;column-fill:balance;-webkit-column-gap:normal;-moz-column-gap:normal;column-gap:normal;-webkit-column-rule:medium medium #1f1f1f;-moz-column-rule:medium medium #1f1f1f;column-rule:medium medium #1f1f1f;-webkit-column-span:1;-moz-column-span:1;column-span:1;-webkit-column-width:auto;-moz-column-width:auto;column-width:auto;-webkit-columns:auto auto;-moz-columns:auto auto;columns:auto auto;content:normal;counter-increment:none;counter-reset:none;crop:auto;cursor:auto;direction:auto;display:auto;dominant-baseline:auto;drop-initial-after-adjust:text-after-edge;drop-initial-after-align:baseline;drop-initial-before-adjust:text-before-edge;drop-initial-before-align:caps-height;drop-initial-size:auto;drop-initial-value:initial;elevation:level;empty-cells:show;fit:fill;fit-position:0 0;float:none;float-offset:0 0;font-size-adjust:none;font-stretch:normal;font:normal normal 100% "Helvetica Neue",Arial,sans-serif;grid-columns:none;grid-rows:none;hanging-punctuation:none;height:auto;hyphenate-after:auto;hyphenate-before:auto;hyphenate-character:auto;hyphenate-lines:no-limit;hyphenate-resource:none;-webkit-hyphens:manual;-moz-hyphens:manual;-ms-hyphens:manual;hyphens:manual;icon:auto;image-orientation:auto;image-rendering:auto;image-resolution:normal;inline-box-align:last;left:auto;letter-spacing:normal;line-height:normal;line-stacking:inline-line-height exclude-ruby consider-shifts;list-style:disc outside none;margin:0;marks:none;marquee-direction:forward;marquee-loop:1;marquee-play-count:1;marquee-speed:normal;marquee-style:scroll;max-height:none;max-width:none;min-height:0;min-width:0;move-to:normal;nav-down:auto;nav-index:auto;nav-left:auto;nav-right:auto;nav-up:auto;opacity:1;orphans:2;outline:invert none medium!important;outline-offset:0;overflow:visible;overflow-style:auto;padding:0;page:auto;page-break-after:auto;page-break-before:auto;page-break-inside:auto;page-policy:start;-webkit-perspective:none;-moz-perspective:none;-ms-perspective:none;perspective:none;-webkit-perspective-origin:50% 50%;-moz-perspective-origin:50% 50%;-ms-perspective-origin:50% 50%;perspective-origin:50% 50%;position:static;presentation-level:0;punctuation-trim:none;quotes:none;rendering-intent:auto;resize:none;right:auto;rotation:0;rotation-point:50% 50%;ruby-align:auto;ruby-overhang:none;ruby-position:before;ruby-span:none;size:auto;string-set:none;table-layout:auto;text-align:auto;text-align-last:start;text-decoration:none;text-emphasis:none;text-height:auto;text-indent:0;text-justify:auto;text-outline:0;text-shadow:none;text-transform:none;text-wrap:normal;top:auto;-webkit-transform:none;-moz-transform:none;-ms-transform:none;transform:none;-webkit-transform-origin:50% 50% 0;-moz-transform-origin:50% 50% 0;-ms-transform-origin:50% 50% 0;transform-origin:50% 50% 0;-webkit-transform-style:flat;-moz-transform-style:flat;-ms-transform-style:flat;transform-style:flat;-webkit-transition:all 0 ease 0;-moz-transition:all 0 ease 0;transition:all 0 ease 0;unicode-bidi:normal;vertical-align:baseline;visibility:visible;white-space:normal;white-space-collapse:collapse;widows:2;width:auto;word-break:normal;word-spacing:normal;word-wrap:normal;z-index:auto;filter:progid:DXImageTransform.Microsoft.gradient(enabled=false)}#a0-widget .a0-theme-static .a0-popup .a0-overlay,#a0-widget .a0-theme-static .a0-popup .a0-overlay.a0-ie8-overlay{background:rgba(255,255,255,0);background-color:transparent}#a0-widget .a0-theme-static .a0-popup .a0-panel{-webkit-box-shadow:0 0 0 1px rgba(14,41,57,.12),0 2px 5px rgba(14,41,57,.44),inset 0 -1px 2px rgba(14,41,57,.15);box-shadow:0 0 0 1px rgba(14,41,57,.12),0 2px 5px rgba(14,41,57,.44),inset 0 -1px 2px rgba(14,41,57,.15);background:#fff}#a0-widget .a0-theme-static .a0-popup .a0-panel:after{display:none}@-moz-keyframes showPanel{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes showPanel{0%{opacity:0}100%{opacity:1}}@-ms-keyframes showPanel{0%{opacity:0}100%{opacity:1}}@keyframes showPanel{0%{opacity:0}100%{opacity:1}}@-moz-keyframes hidePanel{0%{opacity:1}100%{opacity:0}}@-webkit-keyframes hidePanel{0%{opacity:1}100%{opacity:0}}@-ms-keyframes hidePanel{0%{opacity:1}100%{opacity:0}}@keyframes hidePanel{0%{opacity:1}100%{opacity:0}}#a0-widget .a0-theme-static .a0-separator span{background:#fff}#a0-widget .a0-embedded .a0-popup .a0-panel{box-shadow:none;-webkit-box-shadow:none;border-radius:0}#a0-widget .a0-embedded .a0-popup .a0-panel .a0-header{display:none}#a0-widget .a0-spinner-css{margin:-30px 0 0 -30px;height:60px;width:60px;top:50%;left:50%;position:absolute;border-radius:999px}#a0-widget .a0-spinner-css:after{content:"";position:absolute;width:48px;height:48px;left:0;top:0;margin:6px;background:#fafafa;opacity:1;border-radius:999px}#a0-widget .a0-spinner-css .a0-side{height:60px;width:30px;position:absolute;overflow:hidden;top:0}#a0-widget .a0-spinner-css .a0-side>.a0-fill{position:absolute;width:30px;height:60px;background:#747e85;border-radius:999px;animation:cssSpinnerRight 2s infinite linear;-webkit-animation:cssSpinnerRight 2s infinite linear;-moz-animation:cssSpinnerRight 2s infinite linear}#a0-widget .a0-spinner-css .a0-side.a0-sp_right{left:30px;border-radius:0 999px 999px 0}#a0-widget .a0-spinner-css .a0-side.a0-sp_right>.a0-fill{right:0;border-right:30px solid #fafafa}#a0-widget .a0-spinner-css .a0-side.a0-sp_left{left:0;border-radius:999px 0 0 999px}#a0-widget .a0-spinner-css .a0-side.a0-sp_left>.a0-fill{left:0;border-left:30px solid #fafafa;animation:cssSpinnerLeft 2s infinite linear;-webkit-animation:cssSpinnerLeft 2s infinite linear;-moz-animation:cssSpinnerLeft 2s infinite linear}@-webkit-keyframes cssSpinnerRight{0%{-webkit-transform:rotate(0deg)}20%{-webkit-transform:rotate(90deg)}25%,50%{-webkit-transform:rotate(180deg)}70%{-webkit-transform:rotate(270deg)}100%,75%{-webkit-transform:rotate(360deg)}}@-webkit-keyframes cssSpinnerLeft{0%,25%{-webkit-transform:rotate(0deg)}35%{-webkit-transform:rotate(90deg)}50%,75%{-webkit-transform:rotate(180deg)}80%{-webkit-transform:rotate(270deg)}100%{-webkit-transform:rotate(360deg)}}@-moz-keyframes cssSpinnerRight{0%{-moz-transform:rotate(0deg)}20%{-moz-transform:rotate(90deg)}25%,50%{-moz-transform:rotate(180deg)}70%{-moz-transform:rotate(270deg)}100%,75%{-moz-transform:rotate(360deg)}}@-moz-keyframes cssSpinnerLeft{0%,25%{-moz-transform:rotate(0deg)}35%{-moz-transform:rotate(90deg)}50%,75%{-moz-transform:rotate(180deg)}80%{-moz-transform:rotate(270deg)}100%{-moz-transform:rotate(360deg)}}@keyframes cssSpinnerRight{0%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg)}20%{-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}25%,50%{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}70%{-webkit-transform:rotate(270deg);-moz-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}100%,75%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes cssSpinnerLeft{0%,25%{-webkit-transform:rotate(0deg);-moz-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg)}35%{-webkit-transform:rotate(90deg);-moz-transform:rotate(90deg);-ms-transform:rotate(90deg);transform:rotate(90deg)}50%,75%{-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}80%{-webkit-transform:rotate(270deg);-moz-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg)}100%{-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-ms-transform:rotate(360deg);transform:rotate(360deg)}}#a0-widget .a0-zocial,#a0-widget a.a0-zocial{border:1px solid #777;border-color:rgba(0,0,0,.2);border-bottom-color:#333;border-bottom-color:rgba(0,0,0,.4);color:#fff;-webkit-box-shadow:inset 0 .08em 0 rgba(255,255,255,.4),inset 0 0 .1em rgba(255,255,255,.9);box-shadow:inset 0 .08em 0 rgba(255,255,255,.4),inset 0 0 .1em rgba(255,255,255,.9);cursor:pointer;display:inline-block;font:700 100%/2.1 "Lucida Grande",Tahoma,sans-serif;padding:0 .22em 0 0;text-align:left;text-decoration:none;text-shadow:0 1px 0 rgba(0,0,0,.5);white-space:nowrap;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;position:relative;border-radius:.3em}#a0-widget .a0-zocial.a0-primary{text-align:center}#a0-widget .a0-zocial:before{content:"";border-right:.075em solid rgba(0,0,0,.1);float:left;font:120%/1.65 zocial;font-style:normal;font-weight:400;margin:0 .5em 0 0;padding:0 .5em;text-align:center;text-decoration:none;text-transform:none;-webkit-box-shadow:.075em 0 0 rgba(255,255,255,.25);box-shadow:.075em 0 0 rgba(255,255,255,.25);-moz-font-smoothing:antialiased;-webkit-font-smoothing:antialiased;font-smoothing:antialiased}#a0-widget .a0-zocial:active{outline:0}#a0-widget .a0-zocial.a0-icon{overflow:hidden;max-width:2.4em;padding-left:0;padding-right:0;max-height:2.15em;white-space:nowrap}#a0-widget .a0-zocial.a0-icon:before{padding:0;width:2em;height:2em;-webkit-box-shadow:none;box-shadow:none;border:0}#a0-widget .a0-zocial{background-image:-moz-linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.05) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.1));background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.1)),color-stop(49%,rgba(255,255,255,.05)),color-stop(51%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));background-image:-webkit-linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.05) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.1));background-image:-webkit-gradient(linear,top left,bottom left,from(rgba(255,255,255,.1)),color-stop(49%,rgba(255,255,255,.05)),color-stop(51%,rgba(0,0,0,.05)),to(rgba(0,0,0,.1)));background-image:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.05) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.1))}#a0-widget .a0-zocial:focus,#a0-widget .a0-zocial:hover{background-image:-moz-linear-gradient(rgba(255,255,255,.15) 49%,rgba(0,0,0,.1) 51%,rgba(0,0,0,.15));background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.15)),color-stop(49%,rgba(255,255,255,.15)),color-stop(51%,rgba(0,0,0,.1)),to(rgba(0,0,0,.15)));background-image:-webkit-linear-gradient(rgba(255,255,255,.15) 49%,rgba(0,0,0,.1) 51%,rgba(0,0,0,.15));background-image:-webkit-gradient(linear,top left,bottom left,from(rgba(255,255,255,.15)),color-stop(51%,rgba(0,0,0,.1)),to(rgba(0,0,0,.15)));background-image:linear-gradient(rgba(255,255,255,.15) 49%,rgba(0,0,0,.1) 51%,rgba(0,0,0,.15))}#a0-widget .a0-zocial:active{background-image:-moz-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0) 30%,transparent 50%,rgba(0,0,0,.1));background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.1)),color-stop(30%,rgba(255,255,255,0)),color-stop(50%,transparent),to(rgba(0,0,0,.1)));background-image:-webkit-linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0) 30%,transparent 50%,rgba(0,0,0,.1));background-image:-webkit-gradient(linear,bottom left,top left,from(rgba(255,255,255,.1)),color-stop(30%,rgba(255,255,255,0)),color-stop(50%,transparent),to(rgba(0,0,0,.1)));background-image:linear-gradient(bottom,rgba(255,255,255,.1),rgba(255,255,255,0) 30%,transparent 50%,rgba(0,0,0,.1))}#a0-widget .a0-zocial.a0-dropbox,#a0-widget .a0-zocial.a0-github,#a0-widget .a0-zocial.a0-gmail,#a0-widget .a0-zocial.a0-openid,#a0-widget .a0-zocial.a0-salesforce,#a0-widget .a0-zocial.a0-secondary,#a0-widget .a0-zocial.a0-stackoverflow{border:1px solid #aaa;border-color:rgba(0,0,0,.3);border-bottom-color:#777;border-bottom-color:rgba(0,0,0,.5);-webkit-box-shadow:inset 0 .08em 0 rgba(255,255,255,.7),inset 0 0 .08em rgba(255,255,255,.5);box-shadow:inset 0 .08em 0 rgba(255,255,255,.7),inset 0 0 .08em rgba(255,255,255,.5);text-shadow:0 1px 0 rgba(255,255,255,.8)}#a0-widget .a0-zocial.a0-dropbox:focus,#a0-widget .a0-zocial.a0-dropbox:hover,#a0-widget .a0-zocial.a0-github:focus,#a0-widget .a0-zocial.a0-github:hover,#a0-widget .a0-zocial.a0-gmail:focus,#a0-widget .a0-zocial.a0-gmail:hover,#a0-widget .a0-zocial.a0-openid:focus,#a0-widget .a0-zocial.a0-openid:hover,#a0-widget .a0-zocial.a0-salesforce:focus .a0-zocial.a0-salesforce:hover,#a0-widget .a0-zocial.a0-secondary:focus,#a0-widget .a0-zocial.a0-secondary:hover,#a0-widget .a0-zocial.a0-stackoverflow:focus,#a0-widget .a0-zocial.a0-stackoverflow:hover,#a0-widget .a0-zocial.a0-twitter:focus .a0-zocial.a0-twitter:hover{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.5)),color-stop(49%,rgba(255,255,255,.2)),color-stop(51%,rgba(0,0,0,.05)),to(rgba(0,0,0,.15)));background-image:-moz-linear-gradient(top,rgba(255,255,255,.5),rgba(255,255,255,.2) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.15));background-image:-webkit-linear-gradient(top,rgba(255,255,255,.5),rgba(255,255,255,.2) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.15));background-image:-webkit-gradient(linear,top left,bottom left,from(top),color-stop(rgba(255,255,255,.5)),color-stop(49%,rgba(255,255,255,.2)),color-stop(51%,rgba(0,0,0,.05)),to(rgba(0,0,0,.15)));background-image:linear-gradient(top,rgba(255,255,255,.5),rgba(255,255,255,.2) 49%,rgba(0,0,0,.05) 51%,rgba(0,0,0,.15))}#a0-widget .a0-zocial.a0-dropbox:active,#a0-widget .a0-zocial.a0-github:active,#a0-widget .a0-zocial.a0-gmail:active,#a0-widget .a0-zocial.a0-openid:active,#a0-widget .a0-zocial.a0-salesforce:active,#a0-widget .a0-zocial.a0-secondary:active,#a0-widget .a0-zocial.a0-stackoverflow:active,#a0-widget .a0-zocial.a0-wikipedia:active{background-image:-webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,0)),color-stop(30%,rgba(255,255,255,0)),color-stop(50%,rgba(0,0,0,0)),to(rgba(0,0,0,.1)));background-image:-moz-linear-gradient(bottom,rgba(255,255,255,0),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 50%,rgba(0,0,0,.1));background-image:-webkit-linear-gradient(bottom,rgba(255,255,255,0),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 50%,rgba(0,0,0,.1));background-image:-webkit-gradient(linear,bottom left,top left,from(rgba(255,255,255,0)),color-stop(30%,rgba(255,255,255,0)),color-stop(50%,rgba(0,0,0,0)),to(rgba(0,0,0,.1)));background-image:linear-gradient(bottom,rgba(255,255,255,0),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 50%,rgba(0,0,0,.1))}#a0-widget .a0-zocial.a0-amazon:before{content:"a"}#a0-widget .a0-zocial.a0-dropbox:before{content:"d";color:#1f75cc}#a0-widget .a0-zocial.a0-facebook:before{content:"f"}#a0-widget .a0-zocial.a0-github:before{content:"\00E8"}#a0-widget .a0-zocial.a0-gmail:before{content:"m";color:red}#a0-widget .a0-zocial.a0-google:before{content:"G"}#a0-widget .a0-zocial.a0-googleplus:before{content:"+"}#a0-widget .a0-zocial.a0-guest:before{content:"?"}#a0-widget .a0-zocial.a0-ie:before{content:"6"}#a0-widget .a0-zocial.a0-linkedin:before{content:"L"}#a0-widget .a0-zocial.a0-openid:before{content:"o";color:#ff921d}#a0-widget .a0-zocial.a0-paypal:before{content:"$"}#a0-widget .a0-zocial.a0-stackoverflow:before{content:"\00EC";color:#ff7a15}#a0-widget .a0-zocial.a0-twitter:before{content:"T"}#a0-widget .a0-zocial.a0-vk:before{content:"N"}#a0-widget .a0-zocial.a0-windows:before{content:"W"}#a0-widget .a0-zocial.a0-yahoo:before{content:"Y"}#a0-widget .a0-zocial.a0-amazon{background-color:#ffad1d;color:#030037;text-shadow:0 1px 0 rgba(255,255,255,.5)}#a0-widget .a0-zocial.a0-dropbox{background-color:#fff;color:#312c2a}#a0-widget .a0-zocial.a0-facebook{background-color:#4863ae}#a0-widget .a0-zocial.a0-github{background-color:#fbfbfb;color:#050505}#a0-widget .a0-zocial.a0-gmail{background-color:#efefef;color:#222}#a0-widget .a0-zocial.a0-google{background-color:#4e6cf7}#a0-widget .a0-zocial.a0-googleplus{background-color:#dd4b39}#a0-widget .a0-zocial.a0-guest{background-color:#1b4d6d}#a0-widget .a0-zocial.a0-ie{background-color:#00a1d9}#a0-widget .a0-zocial.a0-linkedin{background-color:#0083a8}#a0-widget .a0-zocial.a0-openid{background-color:#f5f5f5;color:#333}#a0-widget .a0-zocial.a0-paypal{background-color:#fff;color:#32689a;text-shadow:0 1px 0 rgba(255,255,255,.5)}#a0-widget .a0-zocial.a0-twitter{background-color:#46c0fb}#a0-widget .a0-zocial.a0-vk{background-color:#45688E}#a0-widget button:-moz-focus-inner{border:0;padding:0}@font-face{font-family:zocial;src:url(https://d19p4zemcycm7a.cloudfront.net/w2/font/zocial-regular-webfont.eot)}@font-face{font-family:zocial;src:url(data:application/font-woff;charset=utf-8;base64,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) format('woff'),url(https://d19p4zemcycm7a.cloudfront.net/w2/font/zocial-regular-webfont.ttf) format('truetype'),url(https://d19p4zemcycm7a.cloudfront.net/w2/font/zocial-regular-webfont.svg#zocialregular) format('svg');font-weight:400;font-style:normal}#a0-widget .a0-zocial.a0-auth0:before{content:"?"}#a0-widget .a0-zocial.a0-auth0{background-color:#ff4500;width:auto}#a0-widget .a0-zocial.a0-block:before{position:absolute;left:0;top:0}#a0-widget .a0-zocial.a0-block .a0-mail{height:36px;display:block;margin-top:0;text-align:center;cursor:pointer;font-family:'Lucida Grande',Tahoma,sans-serif;font-size:16px;font-style:normal;font-variant:normal;font-weight:700;overflow:hidden;padding:7px;text-anchor:start;text-decoration:none solid #fff;text-indent:0;text-overflow:ellipsis;text-rendering:auto;text-shadow:rgba(0,0,0,.498039) 0 1px 0;text-transform:none;word-break:normal;word-spacing:0;word-wrap:normal;-webkit-font-smoothing:antialiased}#a0-widget .a0-zocial.a0-block{height:33px;padding-left:37px;display:block;margin:10px 0;text-overflow:ellipsis;overflow:hidden}#a0-widget .a0-zocial.a0-primary,#a0-widget .a0-zocial.a0-secondary{width:100%;margin:0;padding:0;font-size:14px;line-height:42px}#a0-widget .a0-zocial.a0-primary:before,#a0-widget .a0-zocial.a0-secondary:before{display:none}#a0-widget .a0-zocial.a0-primary{background-color:#747e85}#a0-widget .a0-zocial.a0-secondary{background-color:#f0f0eb;color:#222;text-shadow:0 1px 0 rgba(255,255,255,.8)}#a0-widget .a0-zocial{-webkit-font-smoothing:antialiased}#a0-widget label{font-family:sans-serif}#a0-widget .a0-zocial{font-size:16px}#a0-widget .a0-next{text-shadow:none;font-weight:700;font-family:'Lucida Grande',Tahoma,sans-serif}#a0-widget .a0-popup .a0-centrix{padding:0;vertical-align:middle;display:table-cell;margin:0}#a0-widget .a0-popup .a0-overlay.a0-ie8-overlay{background:0 0;background-image:url(https://s3.amazonaws.com/assets.auth0.com/w2/img/bg-transp.png)}#a0-widget .a0-popup .a0-overlay{margin:0;display:table;position:fixed;left:0;top:0;bottom:0;right:0;width:100%;height:100%;overflow:hidden;z-index:9999;font-weight:200;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background:#000;background:rgba(0,0,0,.8);background:-webkit-radial-gradient(50% 50%,ellipse closest-corner,rgba(0,0,0,.45) 1%,rgba(0,0,0,.8) 100%);background:-moz-radial-gradient(50% 50%,ellipse closest-corner,rgba(0,0,0,.45) 1%,rgba(0,0,0,.8) 100%);background:radial-gradient(50% 50%,ellipse closest-corner,rgba(0,0,0,.45) 1%,rgba(0,0,0,.8) 100%);opacity:0;-webkit-transition:300ms opacity ease-out;-moz-transition:300ms opacity ease-out;transition:300ms opacity ease-out;-webkit-transform:translate3d(0,0,0);-moz-transform:translate3d(0,0,0);-ms-transform:translate3d(0,0,0);transform:translate3d(0,0,0)}#a0-widget .a0-popup .a0-overlay.a0-active{opacity:1}#a0-widget .a0-popup .a0-overlay .a0-panel{display:none;margin:0 auto}#a0-widget .a0-popup .a0-overlay .a0-panel.a0-active{display:block;-webkit-animation-duration:400ms;-webkit-animation-timing-function:ease;-webkit-animation-name:showPanel}#a0-widget .a0-popup .a0-overlay .a0-panel{-webkit-animation-duration:400ms;-webkit-animation-timing-function:ease;-webkit-animation-name:hidePanel;width:280px}#a0-widget .a0-email,#a0-widget .a0-password,#a0-widget .a0-repeatPassword{margin-bottom:14px}#a0-widget .a0-email-readonly{text-align:center;display:inherit;color:#41444a;font-weight:700;margin-bottom:25px}#a0-widget .a0-panel .a0-reset .a0-header,#a0-widget .a0-panel .a0-signup .a0-header{margin-bottom:15px;font-size:14px;color:#41444a}#a0-widget .a0-panel .a0-signup .a0-footer{margin-bottom:15px;font-size:12px;color:#41444a;text-align:left;margin-top:10px}#a0-widget .a0-panel .a0-loading{height:70px}@-moz-keyframes showPanel{0%{opacity:0;-webkit-transform:scale(0.95) translate3d(0,0,0)}100%{opacity:1;-webkit-transform:scale(1) translate3d(0,0,0)}}@-webkit-keyframes showPanel{0%{opacity:0;-webkit-transform:scale(0.95) translate3d(0,0,0)}100%{opacity:1;-webkit-transform:scale(1) translate3d(0,0,0)}}@-ms-keyframes showPanel{0%{opacity:0;-webkit-transform:scale(0.95) translate3d(0,0,0)}100%{opacity:1;-webkit-transform:scale(1) translate3d(0,0,0)}}@keyframes showPanel{0%{opacity:0;-webkit-transform:scale(0.95) translate3d(0,0,0)}100%{opacity:1;-webkit-transform:scale(1) translate3d(0,0,0)}}@-moz-keyframes hidePanel{0%{-webkit-transform:scale(1) translate3d(0,0,0)}100%{-webkit-transform:scale(0.98) translate3d(0,0,0)}}@-webkit-keyframes hidePanel{0%{-webkit-transform:scale(1) translate3d(0,0,0)}100%{-webkit-transform:scale(0.98) translate3d(0,0,0)}}@-ms-keyframes hidePanel{0%{-webkit-transform:scale(1) translate3d(0,0,0)}100%{-webkit-transform:scale(0.98) translate3d(0,0,0)}}@keyframes hidePanel{0%{-webkit-transform:scale(1) translate3d(0,0,0)}100%{-webkit-transform:scale(0.98) translate3d(0,0,0)}}#a0-widget .a0-popup .a0-panel{background:#fafafa;background-image:-webkit-linear-gradient(#fff,#fafafa);background-image:-moz-linear-gradient(#fff,#fafafa);background-image:-webkit-gradient(linear,top left,bottom left,from(#fff),to(#fafafa));background-image:linear-gradient(#fff,#fafafa);z-index:10;-webkit-box-shadow:0 0 1px 1px rgba(0,0,0,.2),0 10px 27px rgba(0,0,0,.7);box-shadow:0 0 1px 1px rgba(0,0,0,.2),0 10px 27px rgba(0,0,0,.7);border-radius:6px;-webkit-touch-callout:none}#a0-widget .a0-popup .a0-panel:after{content:"";position:absolute;left:0;right:0;top:0;bottom:0;z-index:1;-webkit-box-shadow:inset 0 -1px 2px rgba(82,93,112,.4);box-shadow:inset 0 -1px 2px rgba(82,93,112,.4)}#a0-widget .a0-popup .a0-panel .a0-top-header{display:block;position:relative;min-height:65px;overflow:hidden;border-radius:6px 6px 0 0;background:#f1f4f6;background-image:-webkit-linear-gradient(#f1f4f6,#e9edf0);background-image:-moz-linear-gradient(#f1f4f6,#e9edf0);background-image:-webkit-gradient(linear,top left,bottom left,from(#f1f4f6),to(#e9edf0));background-image:linear-gradient(#f1f4f6,#e9edf0);border-bottom:1px solid rgba(40,69,85,.11)}#a0-widget .a0-popup .a0-panel .a0-top-header:before{content:'';position:absolute;height:5px;bottom:-1px;left:0;right:0;background-image:-webkit-linear-gradient(rgba(40,69,85,0),rgba(40,69,85,.1));background-image:-moz-linear-gradient(rgba(40,69,85,0),rgba(40,69,85,.1));background-image:-webkit-gradient(linear,top left,bottom left,from(rgba(40,69,85,0)),to(rgba(40,69,85,.1)));background-image:linear-gradient(rgba(40,69,85,0),rgba(40,69,85,.1))}#a0-widget .a0-popup .a0-panel .a0-top-header:after{content:'';position:absolute;height:4px;bottom:0;left:0;right:0;background-image:-webkit-linear-gradient(left,#e9edf0,rgba(241,244,246,0),#e9edf0);background-image:-moz-linear-gradient(left,#e9edf0,rgba(241,244,246,0),#e9edf0);background-image:-webkit-gradient(linear,top left,top right,from(#e9edf0),color-stop(rgba(241,244,246,0)),to(#e9edf0));background-image:linear-gradient(left,#e9edf0,rgba(241,244,246,0),#e9edf0)}#a0-widget .a0-popup .a0-panel .a0-header h1{padding:21px 20px;margin:0;font-size:18px;color:#41444a;font-weight:700;border-bottom:1px solid #DDE3E6;text-align:left}#a0-widget .a0-popup .a0-panel .a0-header a{display:block;overflow:hidden;text-indent:200%;position:absolute;width:12px;opacity:.4;padding:5px;z-index:5}#a0-widget .a0-popup .a0-panel .a0-header a:hover{opacity:.66}#a0-widget .a0-popup .a0-panel .a0-header a:active{opacity:1}#a0-widget .a0-popup .a0-panel .a0-header a.a0-close{height:12px;background-repeat:no-repeat;background-position:50% 50%;-webkit-background-size:12px 12px;background-size:12px 12px;right:19px;top:21px;cursor:pointer}#a0-widget .a0-popup .a0-panel .a0-header a.a0-close:hover{opacity:.66}#a0-widget .a0-popup .a0-panel .a0-header img{height:32px;margin:16px 10px 10px 20px;position:relative;float:left}#a0-widget .a0-action .a0-spinner{width:100%;background-color:#6A777F;background-repeat:no-repeat;background-position:center;margin:0;height:44px;border:1px solid #777;border-color:rgba(0,0,0,.2);border-bottom-color:#333;border-bottom-color:rgba(0,0,0,.4);-webkit-box-shadow:inset 0 .08em 0 rgba(255,255,255,.4),inset 0 0 .1em rgba(255,255,255,.9);box-shadow:inset 0 .08em 0 rgba(255,255,255,.4),inset 0 0 .1em rgba(255,255,255,.9);-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;border-radius:.3em}#a0-widget .a0-popup .a0-panel .a0-footer{display:block;position:relative;border-radius:0 0 5px 5px;height:25px;line-height:25px;vertical-align:middle;margin:0 15px;border-top:1px solid #DDE3E6;z-index:5}#a0-widget .a0-popup .a0-panel .a0-footer.a0-hide{height:1px;border-top:0}#a0-widget .a0-popup .a0-panel .a0-footer.a0-hide span{display:none}#a0-widget .a0-popup .a0-panel .a0-footer span{font-size:10px;color:#666}#a0-widget .a0-popup .a0-panel .a0-footer a{font-size:9px;color:#333;font-weight:700;text-decoration:none;cursor:pointer}#a0-widget .a0-iconlist,#a0-widget .a0-list{margin:25px 0;position:relative;z-index:5}#a0-widget .a0-iconlist:after,#a0-widget .a0-iconlist:before,#a0-widget .a0-list:after,#a0-widget .a0-list:before{display:table;content:""}#a0-widget .a0-iconlist:after,#a0-widget .a0-list:after{clear:both}#a0-widget .a0-list span{display:block;margin:10px 0;cursor:pointer}#a0-widget .a0-iconlist{text-align:center}#a0-widget .a0-iconlist span{margin:0 2px}#a0-widget .a0-forgot-pass{font-size:12px;color:#666;font-weight:400}#a0-widget .a0-create-account{margin-top:20px;text-align:center}#a0-widget .a0-create-account a{font-size:12px;color:#6d6d6d;text-decoration:none}#a0-widget .a0-create-account a:hover{text-decoration:underline}#a0-widget .a0-loggedin span.a0-centered.a0-all{color:#008CDD;cursor:pointer}#a0-widget .a0-loggedin span.a0-centered{text-align:center;padding:5px 0;margin:15px 0 5px;font-size:13px;display:block}#a0-widget .a0-loggedin span.a0-centered.a0-all:hover{text-decoration:underline}#a0-widget .a0-reset .a0-options a.a0-cancel,#a0-widget .a0-signup .a0-options a.a0-cancel{color:#008CDD;cursor:pointer;text-decoration:none}#a0-widget .a0-reset .a0-options a.a0-cancel:hover,#a0-widget .a0-signup .a0-options a.a0-cancel:hover{text-decoration:underline}#a0-widget .a0-reset .a0-options,#a0-widget .a0-signup .a0-options{text-align:center;padding:5px 0;margin:15px 0 5px;font-size:13px;display:block}#a0-widget form{margin:30px!important;margin-bottom:22px;position:relative;z-index:5}#a0-widget form span{font-size:16px}#a0-widget form label a{color:#7F8899;font-weight:700;text-shadow:0 1px 0 #fff}#a0-widget form label{display:block;color:#7F8899;font-size:13px;font-weight:700;margin:0 0 7px;text-shadow:0 1px 0 #fff;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}#a0-widget form input{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;width:100%;font-size:18px;padding:10px 12px;border:1px solid #B4BECD;border-top-color:#B0BACA;border-bottom-color:#D3D9E2;-webkit-box-shadow:inset 0 1px 2px rgba(130,137,150,.23),0 1px 0 rgba(255,255,255,.85);box-shadow:inset 0 1px 2px rgba(130,137,150,.23),0 1px 0 rgba(255,255,255,.85);border-radius:4px;margin:0;font-family:'Helvetica Neue',Helvetica,Arial Geneva,sans-serif}#a0-widget .a0-placeholder{color:#ccc}#a0-widget form input:focus{border-color:#5695DB #70A7E4 #89B8EC;outline:0;-webkit-box-shadow:inset 0 1px 2px rgba(70,123,181,.35),0 0 4px #5695db;box-shadow:inset 0 1px 2px rgba(70,123,181,.35),0 0 4px #5695db}#a0-widget form .a0-invalid input{outline:0;border-color:#FF7076;border-top-color:#FF5C61;-webkit-box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 0 4px 0 rgba(255,0,0,.5);box-shadow:inset 0 1px 2px rgba(0,0,0,.2),0 0 4px 0 rgba(255,0,0,.5)}#a0-widget .a0-header .a0-error{padding:9px 0;margin:10px auto;width:70%;font-size:14px;line-height:13px;color:#b95353;text-align:center}#a0-widget .a0-header .a0-success{padding:9px 0;margin:10px auto;width:70%;font-size:14px;line-height:13px;color:#0fad29;text-align:center}#a0-widget form .a0-note{display:block;color:#7F8899;font-size:13px;font-weight:700;margin:0 0 7px;text-shadow:0 1px 0 #fff;-moz-user-select:none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}#a0-widget form .a0-note a{color:#008CDD;text-decoration:none}#a0-widget form .a0-invalid .a0-error{visibility:visible}#a0-widget form button{display:block;margin:20px 0 0;cursor:pointer;width:100%}#a0-widget .a0-action{text-align:right;margin:0 30px 30px;position:relative;z-index:5}#a0-widget form .a0-action{margin:0}#a0-widget .a0-action button{width:auto}#a0-widget .a0-separator{position:relative;text-align:center;margin:0 0 25px}#a0-widget .a0-separator:before{content:"";display:block;border-top:1px solid #7F8899;width:200px;left:50%;margin-left:-100px;height:1px;position:absolute;top:50%;z-index:1}#a0-widget .a0-separator span{background:#fafafa;padding:0 10px;position:relative;z-index:5;color:#7F8899;font-size:13px;font-weight:700;text-shadow:0 1px 0 #fff}#a0-widget span.a0-back{display:block;color:#008CDD;text-align:center;padding:5px 0;margin:15px 0 5px;font-size:13px;cursor:pointer;position:relative;z-index:5;outline:0}#a0-widget span.a0-back:hover{text-decoration:underline}#a0-widget .a0-signin .a0-panel.a0-strategies .a0-list .a0-email{display:block;color:#7F8899;font-size:13px;font-weight:700;margin:0 0 7px;text-shadow:0 1px 0 #fff;text-align:center}#a0-widget .a0-zocial.a0-office365:before{content:"W"}#a0-widget .a0-zocial.a0-office365{background-color:#00ACED;color:#fff}#a0-widget .a0-zocial.a0-waad:before{content:"z"}#a0-widget .a0-zocial.a0-waad{background-color:#00ADEF;color:#fff}#a0-widget .a0-zocial.a0-thirtysevensignals:before{content:"b"}#a0-widget .a0-zocial.a0-thirtysevensignals{background-color:#6AC071;color:#fff}#a0-widget .a0-zocial.a0-box:before{content:"x"}#a0-widget .a0-zocial.a0-box{background-color:#267bb6;color:#fff}#a0-widget .a0-zocial.a0-salesforce:before{content:"*"}#a0-widget .a0-zocial.a0-salesforce{background-color:#fff;color:red}#a0-widget .a0-zocial.a0-windows{background-color:#2672EC;color:#fff}#a0-widget .a0-zocial.a0-fitbit:before{content:"#"}#a0-widget .a0-zocial.a0-fitbit{background-color:#45C2C5;color:#fff}#a0-widget .a0-zocial.a0-yandex:before{content:"&"}#a0-widget .a0-zocial.a0-yandex{background-color:red;color:#fff}#a0-widget .a0-zocial.a0-renren:before{content:"r"}#a0-widget .a0-zocial.a0-renren{background-color:#0056B5;color:#fff}#a0-widget .a0-zocial.a0-baidu:before{content:"u"}#a0-widget .a0-zocial.a0-baidu{background-color:#2832E1;color:#fff}#a0-widget .a0-popup .a0-overlay .a0-onestep{width:345px}@media (max-width:280px){#a0-widget .a0-create-account a,#a0-widget .a0-reset .a0-options,#a0-widget .a0-signup .a0-options a.a0-cancel{font-size:16px}#a0-widget .a0-popup .a0-panel .a0-header a.a0-close{visibility:hidden}#a0-widget .a0-popup #a0-onestep{-webkit-transition:none;-moz-transition:none;transition:none;height:100%}#a0-widget .a0-popup .a0-centrix{position:absolute;width:100%;height:100%;display:block}#a0-widget .a0-popup .a0-overlay .a0-panel{width:240px;margin:0 0 0 -120px}#a0-widget .a0-signin .a0-popup .a0-panel.a0-strategies .a0-list,#a0-widget form{margin:12px}#a0-widget form input{padding:5px}#a0-widget .a0-popup .a0-panel .a0-header{margin:0;padding:0}#a0-widget .a0-popup .a0-panel .a0-header h1{padding:14px 16px;margin:0;font-size:22px}#a0-widget .a0-popup .a0-panel .a0-header a.a0-close{right:14px;top:16px}}@media (min-width:281px) and (max-width:340px){#a0-widget .a0-panel .a0-loading{height:100%}#a0-widget .a0-loading .a0-spin-container{top:37%}#a0-widget .a0-loading .a0-spin-img{top:40%}#a0-widget .a0-create-account a,#a0-widget .a0-reset .a0-options,#a0-widget .a0-signup .a0-options a.a0-cancel{font-size:16px}#a0-widget .a0-popup .a0-panel .a0-header a.a0-close{visibility:hidden}#a0-widget .a0-popup #a0-onestep{-webkit-transition:none;-moz-transition:none;transition:none;height:100%}#a0-widget .a0-popup .a0-centrix{position:absolute;width:100%;height:100%;display:block}#a0-widget .a0-popup .a0-overlay .a0-panel{margin:0;left:0;height:100%;width:100%;border-radius:0}#a0-widget .a0-popup .a0-zocial,#a0-widget .a0-popup a.a0-zocial{font-size:18px}#a0-widget .a0-signin .a0-popup .a0-panel.a0-strategies .a0-list{margin:15px}#a0-widget form{margin:15px 25px}#a0-widget form input{padding:6px;font-size:18px}#a0-widget .a0-popup .a0-panel .a0-header{margin:0;padding:0;min-height:32px}#a0-widget .a0-popup .a0-panel .a0-header h1{padding:12px 16px;margin-top:1px;font-size:20px}#a0-widget .a0-popup .a0-panel .a0-header img{height:32px;margin:9px 10px 6px 18px}#a0-widget .a0-zocial.a0-primary{line-height:34px}#a0-widget .a0-action .a0-spinner{height:34px}#a0-widget .a0-create-account{margin-top:20px}#a0-widget .a0-popup .a0-email,#a0-widget .a0-popup .a0-password,#a0-widget .a0-popup .a0-repeatPassword{margin-bottom:5px}}@-moz-keyframes orbit{0%{opacity:1;z-index:99;-moz-transform:rotate(180deg);-moz-animation-timing-function:ease-out}7%{opacity:1;-moz-transform:rotate(300deg);-moz-animation-timing-function:linear;-moz-origin:0}30%{opacity:1;-moz-transform:rotate(410deg);-moz-animation-timing-function:ease-in-out;-moz-origin:7%}39%{opacity:1;-moz-transform:rotate(645deg);-moz-animation-timing-function:linear;-moz-origin:30%}70%{opacity:1;-moz-transform:rotate(770deg);-moz-animation-timing-function:ease-out;-moz-origin:39%}75%{opacity:1;-moz-transform:rotate(900deg);-moz-animation-timing-function:ease-out;-moz-origin:70%}100%,76%{opacity:0;-moz-transform:rotate(900deg)}}@-webkit-keyframes orbit{0%{opacity:1;z-index:99;-webkit-transform:rotate(180deg);-webkit-animation-timing-function:ease-out}7%{opacity:1;-webkit-transform:rotate(300deg);-webkit-animation-timing-function:linear;-webkit-origin:0}30%{opacity:1;-webkit-transform:rotate(410deg);-webkit-animation-timing-function:ease-in-out;-webkit-origin:7%}39%{opacity:1;-webkit-transform:rotate(645deg);-webkit-animation-timing-function:linear;-webkit-origin:30%}70%{opacity:1;-webkit-transform:rotate(770deg);-webkit-animation-timing-function:ease-out;-webkit-origin:39%}75%{opacity:1;-webkit-transform:rotate(900deg);-webkit-animation-timing-function:ease-out;-webkit-origin:70%}100%,76%{opacity:0;-webkit-transform:rotate(900deg)}}@-ms-keyframes orbit{0%{opacity:1;z-index:99;-ms-transform:rotate(180deg);-ms-animation-timing-function:ease-out}7%{opacity:1;-ms-transform:rotate(300deg);-ms-animation-timing-function:linear;-ms-origin:0}30%{opacity:1;-ms-transform:rotate(410deg);-ms-animation-timing-function:ease-in-out;-ms-origin:7%}39%{opacity:1;-ms-transform:rotate(645deg);-ms-animation-timing-function:linear;-ms-origin:30%}70%{opacity:1;-ms-transform:rotate(770deg);-ms-animation-timing-function:ease-out;-ms-origin:39%}75%{opacity:1;-ms-transform:rotate(900deg);-ms-animation-timing-function:ease-out;-ms-origin:70%}100%,76%{opacity:0;-ms-transform:rotate(900deg)}}@keyframes orbit{0%{opacity:1;z-index:99;-webkit-transform:rotate(180deg);-moz-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg);-webkit-animation-timing-function:ease-out;-moz-animation-timing-function:ease-out;animation-timing-function:ease-out}7%{opacity:1;-webkit-transform:rotate(300deg);-moz-transform:rotate(300deg);-ms-transform:rotate(300deg);transform:rotate(300deg);-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;animation-timing-function:linear;origin:0}30%{opacity:1;-webkit-transform:rotate(410deg);-moz-transform:rotate(410deg);-ms-transform:rotate(410deg);transform:rotate(410deg);-webkit-animation-timing-function:ease-in-out;-moz-animation-timing-function:ease-in-out;animation-timing-function:ease-in-out;origin:7%}39%{opacity:1;-webkit-transform:rotate(645deg);-moz-transform:rotate(645deg);-ms-transform:rotate(645deg);transform:rotate(645deg);-webkit-animation-timing-function:linear;-moz-animation-timing-function:linear;animation-timing-function:linear;origin:30%}70%{opacity:1;-webkit-transform:rotate(770deg);-moz-transform:rotate(770deg);-ms-transform:rotate(770deg);transform:rotate(770deg);-webkit-animation-timing-function:ease-out;-moz-animation-timing-function:ease-out;animation-timing-function:ease-out;origin:39%}75%{opacity:1;-webkit-transform:rotate(900deg);-moz-transform:rotate(900deg);-ms-transform:rotate(900deg);transform:rotate(900deg);-webkit-animation-timing-function:ease-out;-moz-animation-timing-function:ease-out;animation-timing-function:ease-out;origin:70%}100%,76%{opacity:0;-webkit-transform:rotate(900deg);-moz-transform:rotate(900deg);-ms-transform:rotate(900deg);transform:rotate(900deg)}}#a0-widget input[disabled]{background-color:#d9dee0}#a0-widget #a0-onestep{overflow:hidden;height:auto;-webkit-transition:height 100ms ease-in;-moz-transition:height 100ms ease-in;transition:height 100ms ease-in}#a0-widget #a0-onestep.a0-disable-transition{-webkit-transition:none;-moz-transition:none;transition:none}#a0-widget #a0-onestep .a0-loading{min-height:110px}#a0-widget .a0-spin-container{position:relative;top:50%}#a0-widget .a0-spin-img{position:relative;top:50%;left:50%;width:32px;height:32px;margin-left:-16px;margin-top:-16px}#a0-widget .a0-popup .a0-panel .a0-instructions{margin-bottom:12px}#a0-widget input::-webkit-input-placeholder{color:#9da4ad}#a0-widget input:-moz-placeholder{color:#9da4ad}#a0-widget input::-moz-placeholder{color:#9da4ad}#a0-widget input:-ms-input-placeholder{color:#9da4ad}</style></head>
+<body>
+<div id="onTop">
+    
+
+
+
+
+
+
+<script type="text/javascript" src="Algorithm%20Tutorials_files/popup.js"></script>
+
+<div id="shortcutBar">
+    <div class="icon"><a href="http://www.topcoder.com/tc"><img src="Algorithm%20Tutorials_files/scHome.png" alt="" onmouseover="postPopUpText('globalPopupText','Home'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="javascript:arena();"><img src="Algorithm%20Tutorials_files/scAlgo.png" alt="" onmouseover="postPopUpText('globalPopupText','Algorithm Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=23"><img src="Algorithm%20Tutorials_files/scConceptualization.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Conceptualization Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=6"><img src="Algorithm%20Tutorials_files/scSpecification.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Specification Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=7"><img src="Algorithm%20Tutorials_files/scArchitecture.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Architecture Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112"><img src="Algorithm%20Tutorials_files/scDesign.png" alt="" onmouseover="postPopUpText('globalPopupText','Component Design Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=113"><img src="Algorithm%20Tutorials_files/scDevelopment.png" alt="" onmouseover="postPopUpText('globalPopupText','Component Development Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=14"><img src="Algorithm%20Tutorials_files/scAssembly.png" alt="" onmouseover="postPopUpText('globalPopupText','Software Assembly Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=13"><img src="Algorithm%20Tutorials_files/scTesting.png" alt="" onmouseover="postPopUpText('globalPopupText','Testing Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=9"><img src="Algorithm%20Tutorials_files/scBugHunt.png" alt="" onmouseover="postPopUpText('globalPopupText','Bug Hunt Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=35"><img src="Algorithm%20Tutorials_files/scContentCreation.gif" alt="" onmouseover="postPopUpText('globalPopupText','Content Creation Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=36"><img src="Algorithm%20Tutorials_files/scReporting.gif" alt="" onmouseover="postPopUpText('globalPopupText','Reporting Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="javascript:arena();"><img src="Algorithm%20Tutorials_files/scTCHS.png" alt="" onmouseover="postPopUpText('globalPopupText','High School Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests"><img src="Algorithm%20Tutorials_files/scMarathon.png" alt="" onmouseover="postPopUpText('globalPopupText','Marathon Matches'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+    <div class="icon"><a href="http://studio.topcoder.com/?module=ViewActiveContests"><img src="Algorithm%20Tutorials_files/scStudio.png" alt="" onmouseover="postPopUpText('globalPopupText','TopCoder Studio Competitions'); popUp(this,'globalPopup');" onmouseout="popHide()"></a></div>
+</div>
+
+<div id="globalPopup" class="popUp"><div id="globalPopupText"></div></div>
+
+    
+        <script src="Algorithm%20Tutorials_files/auth0-widget-2.js"></script>
+        <script>
+            var widget = new Auth0Widget({
+                domain: 'topcoder.auth0.com',
+                clientID: '6ZwZEUo2ZK4c50aLPpgupeg5v2Ffxp9P',
+                callbackURL: 'https://www.topcoder.com/reg2/callback.action'
+            });
+
+            function showAuth0Widget(){
+                widget.signin({
+                    state: 'https://www.topcoder.com/tc',
+                    icon: 'http://www.topcoder.com/i/24x24_brackets.png', 
+                    showIcon: true}).on('signin_ready', function() {
+                    $('.a0-email input').each(function() {
+                        $(this)
+                        .clone()
+                        .attr('type','text')
+                        .attr('placeholder', 'Username')
+                        .attr('title', 'Username')
+                        .insertAfter($(this)).prev().remove();
+                    });
+                });  
+            }            
+            
+            $(function () {
+                $('.social-login').click(function () {
+                    showAuth0Widget();
+                });
+            });
+            
+        </script>    
+    
+
+
+
+<div style="position: absolute; right:0px; top:31px;"><a href="http://www.topcoder.com/reg/"><img src="Algorithm%20Tutorials_files/register_now.gif" alt="Register Now" style="display:block;"></a></div>
+
+
+<div style="margin: 0px 290px 0px 280px;" align="center">
+   <div id="outerLogo">
+      <div id="innerLogo">
+      <a href="http://www.topcoder.com/"><img src="Algorithm%20Tutorials_files/topcoder.gif" alt="TopCoder" style="display: block;"></a>
+      </div>
+   </div>
+</div>
+
+<div class="memberCountBox">
+Member Count: 599,359 - 
+
+
+December 12, 2013
+
+&nbsp;<a class="gMetal" href="javascript:tcTime()">[Get Time]</a>
+</div>
+
+<div class="topBar">
+    <div style="float: right; margin: 5px 0px 0px 0px;">
+        
+                <a class="gMetal social-login" href="javascript:;">Social Login</a> | <a class="gMetal" href="http://www.topcoder.com/tc?&amp;module=Login">Login</a>
+            
+        
+    </div>
+</div>
+
+</div>
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tbody><tr valign="top">
+        <!-- Left Column Begins-->
+        <td id="onLeft" width="180">
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript" type="text/javascript" src="Algorithm%20Tutorials_files/arena.js"></script>
+
+
+<script language="JavaScript" type="text/javascript">
+<!--
+function toggleMenu(menuTitle,menuID){
+   var menu = document.getElementById(menuID);
+   if(menu.style.display == 'block') menu.className = 'CLOSED';
+   else if(menu.className == 'OPEN' && menu.style.display != 'none') menu.className = 'CLOSED';
+   else {
+      menu.className = 'OPEN';
+   }
+   if(menuTitle.blur)menuTitle.blur();
+   if(menuTitle.className == 'exp') menuTitle.className = 'exp_ed';
+   else menuTitle.className = 'exp';
+   return;
+}
+function flipMenu(myMenuName){
+   var menuName = document.getElementById(myMenuName);
+   menuName.className = 'exp_ed';
+}
+
+// -->
+</script>
+
+<div style="padding: 0px;"><img src="Algorithm%20Tutorials_files/leftnav_top.gif" alt=""></div>
+<div id="navbar">
+    
+<ul>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_competitions')">Competitions</a>
+<ul id="m_competitions">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_competitions_overview')">Overview</a>
+<ul id="m_competitions_overview">
+<li><a href="http://apps.topcoder.com/wiki/x/MQD9Ag">Reliability</a></li>
+<li><a href="http://apps.topcoder.com/wiki/x/lYE_/">Ratings</a></li>
+<li><a href="http://apps.topcoder.com/wiki/x/EoK1B/">Badges</a></li>
+<li><a href="http://apps.topcoder.com/wiki/x/aoE_/">How to Get Paid</a></li>
+<li><a href="http://apps.topcoder.com/wiki/x/2gRmAw">Administrative Overview </a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_copilot_opportunities')">Copilot Opportunities</a>
+<ul id="m_copilot_opportunities">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Copilot+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_copilot_support')">Track Information</a>
+<ul id="m_copilot_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities">Documentation</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Copilot+Opportunities">Tutorial</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=29">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=140">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewCopilotPool&amp;size=20&amp;view=0&amp;sort=12">Copilot Pool</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'competition_design')">Design</a>
+<ul id="competition_design">
+<li><a href="http://studio.topcoder.com/">Studio</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_conceptualization_competitions')">Conceptualization</a>
+<ul id="m_conceptualization_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/TopCoder+Conceptualization+Contests">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_conceptualization_support')">Track Information</a>
+<ul id="m_conceptualization_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Conceptualization+Competition+Tutorial">Tutorial</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Conceptualization+Documentation">Documentation</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=23">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=23">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=134">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=23">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=23">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_specification_competitions')">Specification</a>
+<ul id="m_specification_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/TopCoder+Specification+Contests">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_specification_support')">Track Information</a>
+<ul id="m_specification_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Specification+Competitions">How to Compete</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=6">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=6">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=117">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=6">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=6">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_architecture_competitions')">Architecture</a>
+<ul id="m_architecture_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Architecture+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_architecture_support')">Track Information</a>
+<ul id="m_architecture_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Module+Architecture+Tutorial">Module Architecture Tutorial</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=7">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=7">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=118">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=7">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=7">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_des_competitions')">Component Design</a>
+<ul id="m_des_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Component+Design+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_des_support')">Track Information</a>
+<ul id="m_des_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Component+Design+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Component+Design+Documentation">Documentation</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ColorChange&amp;ph=112">Recent Color Changes</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Component+Design+Data+Feeds">Data Feeds</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=112">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=1">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=112">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=1">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=1">Meet the Review Board</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'competition_dev')">Development</a>
+<ul id="competition_dev">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_dev_competitions')">Component Development</a>
+<ul id="m_dev_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Component+Development+Competitions">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_dev_support')">Track Information</a>
+<ul id="m_dev_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Component+Development+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Component+Development+Documentation">Documentation</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ColorChange&amp;ph=113">Recent Color Changes</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Component+Development+Data+Feeds">Data Feeds</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewActiveContests&amp;ph=113">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=2">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=113">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=2">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=2">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_assembly_competitions')">Assembly</a>
+<ul id="m_assembly_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Assembly">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_assembly_support')">Track Information</a>
+<ul id="m_assembly_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Tutorials">Tutorials</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Assembly+Competition+Documentation">Documentation</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=14">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=14">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;ph=125">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=14">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=14">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_test_suites_competitions')">Test Suites</a>
+<ul id="m_test_suites_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Test+Scenarios+and+Scripts">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_test_suites_support')">Track Information</a>
+<ul id="m_test_suites_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Testing+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Testing+Competition+Tutorial">Tutorial</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Testing+Competition+Documentation">Documentation</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=13">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=13">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=13">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=13">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=13">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_reporting_competitions')">Reporting</a>
+<ul id="m_reporting_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Reporting">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_reporting_support')">Track Information</a>
+<ul id="m_reporting_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Reporting+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Tutorial">Tutorial</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Reporting+Competition+Documentation">Documentation</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=36">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=36">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=36">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=36">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=36">Meet the Review Board</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'competition_ui_dev')">UI Development</a>
+<ul id="competition_ui_dev">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_ui_prototype_competitions')">UI Prototype</a>
+<ul id="m_ui_prototype_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/UI+Prototype+Competitions">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_ui_prototype_support')">Track Information</a>
+<ul id="m_ui_prototype_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/UI+Prototype+Competitions">UI Prototype Tutorial</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=19">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=19">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=19">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=19">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=19">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_ria_build_competitions')">RIA Build</a>
+<ul id="m_ria_build_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/RIA+Build+Competitions">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_ria_build_support')">Track Information</a>
+<ul id="m_ria_build_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/RIA+Build+Competitions">RIA Build Tutorial</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=24">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=24">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=24">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=24">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=24">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_content_creation_competitions')">Content Creation</a>
+<ul id="m_content_creation_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Content+Contests+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_content_creation_support')">Track Information</a>
+<ul id="m_content_creation_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Content+Creation+Competitions">How to Compete</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=35">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=35">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=35">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=35">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=35">Meet the Review Board</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'competition_qa')">QA and Maintenance</a>
+<ul id="competition_qa">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_test_scenarios_competitions')">Test Scenarios</a>
+<ul id="m_test_scenarios_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Test+Scenarios+and+Scripts">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_test_scenarios_support')">Track Information</a>
+<ul id="m_test_scenarios_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Testing+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Testing+Competition+Tutorial">Tutorial</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Testing+Competition+Documentation">Documentation</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=26">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=26">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=26">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=26">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=26">Meet the Review Board</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_bugraces_competitions')">Bug Race</a>
+<ul id="m_bugraces_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Bug+Race+Competition+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_bugraces_support')">Track Information</a>
+<ul id="m_bugraces_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Bug+Race+Competitions">How to Compete</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewActiveBugRaces">Active Contests</a></li>
+<li><a href="http://apps.topcoder.com/wiki/x/FQG2AQ">Review Opportunities</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_bughunt_competitions')">Bug Hunt</a>
+<ul id="m_bughunt_competitions">
+<li><a href="http://apps.topcoder.com/wiki/x/W5ogAg">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_bughunt_support')">Track Information</a>
+<ul id="m_bughunt_support">
+<li><a href="http://apps.topcoder.com/wiki/x/cpogAg">How to Compete</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=ActiveContests&amp;pt=9">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ContestStatus&amp;pt=9">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CompList&amp;pt=9">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ViewReviewAuctions&amp;pt=9">Review Opportunities</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ReviewBoard&amp;pt=9">Meet the Review Board</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a style="color: rgb(248, 148, 30);" href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_cs_competitions')">CloudSpokes</a>
+<ul id="m_cs_competitions">
+<li><a href="http://www.cloudspokes.com/how-it-works-members">Overview</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CloudSpokes&amp;page=activeContests">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CloudSpokes&amp;page=contestStatus">Contest Status</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CloudSpokes&amp;page=pastContests">Past Contests</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CloudSpokes&amp;page=Review">Review Opportunities</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'competition_algo')">Algorithm</a>
+<ul id="competition_algo">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_algo_competitions')">Single Round Matches (SRM)</a>
+<ul id="m_algo_competitions">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_algo_support')">Track Information</a>
+<ul id="m_algo_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+SRM+Algorithm+Competitions">How to Compete</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/SRM+Algorithm+Competition+FAQs">FAQs</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Competition+Rating+System">Rating System</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Write+Problems+for+TopCoder">Write Problems</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_algo_stats')">Statistics</a>
+<ul id="m_algo_stats">
+<li><a href="http://www.topcoder.com/tc?module=MatchList">Match Archive</a></li>
+<li><a href="http://www.topcoder.com/stat?c=round_overview">Match Overviews</a></li>
+<li><a href="http://www.topcoder.com/tc?module=SrmDivisionWins">Match Winners</a></li>
+<li><a href="http://www.topcoder.com/stat?c=last_match">Match Results</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Problem+Set+Analysis">Match Editorials</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ProblemArchive">Problem Archive</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=1">Recent Color Changes</a></li>
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Algorithm+Data+Feeds">Data Feeds</a></li>
+</ul></li>
+<li><a href="javascript:arena();">Launch Arena</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_long_contests')">Marathon Match</a>
+<ul id="m_long_contests">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/Marathon+Match+Overview">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_long_support')">Track Information</a>
+<ul id="m_long_support">
+<li><a href="http://apps.topcoder.com/wiki/display/tc/How+to+Compete+in+Marathon+Match+Events">How to Compete</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=ratings">Rating System</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_long_stats')">Statistics</a>
+<ul id="m_long_stats">
+<li><a href="http://www.topcoder.com/longcontest/stats/?module=MatchList">Match Archive</a></li>
+<li><a href="http://www.topcoder.com/longcontest/stats/?module=ViewOverview">Match Overview</a></li>
+<li><a href="http://www.topcoder.com/longcontest/stats/?module=MatchWinners">Match Winners</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=match_editorials&amp;d2=archive">Match Editorials</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=support&amp;d2=dataFeed">Data Feeds</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=ViewActiveContests">Active Contests</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=ViewPractice">Practice</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=ViewQueue">Queue Status</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_hs_competitions')">High School</a>
+<ul id="m_hs_competitions">
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=hs&amp;d2=home">Overview</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_hs_stats')">Statistics</a>
+<ul id="m_hs_stats">
+<li><a href="http://www.topcoder.com/tc?module=HSRoundOverview">Match Overview</a></li>
+<li><a href="http://www.topcoder.com/tc?module=HSRoundStatsTeam">Match Results (Team)</a></li>
+<li><a href="http://www.topcoder.com/tc?module=HSRoundStatsInd">Match Results (Indiv.)</a></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=hs&amp;d2=match_editorials&amp;d3=archive">Match Editorials</a></li>
+<li><a href="http://www.topcoder.com/tc?module=ColorChange&amp;ratid=2">Recent Color Changes</a></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=hs&amp;d2=support&amp;d3=dataFeed">Data Feeds</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=hs&amp;d2=spotlightSessions">Spotlight Sessions</a></li>
+<li><a href="javascript:arena();">Launch Arena</a></li>
+</ul></li>
+<li><a href="http://www.topcoder.com/dr">The Digital Run</a></li>
+<li><a href="http://software.topcoder.com/review">Submit &amp; Review</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_topcoder_networks')">TopCoder Networks</a>
+<ul id="m_topcoder_networks">
+<li><a href="http://community.topcoder.com/alcatel/">Alcatel Lucent</a></li>
+<li><a href="http://community.topcoder.com/amdapp/">AMD OpenCL</a></li>
+<li><a href="http://community.topcoder.com/darpacs/">DARPA CS-STEM</a></li>
+<li><a href="http://community.topcoder.com/lifetech-network/">Life Technologies</a></li>
+<li><a href="http://community.topcoder.com/ntl/">NASA Tournament Lab</a></li>
+<li><a href="http://community.topcoder.com/x/">PayPalX</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_events')">Events</a>
+<ul id="m_events">
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=calendar&amp;d2=thisMonth">Event Calendar</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_tournaments')">Tournaments</a>
+<ul id="m_tournaments">
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=home">TopCoder</a></li>
+<li><a href="http://www.topcoder.com/pl/">Powered by TopCoder</a></li>
+<li><a href="http://www.topcoder.com/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview">Charity</a></li>
+</ul></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_stats')">Statistics</a>
+<ul id="m_stats">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_competitor_stats')">The Tops</a>
+<ul id="m_competitor_stats">
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_top_rated_competitors')">Top Ranked</a>
+<ul id="m_top_rated_competitors">
+<li><a href="http://www.topcoder.com/tc?module=AlgoRank">Algorithm</a></li>
+<li><a href="http://www.topcoder.com/tc?module=HSRank">High School</a></li>
+<li><a href="http://www.topcoder.com/longcontest/stats/?module=CoderRank">Marathon Match</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_conceptors">Conceptualization</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_specificators">Specification</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_architects">Architecture</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_designers">Design</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_developers">Development</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_assemblers">Assembly</a></li>
+<li><a href="http://www.topcoder.com/stat?c=top_testers">Test Suites</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_recordbook')">Record Book</a>
+<ul id="m_recordbook">
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=statistics&amp;d2=recordbook_home">Algorithm</a></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=compstats&amp;d2=comp_recordbook_home">Component</a></li>
+<li><a href="http://www.topcoder.com/longcontest/?module=Static&amp;d1=stats&amp;d2=recordbook_home">Marathon Match</a></li>
+</ul></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_com')">Coder of the Month</a>
+<ul id="m_com">
+<li><a href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=5">Algorithm</a></li>
+<li><a href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=6">Design</a></li>
+<li><a href="http://www.topcoder.com/tc?module=COMHistory&amp;achtid=7">Development</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li class="exp_ed"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_edu_content')">Tutorials</a>
+<ul id="m_edu_content" class="OPEN">
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=education&amp;d2=overview">Overview</a></li>
+<li class="highlight"><a href="http://www.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Algorithm Tutorials</a></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=software_index">Software Tutorials</a></li>
+<li><a href="http://www.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=mm_index">Marathon Tutorials</a></li>
+<li><a href="http://apps.topcoder.com/wiki/dashboard.action">Wiki</a></li>
+</ul></li>
+<li><a href="http://apps.topcoder.com/forums/">Forums</a></li>
+<li><a href="http://www.topcoder.com/tc?&amp;module=SurveyList">Surveys</a></li>
+<li><a href="http://www.topcoder.com/tc?module=MyHome">My TopCoder</a></li>
+<li><a href="http://www.topcoder.com/help">Help Center</a></li>
+<li class="exp"><a href="javascript:void(0)" onclick="Javascript:toggleMenu(this.parentNode,'m_about_tc')">About TopCoder</a>
+<ul id="m_about_tc">
+<li><a href="http://www.topcoder.com/aboutus/">Overview</a></li>
+<li><a href="http://www.topcoder.com/aboutus/">Why Join TopCoder?</a></li>
+<li><a href="http://www.topcoder.com/aboutus/careers/">Working at TopCoder</a></li>
+<li><a href="http://www.topcoder.com/aboutus/management/">Leadership</a></li>
+<li><a href="http://www.topcoder.com/aboutus/news/">Press Room</a></li>
+</ul></li></ul>
+
+    <div style="float: left; padding: 10px 0px 0px 17px;">
+        
+        <a href="http://www.topcoder.com/tc?module=LinkTracking&amp;link=http://apps.topcoder.com/wiki/x/L4TD&amp;refer=leftnav"><img src="Algorithm%20Tutorials_files/umlTool.png" alt="UML Tool"></a>
+
+        
+        
+        
+        
+    </div>
+    
+
+<div id="navbarSearch">
+<b>Member Search:</b>
+<form action="http://www.topcoder.com/tc" method="get" name="simpleSearchForm" class="noSpace" id="simpleSearchForm">
+   <input class="noSpace" name="module" value="SimpleSearch" type="hidden">
+   <input class="noSpace" name="ha" value="Handle:" size="12" maxlength="15" onfocus="javascript: if (document.simpleSearchForm.ha.value=='Handle:') document.simpleSearchForm.ha.value = '';" onblur="javascript:if (document.simpleSearchForm.ha.value == '')document.simpleSearchForm.ha.value = 'Handle:';" type="text">
+   <a class="gMetal" href="javascript:void%20document.simpleSearchForm.submit();">Go</a><br>
+   <a class="gMetal" href="http://www.topcoder.com/tc?module=ViewAdvanced">Advanced Search</a>
+</form>
+</div>
+</div>
+<div style="float: left; clear:left; padding: 0px 0px 23px 0px;"><img src="Algorithm%20Tutorials_files/leftnav_bottom.gif" alt=""></div>
+
+
+    <div style="float: left; clear:left; width: 170px; margin: 0px;" align="center">
+        <img src="Algorithm%20Tutorials_files/brackets.png" alt="" style="margin-bottom: 23px;">
+    </div>
+
+
+
+
+        </td>
+        <!-- Left Column Ends -->
+        <!-- Center Column Begins -->
+        <td align="center" width="100%"><div class="tutorBodyFull">
+            
+
+
+
+
+<table class="pageTitleTable" cellpadding="0" cellspacing="0">
+    <tbody><tr>
+        <td class="pageTitle" width="100%"><img src="Algorithm%20Tutorials_files/header_alg_tut.gif" alt="alg_tut" border="0"></td>
+        <td class="pageSubtitle" align="right">&nbsp;&nbsp;</td>
+    </tr>
+</tbody></table>
+
+
+            <div class="linkBox"> <a href="http://community.topcoder.com/tc?module=Static&amp;d1=tutorials&amp;d2=alg_index">Archive</a><br>
+                <span id="printableLink"><a href="javascript:makeInvisible();">Printable view</a><br>
+                </span> <span id="navigableLink" class="invisible"><a href="javascript:makeNavigable();">Normal view</a><br>
+                </span>
+                <a href="http://forums.topcoder.com/?module=ThreadList&amp;forumID=516215">Discuss this article</a><br>
+                <a href="http://community.topcoder.com/tc?module=Static&amp;d1=help&amp;d2=writeForTC">Write for TopCoder</a>
+            </div>
+            
+            <span class="bigTitle">Introduction to String Searching Algorithms</span><br>
+            <span class="bodySubtitle">Rabin-Karp and Knuth-Morris-Pratt Algorithms</span>
+            <br><br>
+
+            <div class="authorPhoto">
+                <img src="Algorithm%20Tutorials_files/TheLlama_big.jpg" alt="Author">
+            </div>
+
+            <div class="authorText"> By&nbsp;<a href="http://www.topcoder.com/tc?module=MemberProfile&amp;cr=14926760" class="coderTextYellow">TheLlama</a><br>
+                <em>TopCoder Member</em>
+            </div>
+
+            <br clear="all">
+
+<p>The fundamental string searching (matching) problem is defined as 
+follows: given two strings - a text and a pattern, determine whether the
+ pattern appears in the text. The problem is also known as "the needle 
+in a haystack problem."</p>
+
+<p><span class="bodySubtitle">The "Naive" Method</span><br>
+Its idea is straightforward -- for every position in the text, consider 
+it a starting position of the pattern and see if you get a match.</p>
+
+<pre class="code">function brute_force(text[], pattern[]) 
+{
+  // let n be the size of the text and m the size of the
+  // pattern
+
+  for(i = 0; i &lt; n; i++) {
+    for(j = 0; j &lt; m &amp;&amp; i + j &lt; n; j++) 
+      if(text[i + j] != pattern[j]) break;
+      // mismatch found, break the inner loop
+    if(j == m) // match found
+  }
+}
+</pre>
+
+<p>The "naive" approach is easy to understand and implement but it can 
+be too slow in some cases. If the length of the text is n and the length
+ of the pattern m, in the worst case it may take as much as (n * m) 
+iterations to complete the task.</p>
+
+<p>It should be noted though, that for most practical purposes, which 
+deal with texts based on human languages, this approach is much faster 
+since the inner loop usually quickly finds a mismatch and breaks. A 
+problem arises when we are faced with different kinds of "texts," such 
+as the genetic code.</p>
+
+<p><span class="bodySubtitle">Rabin-Karp Algorithm (RK)</span><br>
+This is actually the "naive" approach augmented with a powerful programming technique - the hash function. </p>
+
+<p>Every string s[] of length m can be seen as a number H written in a 
+positional numeral system in base B (B &gt;= size of the alphabet used 
+in the string):</p>
+
+<p><strong>H = s[0] * B<sup>(m - 1)</sup>  + s[1] * B<sup>(m - 2)</sup> + … + s[m - 2] * B<sup>1</sup> + s[m - 1] * B<sup>0</sup></strong></p>
+
+<p>If we calculate the number H (the hash value) for the pattern and the
+ same number for every substring of length m of the text than the inner 
+loop of the "naive" method will disappear - instead of comparing two 
+strings character by character we will have just to compare two 
+integers.</p>
+
+<p>A problem arises when m and B are big enough and the number H becomes
+ too large to fit into the standard integer types. To overcome this, 
+instead of the number H itself we use its remainder when divided by some
+ other number M. To get the remainder we do not have to calculate H. 
+Applying the basic rules of modular arithmetic to the above expression: </p>
+
+<p><strong>A + B = C   =&gt;   (A % M + B % M) % M = C % M<br>
+A * B = C   =&gt;   ((A % M) * (B % M)) % M = C % M</strong></p>
+
+<p>We get:</p>
+
+<p><strong>H % M = (((s[0] % M) * (B<sup>(m - 1)</sup> % M)) % M + ((s[1] % M) * (B<sup>(m - 2)</sup> % M)) % M  +…<br>
+
+        …+ ((s[m - 2] % M) * (B<sup>1</sup> % M)) % M + ((s[m - 1] % M) * (B<sup>0</sup> % M)) % M) % M</strong></p>
+
+<p>The drawback of using remainders is that it may turn out that two 
+different strings map to the same number (it is called a collision). 
+This is less likely to happen if M is sufficiently large and B and M are
+ prime numbers. Still this does not allow us to entirely skip the inner 
+loop of the "naive" method. However, its usage is significantly limited.
+ We have to compare the "candidate" substring of the text with the 
+pattern character by character only when their hash values are equal.</p>
+
+<p>Obviously the approach described so far would be absolutely useless 
+if we were not able to calculate the hash value for every substring of 
+length m in the text in just one pass through the entire text. At first 
+glance to do these calculations we will again need two nested loops: an 
+outer one -- to iterate through all possible starting positions -- and 
+an inner one -- to calculate the hash function for every starting 
+position. Fortunately, this is not the case. Let's consider a string 
+s[], and let's suppose we are to calculate the hash value for every 
+substring in s[] with length say m = 3. It is easy to see that:</p>
+
+<p><strong>H<sub>0</sub>  =  H<sub>s[0]…s[2]</sub>  =  s[0] * B<sup>2</sup>  + s[1] * B + s[2]</strong></p>
+   
+<p><strong>H<sub>1</sub>  =  H<sub>s[1]..s[3]</sub>   =  s[1] * B<sup>2</sup>  + s[2] * B + s[3]</strong></p>
+
+<p><strong>H<sub>1</sub>  =  (H<sub>0</sub>  - s[0] * B<sup>2</sup> ) * B + s[3]</strong></p>
+
+<p>In general:</p>
+
+<p><strong>H<sub>i</sub>  =  ( H<sub>i - 1</sub>  - s[i- 1] * B<sup>m - 1</sup> ) * B + s[i + m - 1]</strong></p>
+
+<p>Applying again the rules of modular arithmetic, we get:</p>
+
+<p><strong>H<sub>i</sub>  % M  =  (((( H<sub>i - 1</sub>  % M  - ((s[i- 1]  % M) * (B<sup>m - 1</sup> % M)) % M ) % M) * (B % M))  % M +  <br>
+                          + s[i + m - 1] % M) % M</strong></p>
+
+<p>Obviously the value of (H<sub>i - 1</sub> - s[i - 1] * B<sup>m - 1</sup>) may be negative. Again, the rules of modular arithmetic come into play:</p>
+
+<p><strong>A - B = C   =&gt;   (A % M - B % M + k * M) % M = C % M</strong></p>
+
+<p>Since the absolute value of (H<sub>i - 1</sub> - s[i - 1] * B<sup>m - 1</sup>) is between 0 and (M - 1), we can safely use a value of 1 for k.</p>
+
+<p>Pseudocode for RK follows:</p>
+
+<pre class="code">// correctly calculates a mod b even if a &lt; 0
+function int_mod(int a, int b)
+{
+  return (a % b + b) % b;
+}
+
+function Rabin_Karp(text[], pattern[])
+{
+  // let n be the size of the text, m the size of the
+  // pattern, B - the base of the numeral system,
+  // and M - a big enough prime number
+
+  if(n &lt; m) return; // no match is possible
+
+  // calculate the hash value of the pattern
+  hp = 0;
+  for(i = 0; i &lt; m; i++) 
+    hp = int_mod(hp * B + pattern[i], M);
+
+  // calculate the hash value of the first segment 
+  // of the text of length m
+  ht = 0;
+  for(i = 0; i &lt; m; i++) 
+    ht = int_mod(ht * B + text[i], M);
+
+  if(ht == hp) check character by character if the first
+               segment of the text matches the pattern;
+
+  // start the "rolling hash" - for every next character in
+  // the text calculate the hash value of the new segment
+  // of length m; E = (Bm-1) modulo M            
+  for(i = m; i &lt; n; i++) {
+    ht = int_mod(ht - int_mod(text[i - m] * E, M), M);
+    ht = int_mod(ht * B, M);
+    ht = int_mod(ht + text[i], M);
+
+    if(ht == hp) check character by character if the
+                 current segment of the text matches
+                 the pattern; 
+  }
+}
+</pre>
+
+<p>Unfortunately, there are still cases when we will have to run the 
+entire inner loop of the "naive" method for every starting position in 
+the text -- for example, when searching for the pattern "aaa" in the 
+string "aaaaaaaaaaaaaaaaaaaaaaaaa" -- so in the worst case we will still
+ need (n * m) iterations. How do we overcome this? </p>
+
+<p>Let's go back to the basic idea of the method -- to replace the 
+string comparison character by character by a comparison of two 
+integers. In order to keep those integers small enough we have to use 
+modular arithmetic. This causes a "side effect" -- the mapping between 
+strings and integers ceases to be unique. So now whenever the two 
+integers are equal we still have to "confirm" that the two strings are 
+identical by running character-by-character comparison. It can become a 
+kind of vicious circle…</p>
+
+<p>The way to solve this problem is "rational gambling," or the so 
+called "double hash" technique. We "gamble" -- whenever the hash values 
+of two strings are equal, we assume that the strings are identical, and 
+do not compare them character by character. To make the likelihood of a 
+"mistake" negligibly small we compute for every string not one but two 
+independent hash values based on different numbers B and M. If both are 
+equal, we assume that the strings are identical. Sometimes even a 
+"triple hash" is used, but this is rarely justifiable from a practical 
+point of view.</p>
+
+<p>The "pure" form of "the needle in a haystack problem" is considered 
+too straightforward and is rarely seen in programming contests. However,
+ the "rolling hash" technique used in RK is an important weapon. It is 
+especially useful in problems where we have to look at all substrings of
+ fixed length of a given text. An example is "the longest common 
+substring problem": given two strings find the longest string that is a 
+substring of both. In this case, the combination of binary search (BS) 
+and "rolling hash" works quite well. The important point that allows us 
+to use BS is the fact that if the given strings have a common substring 
+of length n, they also have at least one common substring of any length m
+ &lt; n. And if the two strings do not have a common substring of length
+ n they do not have a common substring of any length m &gt; n. So all we
+ need is to run a BS on the length of the string we are looking for. For
+ every substring of the first string of the length fixed in the BS we 
+insert it in a hash table using one hash value as an index and a second 
+hash value ("double hash") is inserted in the table.  For every 
+substring of the fixed length of the second string, we calculate the 
+corresponding two hash values and check in the table to see if they have
+ been already seen in the first string. A hash table based on open 
+addressing is very suitable for this task.</p>
+
+<p>Of course in "real life" (real contests) the number of the given 
+strings may be greater than two, and the longest substring we are 
+looking for should not necessarily be present in all the given strings. 
+This does not change the general approach.</p>
+
+<p>Another type of problems where the "rolling hash" technique is the 
+key to the solution are those that ask us to find the most frequent 
+substring of a fixed length in a given text. Since the length is already
+ fixed we do not need any BS. We just use a hash table and keep track of
+ the frequencies. </p>
+
+<p><span class="bodySubtitle">Knuth-Morris-Pratt Algorithm (KMP)</span><br>
+In some sense, the "naive" method and its extension RK reflect the 
+standard approach of human logic to "the needle in a haystack problem". 
+The basic idea behind KMP is a bit different. Let's suppose that we are 
+able, after one pass through the text, to identify all positions where 
+an existing match with the pattern ends. Obviously, this will solve our 
+problem. Since we know the length of the pattern, we can easily identify
+ the starting position of every match.</p>
+
+<p>Is this approach feasible? It turns out that it is, when we apply the
+ concept of the automaton. We can think of an automaton as of a kind of 
+abstract object, which can be in a finite number of states. At each step
+ some information is presented to it. Depending on this information and 
+its current state the automaton goes to a new state, uniquely determined
+ by a set of internal rules. One of the states is considered as "final".
+ Every time we reach this "final" state we have found an end position of
+ a match.</p>
+
+<p>The automaton used in KMP is just an array of "pointers" (which 
+represents the "internal rules") and a separate "external" pointer to 
+some index of that array (which represents the "current state"). When 
+the next character from the text is presented to the automaton, the 
+position of the "external" pointer changes according to the incoming 
+character, the current position, and the set of "rules" contained in the
+ array. Eventually a "final" state is reached and we can declare that we
+ have found a match.</p>
+
+<p>The general idea behind the automaton is relatively simple. Let us consider the string</p>
+
+<p><strong> A B A B A C</strong></p>
+
+<p>as a pattern, and let's list all its prefixes:</p>
+
+<p><strong>0     /the empty string/<br>
+1     A<br>
+2     A B<br>
+3     A B A<br>
+4     A B A B<br>
+5     A B A B A<br>
+6     A B A B A C</strong></p>
+
+<p>Let us now consider for each such listed string (prefix) the longest 
+proper suffix (a suffix different from the string itself), which is at 
+the same time a prefix of it: </p>
+
+<p><strong>0     /the empty string/<br>
+1     /the empty string/<br>
+2     /the empty string/<br>
+3     A<br>
+4     A B<br>
+5     A B A<br>
+6     /the empty string/</strong></p>
+
+<p>It's easy to see that if we have at some point a partial match up to 
+say the prefix (A B A B A) we also have a partial match up to the 
+prefixes (A B A), and (A) - which are both prefixes of the initial 
+string and suffix/prefixes of the current match.  Depending on the next 
+"incoming" character from the text, three cases arise:</p>
+
+<ol>
+	<li>The next character is C. We can "expand" the match at the level of 
+the prefix (A B A B A). In this particular case this leads to a full 
+match and we just notice this fact. </li>
+	<li>The next character is B. The partial match for the prefix (A B A B 
+A) cannot be "expanded". The best we can do is to return to the largest 
+different partial match we have so far - the prefix (A B A) and try to 
+"expand" it. Now B "fits" so we continue with the next character from 
+the text and our current "best" partial match will become the string (A B
+ A B) from our "list of prefixes".</li>
+ 	<li>The "incoming" character is, for example, D.  The "journey" back 
+to (A B A) is obviously insufficient to "expand" the match.  In this 
+case we have to go further back to the second largest partial match (the
+ second largest proper suffix of the initial match that is at the same 
+time a prefix of it) - that is (A) and finally to the empty string (the 
+third largest proper suffix in our case). Since it turns out that there 
+is no way to "expand" even the empty string using the character D, we 
+skip D and go to the next character from the text. But now our "best" 
+partial match so far will be the empty string.</li>
+</ol>
+
+<p>In order to build the KMP automaton (or the so called KMP "failure 
+function") we have to initialize an integer array F[]. The indexes (from
+ 0 to m - the length of the pattern) represent the numbers under which 
+the consecutive prefixes of the pattern are listed in our "list of 
+prefixes" above. Under each index is a "pointer" - that identifies the 
+index of the longest proper suffix, which is at the same time a prefix 
+of the given string (or in other words F[i] is the index of next best 
+partial match for the string under index i). In our case (the string A B
+ A B A C) the array F[] will look as follows:</p>
+
+<p><strong>F[0] = 0<br>
+F[1] = 0<br>
+F[2] = 0<br>
+F[3] = 1<br>
+F[4] = 2<br>
+F[5] = 3<br>
+F[6] = 0</strong></p>
+
+<p>Notice that after initialization F[i] contains information not only 
+about the largest next partial match for the string under index i but 
+also about every partial match of it. F[i] is the first best partial 
+match, F[F[i]] - is the second best, F[F[F[i]]] - the third, and so on. 
+Using this information we can calculate F[i] if we know the values F[k] 
+for all k &lt; i. The best next partial match of string i will be the 
+largest partial match of string i - 1 whose character that "expands" it 
+is equal to the last character of string i. So all we need to do is to 
+check every partial match of string i - 1 in descending order of length 
+and see if the last character of string i "expands" the match at this 
+level. If no partial match can be "expanded" than F[i] is the empty 
+string. Otherwise F[i] is the largest "expanded" partial match (after 
+its "expansion").</p>
+
+<p>In terms of pseudocode the initialization of the array F[] (the "failure function") may look like this:</p>
+
+<pre class="code">// Pay attention! 
+// the prefix under index i in the table above is 
+// is the string from pattern[0] to pattern[i - 1] 
+// inclusive, so the last character of the string under 
+// index i is pattern[i - 1]   
+
+function build_failure_function(pattern[])
+{
+  // let m be the length of the pattern 
+
+  F[0] = F[1] = 0; // always true
+  
+  for(i = 2; i &lt;= m; i++) {
+    // j is the index of the largest next partial match 
+    // (the largest suffix/prefix) of the string under  
+    // index i - 1
+    j = F[i - 1];
+    for( ; ; ) {
+      // check to see if the last character of string i - 
+      // - pattern[i - 1] "expands" the current "candidate"
+      // best partial match - the prefix under index j
+      if(pattern[j] == pattern[i - 1]) { 
+        F[i] = j + 1; break; 
+      }
+      // if we cannot "expand" even the empty string
+      if(j == 0) { F[i] = 0; break; }
+      // else go to the next best "candidate" partial match
+      j = F[j];
+    }
+  }   
+}
+</pre>
+
+<p>The automaton consists of the initialized array F[] ("internal 
+rules") and a pointer to the index of the prefix of the pattern that is 
+the best (largest) partial match that ends at the current position in 
+the text ("current state"). The use of the automaton is almost identical
+ to what we did in order to build the "failure function". We take the 
+next character from the text and try to "expand" the current partial 
+match. If we fail, we go to the next best partial match of the current 
+partial match and so on. According to the index where this procedure 
+leads us, the "current state" of the automaton is changed. If we are 
+unable to "expand" even the empty string we just skip this character, go
+ to the next one in the text, and the "current state" becomes zero.</p>
+
+<pre class="code">function Knuth_Morris_Pratt(text[], pattern[])
+{
+  // let n be the size of the text, m the 
+  // size of the pattern, and F[] - the
+  // "failure function"
+
+  build_failure_function(pattern[]); 
+
+  i = 0; // the initial state of the automaton is
+         // the empty string
+
+  j = 0; // the first character of the text
+  
+  for( ; ; ) {
+    if(j == n) break; // we reached the end of the text
+
+    // if the current character of the text "expands" the
+    // current match 
+    if(text[j] == pattern[i]) {
+      i++; // change the state of the automaton
+      j++; // get the next character from the text
+      if(i == m) // match found
+    }
+
+    // if the current state is not zero (we have not
+    // reached the empty string yet) we try to
+    // "expand" the next best (largest) match
+    else if(i &gt; 0) i = F[i];
+
+    // if we reached the empty string and failed to
+    // "expand" even it; we go to the next 
+    // character from the text, the state of the
+    // automaton remains zero
+    else j++;
+  }
+}
+</pre>
+
+<p>Many problems in programming contests focus more on the properties of
+ KMP's "failure function," rather than on its use for string matching. 
+An example is: given a string (a quite long one), find all its proper 
+suffixes that are also prefixes of it. All we have to do is just to 
+calculate the "failure function" of the given string and using the 
+information stored in it to print the answer.</p>
+
+<p>A typical problem seen quite often is: given a string find its 
+shortest substring, such that the concatenation of one or more copies of
+ it results in the original string. Again the problem can be reduced to 
+the properties of the failure function. Let's consider the string</p>
+
+<p><strong>A B A B A B</strong></p>
+
+<p>and all its proper suffix/prefixes in descending order:</p>
+
+<p><strong>1   A B A B<br>
+2   A B<br>
+3   /the empty string/</strong></p>
+
+<p>Every such suffix/prefix uniquely defines a string, which after being
+ "inserted" in front of the given suffix/prefix gives the initial 
+string. In our case:</p>
+
+<p><strong>1   A B<br>
+2   A B A B<br>
+3   A B A B A B</strong></p>
+
+<p>Every such "augmenting" string is a potential "candidate" for a 
+string, the concatenation of several copies of which results in the 
+initial string. This follows from the fact that it is not only a prefix 
+of the initial string but also a prefix of the suffix/prefix it 
+"augments".  But that means that now the suffix/prefix contains at least
+ two copies of the "augmenting" string as a prefix (since it's also a 
+prefix of the initial string) and so on. Of course if the suffix/prefix 
+under question is long enough. In other words, the length of a 
+successful "candidate" must divide with no remainder the length of the 
+initial string.</p>
+
+<p>So all we have to do in order to solve the given problem is to 
+iterate through all proper suffixes/prefixes of the initial string in 
+descending order. This is just what the "failure function" is designed 
+for. We iterate until we find an "augmenting" string of the desired 
+length (its length divides with no remainder the length of the initial 
+string) or get to the empty string, in which case the "augmenting" 
+string that meets the above requirement will be the initial string 
+itself.</p>
+
+<p><span class="bodySubtitle">Rabin-Karp and Knuth-Morris-Pratt at TopCoder</span><br>
+In the problem types mentioned above, we are dealing with relatively 
+"pure" forms of RK, KMP and the techniques that are the essence of these
+ algorithms. While you're unlikely to encounter these pure situations in
+ a TopCoder SRM, the drive towards ever more challenging TopCoder 
+problems can lead to situations where these algorithms appear as one 
+level in complex, "multilayer" problems. The specific input size 
+limitations favor this trend, since we will not be presented as input 
+with multimillion character strings, but rather with a "generator", 
+which may be by itself algorithmic in nature. A good example is "<a href="http://community.topcoder.com/stat?c=problem_statement&amp;pm=6017&amp;rd=8083">InfiniteSoup</a>," Division 1 - Level Three, SRM 286.</p>
+
+            <p>&nbsp; </p>
+            <br>
+            <br>
+        </div></td>
+        <!-- Center Column Ends -->
+        <!-- Right Column Begins -->
+        <td id="onRight" width="170">
+
+
+
+<script type="text/javascript" language="javascript">
+
+</script>
+
+
+
+<div class="rightColContent">
+    <br><br>
+</div>
+
+
+        </td>
+        <!-- Right Column Ends -->
+        <!-- Gutter -->
+        <td width="10"><img src="Algorithm%20Tutorials_files/clear.gif" border="0" height="1" width="10"></td>
+        <!-- Gutter Ends -->
+    </tr>
+</tbody></table>
+<div id="onBottom">
+    
+
+
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+<tbody>
+    <tr>
+        <td class="footer" width="100%">
+            <a href="http://www.topcoder.com/" class="footerLinks">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/aboutus/" class="footerLinks">About TopCoder</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/aboutus/news/" class="footerLinks">Press Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/help/template-help/" class="footerLinks">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/aboutus/careers/" class="footerLinks">Careers</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=privacy" class="footerLinks">Privacy</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="http://www.topcoder.com/tc?module=Static&amp;d1=about&amp;d2=terms" class="footerLinks">Terms</a>
+            <br>
+            <a href="http://www.topcoder.com/tc" class="footerLinks">Competitions</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="https://www.topcoder.com/direct/" class="footerLinks">Cockpit</a>        </td>
+    </tr>
+    <tr>
+      <td class="copyright" width="100%">Copyright TopCoder, Inc. 2001-<script type="text/javascript">d=new Date();document.write(d.getFullYear());</script>2013</td></tr>
+</tbody>
+</table>
+
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-6340959-1']);
+  _gaq.push(['_setDomainName', '.topcoder.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+
+</div>
+<script type="text/javascript">if (!NREUMQ.f) { NREUMQ.f=function() {NREUMQ.push(["load",new Date().getTime()]);var e=document.createElement("script");e.type="text/javascript";e.src=(("http:"===document.location.protocol)?"http:":"https:") + "//" + "js-agent.newrelic.com/nr-100.js";document.body.appendChild(e);if(NREUMQ.a)NREUMQ.a();};NREUMQ.a=window.onload;window.onload=NREUMQ.f;};NREUMQ.push(["nrfj","beacon-6.newrelic.com","35ab60fd05","2450637","MVRbbERYVhVYAkMNXggec2tmFkwTTQ5FDVAKQhZLQktRCF4yUgVDBVlQVlEXUhVJ",0,13,new Date().getTime(),"","","","",""]);</script>
+
+<script src="Algorithm%20Tutorials_files/nr-100.js" type="text/javascript"></script><script src="Algorithm%20Tutorials_files/35ab60fd05" type="text/javascript"></script></body></html>
