@@ -1,0 +1,3 @@
+def solve():
+
+solve()
