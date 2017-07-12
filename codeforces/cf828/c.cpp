@@ -10,20 +10,20 @@
 #define CONSOLE(x) if(DEBUG) {cout << '>' << #x << ':' << x << endl;}
 
 using namespace std;
-#define MAXL 5000000
+#define MAXL 25
 
-char res[MAXL] = {};
+char res[MAXL];
+int nxt[MAXL];
 int main() {
-    vector< pair<int, int> > v;
     int n;
     for(int i=0; i<MAXL; i++) {
         res[i] = '?';
+        nxt[i] = i;
     }
     scanf(" %d",&n);
     //printf("%s\n", res);
     int mn = MAXL;
-    int mx = 1;
-    v.push_back(make_pair(1, MAXL));
+    int mx = 0;
     for(int i=0; i<n; i++) {
         string s;
         cin >> s;
@@ -33,8 +33,47 @@ int main() {
         for(int j=0; j<k; j++) {
             int x;
             scanf(" %d", &x);
+            x--;
+            mn = min(mn, x);
+            mx = max(mx, x+slen);
 
+            int res_i = x;
+            int s_i = 0;
+            while(s_i < slen) {
+                if(nxt[res_i] != res_i) {
+                    // This means that we have to make a jump
+                    // Which position to jump on is specified by nxt[res_i]
 
+                    // It is imp that we update s_i before res_i
+                    // Nahi to hum res_i ko loose kar baithenge
+                    s_i = s_i + nxt[res_i] - res_i;
+                    res_i = nxt[res_i];
+                } else {
+                    // Update nxt
+                    nxt[res_i] = x+slen;
+
+                    res[res_i] = s[s_i];
+                    s_i += 1;
+                    res_i += 1;
+                }
+            }
+        }
+
+        for(int z=0;z<MAXL;z++) {
+            printf(" %c", res[z]);
+        }
+        printf("\n");
+        for(int z=0;z<MAXL;z++) {
+            printf("%2d", nxt[z]);
+        }
+
+    }
+
+    for(int i=0; i<mx; i++) {
+        if(res[i] != '?') {
+            printf("%c", res[i]);
+        } else {
+            printf("a");
         }
     }
     return 0;
