@@ -13,7 +13,7 @@ using namespace std;
 #define MAXL 2000000
 
 char res[MAXL];
-vector< pair<int, string> > gohan;
+vector< pair<int, int> > gohan;
 int main() {
     int n;
     for(int i=0; i<MAXL; i++) {
@@ -29,21 +29,21 @@ int main() {
         int slen = s.size();
         int k;
         scanf(" %d",&k);
-        v.append(s);
+        v.push_back(s);
         for(int j=0; j<k; j++) {
             int x;
             scanf(" %d", &x);
             x--;
-            gohan.push_back(make_pair(x, s.begin()));
+            gohan.push_back(make_pair(x, v.size()-1));
         }
     }
 
     sort(gohan.begin(), gohan.end());
     int glen = gohan.size();
 
-    for(int i=0; i<glen;i++) {
-        cout << gohan[i].first << " " << gohan[i].second << endl;
-    }
+    // for(int i=0; i<glen;i++) {
+    //     cout << gohan[i].first << " " << gohan[i].second << endl;
+    // }
 
     // vector< pair<int, string> > goku;
     // if(glen == 1) {
@@ -68,8 +68,7 @@ int main() {
 
     int done = 0;
     for(int i=0; i<gohan.size(); i++) {
-        string s2 = gohan[i].second;
-        int s2len = s2.size();
+        int s2len = v[gohan[i].second].size();
 
         int s2_i = 0;
         int idx = gohan[i].first;
@@ -81,7 +80,7 @@ int main() {
         }
         int z;
         for(z=begin; s2_i<s2len; z++) {
-            res[z] = s2[s2_i];
+            res[z] = v[gohan[i].second][s2_i];
             s2_i += 1;
         }
         done = z;
