@@ -7,19 +7,24 @@
 #define INF_32 2147483647
 
 // Something to print to console and debug
-#define DEBUG false
+#define DEBUG true
 #define CONSOLE(x) if(DEBUG) {cout << '>' << #x << ':' << x << endl;}
 
 using namespace std;
 
-bool cmp(pair<pair<int, int>, int> a, pair<pair<int, int>, int> b) {
-    if(a.first.first == b.first.first) {
-        return a.first.second < b.first.second;
-    }
-    return a.first.first < b.first.first;
+class Line {
+public:
+    int x;
+    int y;
+    long double theta;
+    int idx;
+};
+
+bool cmp(Line a, Line b) {
+    return a.theta < b.theta;
 }
 
-// double get_slope(int x1, int y1, int x2, int y2) {
+// long double get_slope(int x1, int y1, int x2, int y2) {
 //     // x1, y1 is one end and x2, y2 is the other end of the line
 //     if((x2 - x1) == 0) {
 
@@ -27,7 +32,7 @@ bool cmp(pair<pair<int, int>, int> a, pair<pair<int, int>, int> b) {
 //     return (y2 - y1)/(x2 - x1);
 // }
 
-// double angle_between_two_lines(double m1, double m2) {
+// long double angle_between_two_lines(long double m1, long double m2) {
 //     // m1 and m2 are slopes of two lines
 //     // returns the radian angle between them
 //     return PI - abs(atan(m1) - atan(m2));
@@ -37,50 +42,76 @@ bool cmp(pair<pair<int, int>, int> a, pair<pair<int, int>, int> b) {
 int main() {
     int n;
     scanf(" %d",&n);
-    vector< pair<pair<int, int>, int> > v;
+    vector< Line > v;
     int x, y;
     for(int i=0; i<n; i++) {
         scanf(" %d %d", &x, &y);
-        v.push_back(make_pair(make_pair(x, y), i+1));
+
+        Line l;
+        l.x = x;
+        l.y = y;
+        l.idx = i+1;
+        // We take the line passing through (0,0) (0, 1) as reference i.e line y = 0
+        long double theta = acos((-y)/sqrt(x*x + y*y))*(180/PI);
+
+        // theta always comes out to be in between 0 and 180
+        // So if x in negative we have to find theta which lies in range 180 - 360.
+        if(x < 0) {
+            theta = 360 - theta;
+        }
+        l.theta = theta;
+        CONSOLE(theta);
+        v.push_back(l);
     }
+
     sort(v.begin(), v.end(), cmp);
-
-    double min_theta = 10000000000000;
-    int r1, r2;
-    double theta;
-    for(int i=1; i<v.size()-1; i++) {
-        double y1 = v[i].first.first;
-        double x1 = -v[i].first.second;
-        double y2 = v[i-1].first.first;
-        double x2 = -v[i-1].first.second;
-        theta = acos((x1*x2 + y1*y2)/(sqrt(x1*x1 + y1*y1)*sqrt(x2*x2 + y2*y2)));
-
-        if(theta > PI) {
-            theta = theta - PI;
+    if(DEBUG) {
+        for(int i=0; i<v.size(); i++) {
+            cout << v[i].theta << endl;
         }
-        if(theta < min_theta) {
-            min_theta = theta;
-            r1 = v[i].second;
-            r2 = v[i-1].second;
-        }
-
-
-        y1 = v[i].first.first;
-        x1 = -v[i].first.second;
-        y2 = v[i+1].first.first;
-        x2 = -v[i+1].first.second;
-        theta = acos((x1*x2 + y1*y2)/(sqrt(x1*x1 + y1*y1)*sqrt(x2*x2 + y2*y2)));
-
-        if(theta > PI) {
-            theta = theta - PI;
-        }
-        if(theta < min_theta) {
-            min_theta = theta;
-            r1 = v[i].second;
-            r2 = v[i+1].second;
-        }
+        cout << "=======" << endl;
     }
+    int r1, r2;
+    long double min_theta = 1000000000;
+    for(int i=1; i<v.size(); i++) {
+        int i1;
+        int i2;
 
+        i1 = i;
+
+        i2 = i-1;
+
+        long double diff = fabs(v[i1].theta - v[i2].theta);
+        if(diff > 180) {
+            diff = 360 - diff;
+        }
+        if(DEBUG) {cout << diff << " " << v[i1].x << ", " << v[i1].y << " " << v[i2].x << ", " << v[i2].y << "==" << v[i1].idx << "-" << v[i2].idx << endl;}
+        if(diff < min_theta) {
+            min_theta = diff;
+            r1 = v[i1].idx;
+            r2 = v[i2].idx;
+        }
+        CONSOLE(min_theta);
+        CONSOLE(r1);
+        CONSOLE(r2);
+    }
+    int i1, i2;
+    i1 = v.size()-1;
+    i2 = 0;
+    long double diff = fabs(v[i1].theta - v[i2].theta);
+    if(diff > 180) {
+        diff = 360 - diff;
+    }
+    if(DEBUG) {cout << diff << " " << v[i1].x << ", " << v[i1].y << " " << v[i2].x << ", " << v[i2].y << "==" << v[i1].idx << "-" << v[i2].idx << endl;}
+    if(diff < min_theta) {
+        min_theta = diff;
+        r1 = v[i1].idx;
+        r2 = v[i2].idx;
+    }
+    CONSOLE(min_theta);
+    CONSOLE(r1);
+    CONSOLE(r2);
     printf("%d %d\n", r1, r2);
+
     return 0;
 }
